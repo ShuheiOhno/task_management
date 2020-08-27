@@ -6,5 +6,13 @@ project show
 = @project.deadline
 
 %br
-= link_to project_path(project_id: params[:id]) do
-  new_task
+-# = link_to project_task_index_path(project_id: params[:id]) do
+-#   ddd
+
+= link_to new_project_task_path(project_id: params[:id]) do
+  new task
+
+%br
+= link_to project_tasks_path(project_id: params[:id]) do
+  task list
+

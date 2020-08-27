@@ -1,0 +1,19 @@
+edit
+%br
+-# -# cost_time、complete_idは最後に入力
+-# = form_with model:[@project, @task], local:true do |f|
+= form_with url: project_tasks_path(project_id: params[:project_id]), local:true do |f|
+  title
+  = f.text_field :title
+  %br
+  estimated_time number
+  = f.text_field :estimated_time
+  %br
+  cost_time
+  %br
+  = f.text_field :cost_time
+  %br
+  complete_id
+  %br
+  = f.text_field :complete_id
+  = f.submit "send"
