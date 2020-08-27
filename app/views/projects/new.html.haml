@@ -1,0 +1,5 @@
+= form_with model: @project do |f|
+  = f.text_field :title
+  = f.text_area :explanation
+  = f.datetime_field :deadline
+  = f.submit "send"
