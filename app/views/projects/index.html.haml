@@ -1,0 +1,25 @@
+= link_to new_user_registration_path do
+  user
+%br
+= link_to destroy_user_session_path do
+  log out
+%br
+
+= link_to new_project_path do
+  new project
+%br
+
+
+
+project_list
+%br
+- @projects.each do |project|
+  = project.title
+  %br
+    = link_to project_path(project.id) do
+      show project
+    = link_to edit_project_path(project.id) do
+      edit
+    = link_to project_path(project.id), method: :delete do
+      delete
+  %br

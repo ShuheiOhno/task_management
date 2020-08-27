@@ -1,0 +1,10 @@
+project show
+%br
+
+= @project.title
+= @project.explanation
+= @project.deadline
+
+%br
+= link_to project_path(project_id: params[:id]) do
+  new_task
