@@ -1,0 +1,15 @@
+show task
+%br
+= @task.title
+%br
+project title
+%br
+= @task.project.title
+%br
+edit
+%br
+= link_to edit_project_task_path do
+  edit
+%br
+= link_to project_task_path, method: :delete do
+  delete
