@@ -4,7 +4,8 @@ class CreateProjects < ActiveRecord::Migration[6.0]
       t.string :title
       t.text :explanation
       t.datetime :deadline
-      t.integer :user_id
+      # t.integer :user_id
+      t.references :user, foreign_key: true
       t.integer :complete_id
       t.timestamps
     end
