@@ -1,23 +1,23 @@
-show task
+タスク詳細ページ（show）
 %br
 = @task.title
 %br
-project title
+%br
+プロジェクトの名前
 %br
 = @task.project.title
 %br
-edit
-%br
+
 = link_to edit_project_task_path do
-  edit
+  編集
 %br
 = link_to project_task_path, method: :delete do
-  delete
+  削除
 %br
 
 = link_to start_times_path, method: :post do
-  start
+  開始（まだtask_idが紐付けられない）
 %br
 = link_to stop_times_path, method: :post do
-  stop
+  終了（まだtask_idが紐付けられない）
 

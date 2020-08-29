@@ -1,21 +1,20 @@
-new
+タスク新規投稿ページ（new）
 %br
 -# -# cost_time、complete_idは最後に入力
--# = form_for model:[@project, @task], local:true do |f|
--# = form_with model:[@project, @task] ,method: :post, local:true do |f|
 = form_with url: project_tasks_path(project_id: params[:project_id]) ,method: :post do |f|
-  title
+
+  タスク名
   = f.text_field :title
   %br
-  estimated_time(number)
+  予測時間(number)
   = f.text_field :estimated_time
   %br
  
-  cost_time
+  かかった時間
   %br
   = f.text_field :cost_time
   %br
-  complete_id
+  完了か未完了か（complete_id）
   %br
   = f.text_field :complete_id
   = f.submit "send"

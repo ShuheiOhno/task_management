@@ -1,18 +1,28 @@
-project show
+プロジェクト詳細画面
 %br
-
+%br
+タイトル
+%br
 = @project.title
+%br
+説明
+%br
+%br
 = @project.explanation
+%br
+%br
+締め切り
+%br
 = @project.deadline
-
+%br
 %br
 -# = link_to project_task_index_path(project_id: params[:id]) do
 -#   ddd
 
 = link_to new_project_task_path(project_id: params[:id]) do
-  new task
+  新しい作業を追加する
 
 %br
 = link_to project_tasks_path(project_id: params[:id]) do
-  task list
+  作業一覧
 
