@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :tasks
   end
 
+  resources :start_times
+  resources :stop_times
 end

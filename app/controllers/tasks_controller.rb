@@ -9,7 +9,8 @@ class TasksController < ApplicationController
   end
   
   def create
-    Task.create(task_params)
+    # binding.pry
+    Task.create!(task_params)
     redirect_to root_path
   end
 
@@ -18,6 +19,7 @@ class TasksController < ApplicationController
   end
 
   def edit
+    binding.pry
     @task = Task.find(params[:id])
   end
 
