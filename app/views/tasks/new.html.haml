@@ -2,7 +2,8 @@ new
 %br
 -# -# cost_time、complete_idは最後に入力
 -# = form_for model:[@project, @task], local:true do |f|
-= form_with url: project_tasks_path(project_id: params[:project_id]) ,method: :post, local:true do |f|
+-# = form_with model:[@project, @task] ,method: :post, local:true do |f|
+= form_with url: project_tasks_path(project_id: params[:project_id]) ,method: :post do |f|
   title
   = f.text_field :title
   %br
