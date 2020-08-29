@@ -1,25 +1,20 @@
-= link_to new_user_registration_path do
-  user
-%br
-= link_to destroy_user_session_path do
-  log out
 %br
 
+
+
+
+プロジェクト一覧
+%br
 = link_to new_project_path do
-  new project
-%br
-
-
-
-project_list
+  新しいプロジェクトを投稿する
 %br
 - @projects.each do |project|
   = project.title
   %br
     = link_to project_path(project.id) do
-      show project
+      詳細
     = link_to edit_project_path(project.id) do
-      edit
+      編集
     = link_to project_path(project.id), method: :delete do
-      delete
+      削除
   %br

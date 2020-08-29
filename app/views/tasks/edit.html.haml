@@ -1,19 +1,20 @@
 edit
 %br
 -# -# cost_time、complete_idは最後に入力
--# = form_with model:[@project, @task], local:true do |f|
-= form_with url: project_tasks_path(project_id: params[:project_id]), local:true do |f|
-  title
+-# @projectをProjectに変更したら、値が送れるようになった。projectの中にtask_idカラムがないことが原因かも
+= form_with model:[Project, @task], local:true do |f|
+  タスク名
   = f.text_field :title
   %br
-  estimated_time number
+  予測時間(number)
   = f.text_field :estimated_time
   %br
-  cost_time
+  かかった時間
   %br
   = f.text_field :cost_time
   %br
-  complete_id
+  完了か未完了か（complete_id）
   %br
   = f.text_field :complete_id
   = f.submit "send"
+

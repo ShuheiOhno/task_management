@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.all
+    @tasks = Task.where(project_id: params[:project_id])
   end
 
   def new
@@ -9,8 +9,7 @@ class TasksController < ApplicationController
   end
   
   def create
-    # binding.pry
-    Task.create!(task_params)
+    Task.create(task_params)
     redirect_to root_path
   end
 
@@ -19,13 +18,12 @@ class TasksController < ApplicationController
   end
 
   def edit
-    binding.pry
     @task = Task.find(params[:id])
   end
 
   def update
     task = Task.find(params[:id])
-    task.update(task_params)
+    task.update(edit_task_params)
     redirect_to root_path
   end
 
@@ -41,6 +39,14 @@ class TasksController < ApplicationController
     :title, :cost_time,
     :estimated_time, :complete_id
     ).merge(user_id: current_user.id, project_id: params[:project_id])
+  end
+
+  def edit_task_params
+    # require(:task)を入れることで、edit_task_paramsが空ではなくなった
+    params.require(:task).permit(
+      :title, :cost_time,
+      :estimated_time, :complete_id
+      )
   end
 
 end
