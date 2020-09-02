@@ -8,6 +8,14 @@
 = link_to new_project_path do
   新しいプロジェクトを投稿する
 %br
+
+= link_to new_user_comment_path do
+  ユーザーにコメントする 
+
+%br
+%br
+%br
+
 - @projects.each do |project|
   = project.title
   %br
@@ -18,3 +26,30 @@
     = link_to project_path(project.id), method: :delete do
       削除
   %br
+    各コメント
+    %br
+    - project.project_comments.each do |project_comment|
+      = project_comment.title
+      %br
+      投稿者
+      = User.find(project_comment.user_id).name
+      %br
+  %br
+
+%br
+ユーザーからあなたへのコメント
+%br
+  - UserComment.where(to_user_id: current_user.id).each do |comment|
+    タイトル
+    %br
+    = comment.title
+    %br
+    コメント
+    %br
+    = comment.comment
+    %br
+    誰から
+    %br
+    = User.find_by(id: comment.user_id).name
+    %br
+    %br
