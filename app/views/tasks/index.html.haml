@@ -1,6 +1,18 @@
 タスク一覧
 %br
+%br
 - @tasks.each do |task|
+  タスクタイトル
   = link_to project_task_path(id: task.id), method: :get do
+    %br
     = task.title
+  %br
+  = link_to new_project_task_task_comment_path(task_id: task.id) do
+    タスクへコメントする
+  %br
+  - task.task_comment.each do |task_comment|
+    タスクコメントタイトル
+    %br
+    = task_comment.title
+    %br
   %br
