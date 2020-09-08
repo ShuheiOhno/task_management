@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_182329) do
+ActiveRecord::Schema.define(version: 2020_09_02_182648) do
+
+  create_table "join_project_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "project_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_join_project_users_on_project_id"
+    t.index ["user_id"], name: "index_join_project_users_on_user_id"
+  end
 
   create_table "project_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "project_id"
@@ -97,6 +106,8 @@ ActiveRecord::Schema.define(version: 2020_08_29_182329) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "join_project_users", "projects"
+  add_foreign_key "join_project_users", "users"
   add_foreign_key "project_comments", "projects"
   add_foreign_key "project_comments", "users"
   add_foreign_key "projects", "users"

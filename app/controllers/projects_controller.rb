@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    # @project.join_project_users.new
   end
 
   def create
@@ -37,7 +38,7 @@ class ProjectsController < ApplicationController
 private
   def project_params
     params.require(:project).permit(
-      :title, :explanation, :deadline
+      :title, :explanation, :deadline, :user_id,
     ).merge(user_id: current_user.id)
   end
 
