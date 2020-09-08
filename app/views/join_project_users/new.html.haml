@@ -1,0 +1,7 @@
+プロジェクトにユーザーを追加する
+%br
+= form_with url: project_join_project_users_path, method: :post do |f|
+  ユーザー番号を入力してください
+  %br
+  = f.text_field :user_id
+  = f.submit "send"

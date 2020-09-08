@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   resources :user_comments
 
   root "projects#index"
+  # root "/users/sign_in"
 
   resources :projects do
+    resources :join_project_users
     resources :tasks do
       resources :task_comments
     end

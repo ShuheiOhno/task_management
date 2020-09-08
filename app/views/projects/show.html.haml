@@ -7,9 +7,7 @@
 %br
 説明
 %br
-%br
 = @project.explanation
-%br
 %br
 締め切り
 %br
@@ -18,13 +16,15 @@
 %br
 -# = link_to project_task_index_path(project_id: params[:id]) do
 -#   ddd
-
 = link_to new_project_task_path(project_id: params[:id]) do
   新しい作業を追加する
 
 %br
 = link_to project_tasks_path(project_id: params[:id]) do
   作業一覧
+%br
+= link_to new_project_join_project_user_path(project_id: params[:id]) do
+  ユーザーを追加する
 
 %br
 %br
