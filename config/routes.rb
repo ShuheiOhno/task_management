@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  resources :user_comments
+  resources :user_comments do
+    resources :reply_user_comments
+  end 
   root "projects#index"
   # root " devise/sessions#new"
   resources :users
