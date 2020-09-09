@@ -17,7 +17,15 @@
 %br
 
 - @projects.each do |project|
+  プロジェクトタイトル
   = project.title
+  %br
+  リーダー
+  = User.find(project.user_id).name
+  %br
+  - project.users.each do |join_user|
+    参加者
+    = join_user.name
   %br
     = link_to project_path(project.id) do
       詳細

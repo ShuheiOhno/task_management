@@ -16,6 +16,10 @@
       新規登録
     = link_to projects_path do
       プロジェクト一覧
+    = link_to users_path do
+      ユーザーページ（index）
+    = link_to user_path(current_user.id) do
+      ユーザーページ（show)
     %br
     = yield
 

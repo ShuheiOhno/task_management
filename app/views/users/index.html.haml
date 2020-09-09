@@ -1,0 +1,9 @@
+- @projects.each do |project|
+  タイトル
+  = project.title
+  %br
+  - project.users.each do |join_user|
+    参加者
+    = join_user.name
+
+  %br
