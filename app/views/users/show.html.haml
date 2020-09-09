@@ -1,0 +1,52 @@
+リーダーのプロジェクト
+- @owner_projects.each do |owner_project|
+  タイトル
+  = owner_project.title
+  説明
+  = owner_project.explanation
+  締め切り
+  = owner_project.deadline
+
+%br
+参加しているプロジェクト
+- @projects.each do |project|
+  タイトル
+  = project.title
+  説明
+  = project.explanation
+  締め切り
+  = project.deadline
+  - project.tasks.each do |task|
+    作業タイトル
+    = task.title
+    担当
+    = task.user.name
+    作業へのコメント
+    - task.task_comment.each do |task_comment|
+      作業コメントタイトル
+      = task_comment.title
+      作業コメント内容
+      = task_comment.comment
+      宛先
+      = User.find(task_comment.to_user_id).name
+      %br
+
+個人メッセージ(受信)
+- @receive_user_comment.each do |receive_comment|
+  タイトル
+  = receive_comment.title
+  内容
+  = receive_comment.comment
+  誰から
+  = User.find(receive_comment.user_id).name
+
+%br
+個人メッセージ(送信)
+- @send_user_comment.each do |send_comment|
+  タイトル
+  = send_comment.title
+  内容
+  = send_comment.comment
+  宛先
+  = User.find(send_comment.to_user_id).name
+  
