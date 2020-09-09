@@ -1,3 +1,9 @@
+%br
+= current_user.name
+さんのマイページ（作業スペース）です。
+%br
+%br
+
 リーダーのプロジェクト
 - @owner_projects.each do |owner_project|
   タイトル
@@ -6,6 +12,8 @@
   = owner_project.explanation
   締め切り
   = owner_project.deadline
+%br
+***********************************************************************************************************************************************************************************
 
 %br
 参加しているプロジェクト
@@ -30,23 +38,61 @@
       宛先
       = User.find(task_comment.to_user_id).name
       %br
-
+***********************************************************************************************************************************************************************************
+%br
 個人メッセージ(受信)
 - @receive_user_comment.each do |receive_comment|
+  %br
   タイトル
+  %br
   = receive_comment.title
+  %br
   内容
+  %br
   = receive_comment.comment
+  %br
   誰から
+  %br
   = User.find(receive_comment.user_id).name
+  %br
+  返信一覧
+  %br
+  - receive_comment.reply_user_comments.each do |reply|
+    内容
+    = reply.reply
+    誰から
+    = User.find(reply.user_id).name
+    %br
+  = link_to new_user_comment_reply_user_comment_path(receive_comment.id) do
+    返信する
+  %br
 
+***********************************************************************************************************************************************************************************
 %br
 個人メッセージ(送信)
+%br
 - @send_user_comment.each do |send_comment|
-  タイトル
-  = send_comment.title
-  内容
-  = send_comment.comment
+  %br
   宛先
+  %br
   = User.find(send_comment.to_user_id).name
-  
+  %br
+  タイトル
+  %br
+  = send_comment.title
+  %br
+  内容
+  %br
+  = send_comment.comment
+  %br
+  返信一覧
+  %br
+  - send_comment.reply_user_comments.each do |reply|
+    内容
+    = reply.reply
+    誰から
+    = User.find(reply.user_id).name
+    %br
+  %br
+  = link_to new_user_comment_reply_user_comment_path(send_comment.id) do
+    返信する
