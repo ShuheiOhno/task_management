@@ -1,0 +1,29 @@
+.main_owner_project
+  = current_user.name
+  さんのマイページ（作業スペース）です。
+  %br
+  %br
+  = link_to new_user_comment_path do
+    誰かにメッセージを送る
+  %br
+
+  リーダーになっているプロジェクト
+  %br
+  = link_to new_project_path do
+    新しいプロジェクトを投稿する
+  %br
+  - @owner_projects.each do |owner_project|
+    %br
+    タイトル:
+    = link_to project_path(owner_project.id) do
+      = owner_project.title
+    %br
+    説明:
+    = owner_project.explanation
+    %br
+    締め切り:
+    = owner_project.deadline
+    %br
+    = link_to new_project_project_comment_path(owner_project.id) do
+      このプロジェクトにコメントする
+    %br

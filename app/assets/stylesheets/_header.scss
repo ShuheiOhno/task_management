@@ -1,0 +1,16 @@
+.header {
+  height: 50px;
+  width: 100%;
+  background-color: aquamarine;
+}
+
+.header_wrapper{
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.link_text {
+  text-decoration: none;
+  margin-left: 15px;
+}

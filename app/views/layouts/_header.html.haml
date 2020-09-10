@@ -1,0 +1,20 @@
+.header
+  .header_wrapper
+    .header_wrapper__login
+      = link_to new_user_session_path, class:"link_text" do
+        ログイン
+    .header_wrapper__logout
+      = link_to destroy_user_session_path, class:"link_text" do
+        ログアウト
+    .header_wrapper__user_sign_in
+      = link_to new_user_registration_path, class:"link_text" do
+        新規登録
+    .header_wrapper__projects_list
+      = link_to projects_path, class:"link_text" do
+        プロジェクト一覧
+    .header_wrapper__user_index
+      = link_to users_path, class:"link_text" do
+        ユーザーページ（index）
+    .header_wrapper__user_show
+      = link_to user_path(current_user.id), class:"link_text" do
+        ユーザーページ（show)
