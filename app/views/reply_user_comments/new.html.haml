@@ -1,4 +1,8 @@
 ssss
 = form_with url: user_comment_reply_user_comments_path, method: :post, local: true do |f|
+  %br
+  返信内容
+  %br
   = f.text_area :reply
+  %br
   = f.submit "send"

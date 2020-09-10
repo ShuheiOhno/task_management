@@ -1,5 +1,15 @@
 = form_with url:  project_task_task_comments_path, method: :post, local: true do |f|
+  %br
+  タイトル
+  %br
   = f.text_field :title
+  %br
+  コメント
+  %br
   = f.text_area :comment
+  %br
+  宛先（user_id）、必須
+  %br
   = f.text_field :to_user_id
+  %br
   = f.submit "send"

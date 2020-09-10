@@ -3,64 +3,105 @@
 さんのマイページ（作業スペース）です。
 %br
 %br
+= link_to new_user_comment_path do
+  誰かにメッセージを送る
+%br
 
-リーダーのプロジェクト
+リーダーになっているプロジェクト
+%br
+= link_to new_project_path do
+  新しいプロジェクトを投稿する
+%br
 - @owner_projects.each do |owner_project|
-  タイトル
-  = owner_project.title
-  説明
+  %br
+  タイトル:
+  = link_to project_path(owner_project.id) do
+    = owner_project.title
+  %br
+  説明:
   = owner_project.explanation
-  締め切り
+  %br
+  締め切り:
   = owner_project.deadline
-%br
+  %br
+  = link_to new_project_project_comment_path(owner_project.id) do
+    このプロジェクトにコメントする
+  %br
 ***********************************************************************************************************************************************************************************
-
 %br
-参加しているプロジェクト
+参加しているプロジェクト一覧
+%br
 - @projects.each do |project|
-  タイトル
-  = project.title
-  説明
+  %br
+  プロジェクトタイトル:
+  = link_to project_path(project.id) do
+    = project.title
+  %br
+  説明:
   = project.explanation
-  締め切り
+  %br
+  締め切り:
   = project.deadline
+  %br
+  = link_to new_project_project_comment_path(project.id) do
+    このプロジェクトにコメントする
+  -# = link_to project_path(project.id) do
+  -#   プロジェクト詳細
+  %br
+  タスク一覧
   - project.tasks.each do |task|
-    作業タイトル
-    = task.title
-    担当
+    %br
+    タスクタイトル:
+    = link_to project_task_path(task_id: task.id, project_id: task.project_id) do
+      = task.title
+    %br
+    担当:
     = task.user.name
-    作業へのコメント
+    %br
+
+    = link_to project_task_path(task_id: task.id, project_id: task.project_id) do
+      タスク詳細(編集、削除、開始、終了)
+    %br
+
+    作業コメント一覧
     - task.task_comment.each do |task_comment|
-      作業コメントタイトル
-      = task_comment.title
-      作業コメント内容
+      %br
+      作業コメントタイトル:
+      = link_to project_task_task_comment_path(project_id: task.project_id, task_id: task_comment.task_id, task_comment_id: task_comment.id) do
+        = task_comment.title
+      %br
+      作業コメント内容:
       = task_comment.comment
-      宛先
+      %br
+      宛先:
       = User.find(task_comment.to_user_id).name
+      %br
+      = link_to new_project_task_task_comment_path(task_id: task.id, project_id: task.project_id) do
+        タスクにコメントする
       %br
 ***********************************************************************************************************************************************************************************
 %br
 個人メッセージ(受信)
+%br
+
 - @receive_user_comment.each do |receive_comment|
   %br
-  タイトル
-  %br
+  タイトル:
   = receive_comment.title
   %br
-  内容
-  %br
+  内容:
   = receive_comment.comment
   %br
-  誰から
-  %br
+  誰から:
   = User.find(receive_comment.user_id).name
   %br
   返信一覧
   %br
   - receive_comment.reply_user_comments.each do |reply|
-    内容
-    = reply.reply
-    誰から
+    内容:
+    = link_to user_comment_reply_user_comment_path(user_comment_id: reply.user_comment_id) do
+      = reply.reply
+    誰から:
     = User.find(reply.user_id).name
     %br
   = link_to new_user_comment_reply_user_comment_path(receive_comment.id) do
@@ -73,26 +114,24 @@
 %br
 - @send_user_comment.each do |send_comment|
   %br
-  宛先
-  %br
+  宛先:
   = User.find(send_comment.to_user_id).name
   %br
-  タイトル
-  %br
+  タイトル:
   = send_comment.title
   %br
-  内容
-  %br
+  内容:
   = send_comment.comment
   %br
   返信一覧
   %br
   - send_comment.reply_user_comments.each do |reply|
-    内容
-    = reply.reply
-    誰から
+    内容:
+    = link_to user_comment_reply_user_comment_path(user_comment_id: reply.user_comment_id) do
+      = reply.reply
+    誰から:
     = User.find(reply.user_id).name
     %br
-  %br
   = link_to new_user_comment_reply_user_comment_path(send_comment.id) do
     返信する
+  %br

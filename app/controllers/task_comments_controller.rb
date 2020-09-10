@@ -11,6 +11,10 @@ class TaskCommentsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @task_comment = TaskComment.where(task_id: params[:task_id])
+  end
+
   private
   def task_comment_params
     params.permit(:title, :comment, :to_user_id, :task_id

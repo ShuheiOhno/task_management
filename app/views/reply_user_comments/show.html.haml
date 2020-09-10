@@ -1,0 +1,14 @@
+%br
+返信一覧
+%br
+
+- @replys.each do |reply|
+  %br
+  返信内容
+  %br
+  = reply.reply
+  %br
+  誰から
+  %br
+  = User.find(reply.user_comment_id).name
+  %br
