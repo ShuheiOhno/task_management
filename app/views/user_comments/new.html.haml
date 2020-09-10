@@ -3,10 +3,19 @@ user new comment
 %br
 ユーザーにコメントする
 = form_with url: user_comments_path, method: :post do |f|
+  %br
+  ユーザーへのコメントタイトル
+  %br
   = f.text_field :title
+  %br
+  コメント
+  %br
   = f.text_area :comment
+  %br
+  宛先（ユーザーID）
+  %br
   = f.text_field :to_user_id
+  %br
   = f.submit "send"
   %br
-%br
 %br

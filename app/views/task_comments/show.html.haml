@@ -1,0 +1,16 @@
+タスク詳細画面
+- @task_comment.each do |task_comment|
+  %br
+  タスクタイトル:
+  = task_comment.title
+  %br
+  コメント:
+  = task_comment.comment
+  %br
+  誰から:
+  = User.find(task_comment.user_id).name
+  %br
+  宛先:
+  = User.find(task_comment.to_user_id).name
+  %br
+  
