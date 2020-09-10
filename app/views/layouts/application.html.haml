@@ -8,19 +8,7 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = link_to new_user_session_path do
-      ログイン
-    = link_to destroy_user_session_path do
-      ログアウト
-    = link_to new_user_registration_path do
-      新規登録
-    = link_to projects_path do
-      プロジェクト一覧
-    = link_to users_path do
-      ユーザーページ（index）
-    = link_to user_path(current_user.id) do
-      ユーザーページ（show)
-    %br
+    = render "layouts/header"
     = yield
 
     
