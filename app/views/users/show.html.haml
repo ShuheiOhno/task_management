@@ -1,4 +1,10 @@
 .main
+  = current_user.name
+  さんのマイページ（作業スペース）です。
+  %br
+  = link_to new_user_comment_path do
+    誰かにメッセージを送る
+  %br
   .main_wrapper
     .main_right
       = render "users/user_project"

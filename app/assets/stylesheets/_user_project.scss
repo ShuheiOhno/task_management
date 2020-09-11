@@ -1,0 +1,44 @@
+.owner_project {
+  height: 100%;
+  width: 100%;
+}
+
+.owner_project_wrapper {
+  height: 100%;
+  width: 70%;
+  margin: 10px;
+  overflow: scroll;
+  border: solid 1px black;
+  &__title {
+    margin: 5px;
+  }
+  &__explanation {
+    margin: 5px;
+  }
+  &__deadline {
+    margin: 5px;
+  }
+  &__comment_link {
+    margin: 5px 0;
+  }
+  &__edit_link {
+    margin: 5px 0;
+  }
+  &__delete_link {
+    margin: 5px 0;
+  }
+}
+
+.owner_project_wrapper_link {
+  text-decoration: none;
+  color: black;
+}
+
+.owner_project_function {
+  display: flex;
+  margin-left: 5px;
+}
+
+.owner_project_icon {
+  margin-left: 10px;
+}
