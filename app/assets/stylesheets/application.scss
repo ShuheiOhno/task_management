@@ -14,6 +14,8 @@
  *= require_self
  */
 
+ @import 'font-awesome-sprockets';
+ @import "font-awesome";
  @import "reset";
  @import "header";
  @import "join_project_users";
@@ -26,4 +28,5 @@
  @import "tasks";
  @import "user_comments";
  @import "users";
+
  

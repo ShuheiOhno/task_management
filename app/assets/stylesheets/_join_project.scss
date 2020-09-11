@@ -1,0 +1,136 @@
+.join_project {
+  height: 100%;
+  width: 100%;
+}
+
+.project_and_task_wrapper {
+  height: 100%;
+  width: 90%;
+  border: solid 1px black;
+  margin: 0 auto 40px auto;
+}
+
+.join_project_wrapper {
+  height: 100%;
+  width: 70%;
+  margin: 0 auto;
+  overflow: scroll;
+  border: solid 1px black;
+  &__title {
+    margin: 5px;
+  }
+  &__explanation {
+    margin: 5px;
+  }
+  &__deadline {
+    margin: 5px;
+  }
+  &__comment_link {
+    margin: 5px 0;
+  }
+  &__edit_link {
+    margin: 5px 0;
+  }
+  &__delete_link {
+    margin: 5px 0;
+  }
+}
+
+.join_project_wrapper_link {
+  text-decoration: none;
+  color: black;
+}
+
+.join_project_function {
+  display: flex;
+  margin-left: 5px;
+}
+
+.owner_project_icon {
+  margin-left: 10px;
+}
+
+
+// task css
+.task {
+  height: 100%;
+  width: 100%;
+}
+.task_detail {
+  border: solid 1px black;
+  margin: 10px;
+
+}
+
+.task_wrapper {
+  height: 100%;
+  width: 70%;
+  margin: 10px;
+  overflow: scroll;
+  border: solid 1px black;
+  margin: 10px auto;
+  &__title {
+    margin: 5px;
+  }
+  &__explanation {
+    margin: 5px;
+  }
+  &__deadline {
+    margin: 5px;
+  }
+  &__comment_link {
+    margin: 5px 0;
+  }
+  &__edit_link {
+    margin: 5px 0;
+  }
+  &__delete_link {
+    margin: 5px 0;
+  }
+}
+
+.task_wrapper_link {
+  text-decoration: none;
+  color: black;
+}
+
+
+// task_comment css
+.task_comment {
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.task_comment_wrapper {
+  height: 100%;
+  width: 100%;
+  margin: 10px auto;
+  overflow: scroll;
+  border: solid 1px black;
+
+  &__title {
+    margin: 5px;
+  }
+  &__explanation {
+    margin: 5px;
+  }
+  &__to_user {
+    margin: 5px;
+  }
+}
+
+.task_comment_wrapper_link {
+  text-decoration: none;
+  color: black;
+}
+
+.task_comment_function {
+  display: flex;
+  margin-left: 5px;
+}
+
+.task_comment_icon {
+  margin-left: 10px;
+}
+

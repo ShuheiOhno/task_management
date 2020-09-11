@@ -12,18 +12,32 @@
   = link_to new_project_path do
     新しいプロジェクトを投稿する
   %br
-  - @owner_projects.each do |owner_project|
-    %br
-    タイトル:
-    = link_to project_path(owner_project.id) do
-      = owner_project.title
-    %br
-    説明:
-    = owner_project.explanation
-    %br
-    締め切り:
-    = owner_project.deadline
-    %br
-    = link_to new_project_project_comment_path(owner_project.id) do
-      このプロジェクトにコメントする
-    %br
+  .owner_project
+    - @owner_projects.each do |owner_project|
+      = link_to project_path(owner_project.id), class:"owner_project_wrapper_link" do
+        .owner_project_wrapper
+          .owner_project_wrapper__title
+            タイトル:
+            = owner_project.title
+          .owner_project_wrapper__explanation
+            説明:
+            = owner_project.explanation
+          .owner_project_wrapper__deadline
+            締め切り:
+            = owner_project.deadline
+          .owner_project_function
+            .owner_project_wrapper__comment_link
+              = link_to new_project_project_comment_path(owner_project.id), class:"owner_project_wrapper_link" do
+                .owner_project_icon
+                  = icon("far", "comment")
+                  コメント
+            .owner_project_wrapper__edit_link
+              = link_to edit_project_path(owner_project.id), class:"owner_project_wrapper_link" do
+                .owner_project_icon
+                  = icon("far", "edit")
+                  編集
+            .owner_project_wrapper__delete_link
+              = link_to project_path(owner_project.id), method: :delete, class:"owner_project_wrapper_link" do
+                .owner_project_icon
+                  = icon("fas", "trash")
+                  削除
