@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   
   def show
     @owner_projects = Project.where(user_id: current_user.id)
-    # binding.pry
     @projects = []
     Project.all.each do |project|
       project.users.each do |join_user|
@@ -16,7 +15,8 @@ class UsersController < ApplicationController
     end
     @receive_user_comment = UserComment.where(to_user_id: current_user.id)
     @send_user_comment = UserComment.where(user_id: current_user.id)
-
+    
+    @comments = Comment.all
   end
 
 

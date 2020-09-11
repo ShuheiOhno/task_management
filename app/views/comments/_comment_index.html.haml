@@ -1,0 +1,30 @@
+.comment
+  .new_comment
+    = form_with url: comments_path, method: :post, local: true do |f|
+      .comment_content
+        コメントする
+      .comment_form
+        = f.text_area :content, class:"comment_content_form"
+      .image_and_submit_wrapper
+        .comment_image
+          = f.label :image, class:"image_label" do
+            = icon("fas", "images fa-2x")
+            = f.file_field :image, class: "image_field"
+        .comment_submit
+          = f.submit "send"
+  .comment_list
+    - @comments.order(created_at: "DESC").each do |comment|
+      .comment_list_wrapper
+        .comment_content
+          コメント:
+          = comment.content
+        .comment_images
+          - if comment.image.url
+            = image_tag comment.image.url, class:"comment_image"
+        .comment_user_name  
+          = comment.user.name
+          さん
+        .comment_time
+          = comment.created_at
+
+

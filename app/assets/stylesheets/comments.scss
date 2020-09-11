@@ -1,0 +1,66 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment {
+  height: 100%;
+  width: 100%;
+  // background-color: black;
+}
+
+.new_comment {
+  height: 200px;
+  width: 100%;
+  // background-color: gray;
+  text-align:center;
+}
+
+.comment_content_form {
+  height: 100px;
+  width: 550px;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+.comment_image {
+  padding-left: 20px ;
+}
+
+.image_label {
+  height: 30px;
+  width: 30px;
+  padding: 20px;
+}
+
+.image_and_submit_wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.image_field {
+  display: none;
+}
+
+.comment_submit {
+  padding-right: 0px;
+}
+
+
+// コメント表示
+.comment_list {
+  overflow: scroll;
+}
+
+.comment_list_wrapper {
+  height: 100%;
+  width: 100%;
+  margin: 5px 0;
+  background-color: green;
+  border: solid 1px black;
+
+}
+
+.comment_image {
+  height: 100px;
+  width: 100px;
+}

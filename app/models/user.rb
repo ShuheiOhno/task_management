@@ -11,6 +11,8 @@ class User < ApplicationRecord
   
   has_many :reply_user_comments, dependent: :destroy
 
+  has_one :comment
+
   # 下が怪しい
   # has_many :join_project_users, dependent: :destroy
 

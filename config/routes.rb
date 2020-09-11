@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :project_comments
   end
 
+  resources :comments
   resources :start_times
   resources :stop_times
 end
