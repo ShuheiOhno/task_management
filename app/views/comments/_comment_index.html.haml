@@ -1,6 +1,6 @@
 .comment
   .new_comment
-    = form_with url: comments_path, method: :post, local: true do |f|
+    = form_with url: comments_path, class:"form_comment", method: :post, local: true do |f|
       .comment_content
         コメントする
       .comment_form
@@ -11,7 +11,7 @@
             = icon("fas", "images fa-2x")
             = f.file_field :image, class: "image_field"
         .comment_submit
-          = f.submit "send"
+          = f.submit "send", class:"comment_submit_btn"
   .comment_list
     - @comments.order(created_at: "DESC").each do |comment|
       .comment_list_wrapper
