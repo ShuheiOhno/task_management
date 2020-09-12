@@ -8,8 +8,17 @@ class CommentsController < ApplicationController
   end
 
   def create
-    Comment.create(comment_params)
-    redirect_to user_path(current_user.id)
+    # Comment.create(comment_params)
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      respond_to do |format|
+        format.json
+      end
+    else
+      render :index
+    end
+
+    # redirect_to user_path(current_user.id)
   end
 
   private

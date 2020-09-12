@@ -5,13 +5,11 @@
 .comment {
   height: 100%;
   width: 100%;
-  // background-color: black;
 }
 
 .new_comment {
   height: 200px;
   width: 100%;
-  // background-color: gray;
   text-align:center;
 }
 
@@ -22,9 +20,7 @@
   margin: 0 auto;
 }
 
-.comment_image {
-  padding-left: 20px ;
-}
+
 
 .image_label {
   height: 30px;
@@ -49,18 +45,24 @@
 // コメント表示
 .comment_list {
   overflow: scroll;
+
 }
 
 .comment_list_wrapper {
   height: 100%;
-  width: 100%;
+  width: calc(100% - 5px);
   margin: 5px 0;
-  background-color: green;
   border: solid 1px black;
 
 }
 
 .comment_image {
+  height: 100px;
+  width: 100px;
+  padding-left: 20px ;
+}
+
+.json_image {
   height: 100px;
   width: 100px;
 }
