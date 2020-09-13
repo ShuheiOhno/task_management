@@ -1,19 +1,25 @@
-.join_project {
+.main_join_project {
   height: 100%;
   width: 100%;
 }
 
+.join_project {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .project_and_task_wrapper {
   height: 100%;
-  width: 90%;
+  width: 100%;
   border: solid 1px black;
-  margin: 0 auto 40px auto;
+  margin-bottom: 10px;
 }
 
 .join_project_wrapper {
   height: 100%;
-  width: 70%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 10px auto;
   overflow: scroll;
   border: solid 1px black;
   &__title {
@@ -52,19 +58,19 @@
 
 
 // task css
+.task_list_hide {
+  display: none;
+}
+
 .task {
   height: 100%;
   width: 100%;
-}
-.task_detail {
-  border: solid 1px black;
-  margin: 10px;
-
+  display: none;
 }
 
 .task_wrapper {
   height: 100%;
-  width: 70%;
+  width: 90%;
   margin: 10px;
   overflow: scroll;
   border: solid 1px black;

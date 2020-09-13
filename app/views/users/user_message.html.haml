@@ -1,11 +1,13 @@
 .main
   = current_user.name
   さんのマイページ（作業スペース）です。
-  %br
+
   .main_wrapper
     .main_left
-      = render "users/user_project"
+      = render "users/project_task_comment"
     .main_middle
-      = render "users/join_project"
+      = render "users/user_comment"
+      -# = render "users/join_project"
     .main_right
       = render "comments/comment_index"
+      

@@ -1,55 +1,79 @@
 .main_user_comment
-  %br
-  個人メッセージ(受信)
-  %br
+  = link_to new_user_comment_path do
+    誰かにメッセージを送る
+  .message_btn_list
+    %button{ :class => "reply_list_display_click"}
+      返信を表示
+    %button{ :class => "reply_list_hide_click"}
+      返信を非表示
+    %button{ :class => "receive_list_display_click"}
+      受信を表示
+    %button{ :class => "receive_list_hide_click"}
+      受信を非表示
+    %button{ :class => "send_list_display_click"}
+      送信を表示
+    %button{ :class => "send_list_hide_click"}
+      送信を非表示
 
-  - @receive_user_comment.each do |receive_comment|
-    %br
-    タイトル:
-    = receive_comment.title
-    %br
-    内容:
-    = receive_comment.comment
-    %br
-    誰から:
-    = User.find(receive_comment.user_id).name
-    %br
-    返信一覧
-    %br
-    - receive_comment.reply_user_comments.each do |reply|
-      内容:
-      = link_to user_comment_reply_user_comment_path(user_comment_id: reply.user_comment_id) do
-        = reply.reply
-      誰から:
-      = User.find(reply.user_id).name
-      %br
-    = link_to new_user_comment_reply_user_comment_path(receive_comment.id) do
-      返信する
-    %br
+  .receive_list
+    個人メッセージ(受信)
+    - @receive_user_comment.each do |receive_comment|
+      .main_user_comment_wrapper
+        .title_from_user_wrapper
+          .main_user_comment_title
+            タイトル:
+            = receive_comment.title
+          .main_user_comment_from_user
+            誰から:
+            = User.find(receive_comment.user_id).name
+            さん
+        .main_user_comment_wrapper__message
+          内容:
+          = receive_comment.comment
+      
+      .reply_list
+        返信一覧
+        - receive_comment.reply_user_comments.each do |reply|
+          .reply_list_wrapper
+            .reply_list_content_user_wrapper
+              .reply_list_content
+                内容:
+                = link_to user_comment_reply_user_comment_path(user_comment_id: reply.user_comment_id) do
+                  = reply.reply
+              .reply_list_from_user
+                誰から:
+                = User.find(reply.user_id).name
+            .reply_list_link
+              = link_to new_user_comment_reply_user_comment_path(receive_comment.id) do
+                返信する
 
-  %br
-  個人メッセージ(送信)
-  %br
-  - @send_user_comment.each do |send_comment|
-    %br
-    宛先:
-    = User.find(send_comment.to_user_id).name
-    %br
-    タイトル:
-    = send_comment.title
-    %br
-    内容:
-    = send_comment.comment
-    %br
-    返信一覧
-    %br
-    - send_comment.reply_user_comments.each do |reply|
-      内容:
-      = link_to user_comment_reply_user_comment_path(user_comment_id: reply.user_comment_id) do
-        = reply.reply
-      誰から:
-      = User.find(reply.user_id).name
-      %br
-    = link_to new_user_comment_reply_user_comment_path(send_comment.id) do
-      返信する
-    %br
+  .send_list
+    個人メッセージ(送信)
+    - @send_user_comment.each do |send_comment|
+      .send_list_wrapper
+        .send_title_user_wrapper
+          .send_list_title
+            タイトル:
+            = send_comment.title
+          .send_list_to_user
+            宛先:
+            = User.find(send_comment.to_user_id).name
+        .send_list_content
+          内容:
+          = send_comment.comment
+      
+      .reply_list
+        返信一覧
+        - send_comment.reply_user_comments.each do |reply|
+          .reply_list_wrapper
+            .reply_list_content_user_wrapper
+              .reply_list_content
+                内容:
+                = link_to user_comment_reply_user_comment_path(user_comment_id: reply.user_comment_id) do
+                  = reply.reply
+              .reply_list_from_user
+                誰から:
+                = User.find(reply.user_id).name
+              .reply_list_link
+                = link_to new_user_comment_reply_user_comment_path(send_comment.id) do
+                  返信する

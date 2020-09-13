@@ -42,19 +42,20 @@
   %br
 
 %br
-ユーザーからあなたへのコメント
-%br
-  - UserComment.where(to_user_id: current_user.id).each do |comment|
-    タイトル
-    %br
-    = comment.title
-    %br
-    コメント
-    %br
-    = comment.comment
-    %br
-    誰から
-    %br
-    = User.find_by(id: comment.user_id).name
-    %br
-    %br
+- if user_signed_in?
+  ユーザーからあなたへのコメント
+  %br
+    - UserComment.where(to_user_id: current_user.id).each do |comment|
+      タイトル
+      %br
+      = comment.title
+      %br
+      コメント
+      %br
+      = comment.comment
+      %br
+      誰から
+      %br
+      = User.find_by(id: comment.user_id).name
+      %br
+      %br
