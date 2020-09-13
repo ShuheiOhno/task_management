@@ -1,3 +1,39 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// project_show
+.project_detail_main {
+  height: 100%;
+  width: 60%;
+  display: flex;
+  margin: 0 auto;
+  // background-color: lightslategray;
+}
+
+.project_detail_left {
+  height: 100%;
+  width: 50%;
+  margin: 0 auto;
+  // background-color: lightpink;
+}
+
+.project_detail_right {
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  // background-color: lightskyblue;
+}
+
+
+.add_task {
+  height: 100%;
+  width: 50%;
+}
+
+
+
+.project_link {
+  text-decoration: none;
+}
