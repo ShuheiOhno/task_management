@@ -8,7 +8,14 @@ Rails.application.routes.draw do
   end 
   root "projects#index"
   # root " devise/sessions#new"
-  resources :users
+  resources :users do
+    member do
+      get "user_message"
+    end
+
+  end
+
+
   resources :projects do
     resources :join_project_users
     resources :tasks do

@@ -4,7 +4,6 @@
     - @projects.each do |project|
       .project_and_task_wrapper
         = link_to project_path(project.id), class:"owner_project_wrapper_link" do
-          プロジェクト
           .join_project_wrapper
             .join_project_wrapper__title
               プロジェクトタイトル:
@@ -21,40 +20,41 @@
                   .owner_project_icon
                     = icon("far", "comment")
                     プロジェクトにコメントする
-        タスク一覧
+        %button{ :class => "task_list_hide"}
+          タスク一覧非表示
+        %button{ :class => "task_list_display"}
+          タスク一覧表示
         .task
           - project.tasks.each do |task|
             = link_to project_task_path(task_id: task.id, project_id: task.project_id), class:"task_wrapper_link" do
               .task_wrapper
-                タスク
-                .task_detail
-                  .task_wrapper__tittle
-                    タスクタイトル:
-                    = task.title
-                  .task_wrapper__charge
-                    担当:
-                    = task.user.name
-                  .task_wrapper__detail
-                    = link_to project_task_path(task_id: task.id, project_id: task.project_id), class:"task_wrapper_link" do
-                      タスク詳細(編集、削除、開始、終了)
-                    %br
-                      .task_comment_function
-                        = link_to new_project_task_task_comment_path(task_id: task.id, project_id: task.project_id), class:"task_wrapper_link" do
-                          .task_comment_icon
-                            = icon("far", "comment")
-                            コメントする
+                .task_wrapper__tittle
+                  タスクタイトル:
+                  = task.title
+                .task_wrapper__charge
+                  担当:
+                  = task.user.name
+                .task_wrapper__detail
+                  = link_to project_task_path(task_id: task.id, project_id: task.project_id), class:"task_wrapper_link" do
+                    タスク詳細(編集、削除、開始、終了)
+                  %br
+                    .task_comment_function
+                      = link_to new_project_task_task_comment_path(task_id: task.id, project_id: task.project_id), class:"task_wrapper_link" do
+                        .task_comment_icon
+                          = icon("far", "comment")
+                          コメントする
 
-                作業コメント一覧
-                .task_comment
-                  - task.task_comment.each do |task_comment|
-                    .task_comment_wrapper
-                      .task_comment_wrapper__title
-                        作業コメントタイトル:
-                        = task_comment.title
-                      .task_comment_wrapper__explanation
-                        作業コメント内容:
-                        = task_comment.comment
-                      .task_comment_wrapper__to_user
-                        宛先:
-                        = User.find(task_comment.to_user_id).name
+                -# 作業コメント一覧
+                -# .task_comment
+                -#   - task.task_comment.each do |task_comment|
+                -#     .task_comment_wrapper
+                -#       .task_comment_wrapper__title
+                -#         作業コメントタイトル:
+                -#         = task_comment.title
+                -#       .task_comment_wrapper__explanation
+                -#         作業コメント内容:
+                -#         = task_comment.comment
+                -#       .task_comment_wrapper__to_user
+                -#         宛先:
+                -#         = User.find(task_comment.to_user_id).name
                 

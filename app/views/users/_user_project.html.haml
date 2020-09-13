@@ -1,18 +1,15 @@
 .main_owner_project
   = current_user.name
   さんのマイページ（作業スペース）です。
-  %br
-  %br
+
   = link_to new_user_comment_path do
     誰かにメッセージを送る
-  %br
 
-  リーダーになっているプロジェクト
-  %br
   = link_to new_project_path do
     新しいプロジェクトを投稿する
   %br
   .owner_project
+    リーダーになっているプロジェクト
     - @owner_projects.each do |owner_project|
       = link_to project_path(owner_project.id), class:"owner_project_wrapper_link" do
         .owner_project_wrapper

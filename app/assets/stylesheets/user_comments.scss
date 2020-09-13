@@ -1,3 +1,118 @@
 // Place all the styles related to the user_comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main_user_comment {
+  height: 100%;
+  width: 100%;
+  margin: 10px;
+}
+
+.message_btn_list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.reply_list_display_click {
+  background-color: wheat;
+  color: black;
+}
+
+.reply_list_hide_click {
+  background-color: red;
+  color: white;
+}
+
+.receive_list_display_click {
+  background-color: wheat;
+  color: black;
+}
+
+.receive_list_hide_click {
+  background-color: red;
+  color: white;
+}
+
+.send_list_display_click {
+  background-color: wheat;
+  color: black;
+}
+
+.send_list_hide_click {
+  background-color: red;
+  color: white;
+}
+
+
+// 受信
+.main_user_comment_wrapper {
+  height: 50%;
+  width: 95%;
+  overflow: scroll;
+  border: 1px solid black;
+  margin: 10px auto;
+  &__message {
+    padding: 0 5px;
+  }
+}
+
+.title_from_user_wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px 5px 5px ;
+}
+
+// 返信
+.reply_list {
+  height: 50%;
+  width: 95%;
+  margin: 0 auto;
+  overflow: scroll;
+  // border: 1px solid black;
+  display: none;
+}
+
+.reply_list_wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px 5px 5px ;
+  border: 1px solid black;
+}
+
+.reply_list_wrapper {
+  background-color: lightpink;
+  margin: 5px 0;
+}
+
+
+.reply_list_hide_click {
+  display: none;
+}
+
+.receive_list_display_click {
+  display: none;
+}
+
+.send_list_display_click {
+  display: none;
+}
+
+
+// 送信
+.send_list_wrapper {
+  height: 50%;
+  width: 95%;
+  overflow: scroll;
+  border: 1px solid black;
+  margin: 10px auto;
+}
+
+.send_title_user_wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px 5px 5px ;
+}
+
+.send_list_content {
+  padding: 0 5px;
+}
