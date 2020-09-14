@@ -110,15 +110,22 @@
   height: 100%;
   width: 35%;
   // text-align: center;
-  // background-color: lightskyblue;
 }
 
+.detail_task_wrapper {
+  height: 100%;
+  width: 90%;
+
+}
 
 .add_task {
   height: 100%;
-  width: 50%;
-  margin: 10px;
-  // margin: 0 auto;
+  width: 90%;
+  padding: 10px;
+}
+
+.add_task_estimated_time {
+  margin-top: 5px;
 }
 
 .estimated_time_wrapper {
