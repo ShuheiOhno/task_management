@@ -3,26 +3,113 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+
+
+
+
+
 // project_show
 .project_detail_main {
   height: 100%;
-  width: 60%;
+  width: 100%;
   display: flex;
-  margin: 0 auto;
-  // background-color: lightslategray;
+  margin: 10px 30px;
 }
 
+// 左
 .project_detail_left {
   height: 100%;
-  width: 50%;
+  width: 30%;
   margin: 0 auto;
-  // background-color: lightpink;
 }
 
+// .project_detail {
+//   padding: 30px;
+// }
+
+.project_detail_title {
+  padding: 0 5px;
+}
+
+
+.project_detail_deadline{
+  padding: 5px;
+}
+
+.project_detail_user {
+  padding: 5px;
+}
+
+.project_detail_explanation_content {
+  padding: 5px;
+}
+
+.project_detail_explanation {
+  height: 300px;
+  width: 90%;
+  border: solid 1px black;
+  margin-bottom: 10px;
+}
+
+.project_detail_explanation_box {
+  padding: 5px;
+}
+
+.member_btn_wrapper {
+  margin: 5px 0;
+}
+
+.project_detail_join_user_show {
+  background-color: wheat;
+  color: black;
+}
+
+.project_detail_join_user_hide {
+  display: none;
+  background-color: red;
+  color: white;
+}
+
+.project_detail_join_user {
+  display: none;
+}
+
+
+// 真ん中
+.project_detail_center {
+  height: 100%;
+  width: 35%;
+}
+
+.project_detail_center_wrapper {
+  height: 100%;
+  width: 90%;
+  border: solid 1px black;
+  margin: 10px;
+  padding: 10px;
+}
+
+.project_detail_center_content {
+  padding: 5px 0;
+}
+
+.to_from_wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+
+// 右
 .project_detail_right {
   height: 100%;
-  width: 50%;
-  text-align: center;
+  width: 35%;
+  // text-align: center;
   // background-color: lightskyblue;
 }
 
@@ -30,9 +117,24 @@
 .add_task {
   height: 100%;
   width: 50%;
+  margin: 10px;
+  // margin: 0 auto;
+}
+
+.estimated_time_wrapper {
+  display: flex;
+  &__btn {
+    padding-left: 10px;
+  }
 }
 
 
+
+
+.project_detail_tasks_wrapper {
+  border: solid 1px black;
+  margin: 10px;
+}
 
 .project_link {
   text-decoration: none;

@@ -3,16 +3,19 @@
   width: 100%;
 }
 
+.main_join_project_font {
+  padding-left: 40px;
+}
+
 .join_project {
   height: 100%;
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
 }
 
 .project_and_task_wrapper {
   height: 100%;
   width: 100%;
-  border: solid 1px black;
   margin-bottom: 10px;
 }
 
@@ -24,6 +27,9 @@
   border: solid 1px black;
   &__title {
     margin: 5px;
+  }
+  &__owner {
+    margin: 0 5px;
   }
   &__explanation {
     margin: 5px;
@@ -62,6 +68,10 @@
   display: none;
 }
 
+.btn_posotion {
+  padding-left: 30px;
+}
+
 .task {
   height: 100%;
   width: 100%;
@@ -71,28 +81,20 @@
 .task_wrapper {
   height: 100%;
   width: 90%;
-  margin: 10px;
   overflow: scroll;
   border: solid 1px black;
   margin: 10px auto;
+  background-color: blanchedalmond;
   &__title {
-    margin: 5px;
+    padding: 5px;
   }
-  &__explanation {
-    margin: 5px;
+  &__charge {
+    padding: 0 5px;
   }
-  &__deadline {
-    margin: 5px;
+  &__detail {
+    padding: 5px;
   }
-  &__comment_link {
-    margin: 5px 0;
-  }
-  &__edit_link {
-    margin: 5px 0;
-  }
-  &__delete_link {
-    margin: 5px 0;
-  }
+ 
 }
 
 .task_wrapper_link {
@@ -137,6 +139,6 @@
 }
 
 .task_comment_icon {
-  margin-left: 10px;
+  margin: 10px 10px 0;
 }
 

@@ -6,7 +6,7 @@ class JoinProjectUsersController < ApplicationController
 
   def create
     JoinProjectUser.create(join_project_user_params)
-    redirect_to root_path
+    redirect_to project_path(params[:project_id])
   end
 
   def destroy

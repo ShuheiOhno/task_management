@@ -8,9 +8,20 @@
   margin: 10px;
 }
 
+.new_user_message {
+  margin-bottom: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.message_link {
+  text-decoration: none;
+}
+
 .message_btn_list {
   display: flex;
   justify-content: space-around;
+  margin: 20px;
 }
 
 .reply_list_display_click {
@@ -47,7 +58,7 @@
 // 受信
 .main_user_comment_wrapper {
   height: 50%;
-  width: 95%;
+  width: 90%;
   overflow: scroll;
   border: 1px solid black;
   margin: 10px auto;
@@ -65,7 +76,7 @@
 // 返信
 .reply_list {
   height: 50%;
-  width: 95%;
+  width: 90%;
   margin: 0 auto;
   overflow: scroll;
   // border: 1px solid black;
@@ -77,10 +88,10 @@
   justify-content: space-between;
   padding: 0 5px 5px 5px ;
   border: 1px solid black;
+  background-color: blanchedalmond;
 }
 
 .reply_list_wrapper {
-  background-color: lightpink;
   margin: 5px 0;
 }
 
@@ -101,7 +112,7 @@
 // 送信
 .send_list_wrapper {
   height: 50%;
-  width: 95%;
+  width: 90%;
   overflow: scroll;
   border: 1px solid black;
   margin: 10px auto;
@@ -115,4 +126,31 @@
 
 .send_list_content {
   padding: 0 5px;
+}
+
+
+// user_comment/new
+.user_new_comment {
+  height: 100%;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.user_new_comment_wrapper {
+
+}
+
+.user_new_comment_to_user_field {
+  // height: 30px;
+  // width: 200px;
+}
+
+.user_comment_field {
+  height: 300px;
+  width: 400px;
+}
+
+.user_new_comment_select_field {
+  height: 30px;
+  width: 200px;
 }

@@ -12,11 +12,17 @@ class ProjectsController < ApplicationController
 
   def create
     Project.create(project_params)
-    redirect_to root_path
+    redirect_to project_path(@project.id)
   end
 
   def show
     @project = Project.find(params[:id])
+    @all_users = User.all
+    @users = []
+    User.all.each do |user|
+      @users << [user.name, user.id]
+    end
+    
   end
 
   def edit

@@ -21,10 +21,11 @@
         .comment_images
           - if comment.image.url
             = image_tag comment.image.url, class:"comment_image"
-        .comment_user_name  
-          = comment.user.name
-          さん
-        .comment_time
-          = comment.created_at
+        .comment_user_time_wrapper
+          .comment_user_name
+            = comment.user.name
+            さん
+          .comment_time
+            = comment.created_at
 
 

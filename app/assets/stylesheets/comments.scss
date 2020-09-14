@@ -15,7 +15,7 @@
 
 .comment_content_form {
   height: 100px;
-  width: 550px;
+  width: 90%;
   padding: 5px;
   margin: 0 auto;
 }
@@ -38,7 +38,7 @@
 }
 
 .comment_submit {
-  padding-right: 0px;
+  padding-right: 10px;
 }
 
 
@@ -50,11 +50,28 @@
 
 .comment_list_wrapper {
   height: 100%;
-  width: calc(100% - 5px);
-  margin: 5px 0;
+  width: 90%;
+  margin: 10px auto;
   border: solid 1px black;
-
+  padding: 5px;
 }
+
+.comment_content {
+  padding: 5px;
+}
+
+.comment_images {
+  padding: 0 5px;
+}
+
+.comment_user_name {
+  padding: 0 5px;
+}
+
+.comment_time {
+  padding: 5px;
+}
+
 
 .comment_image {
   height: 100px;
@@ -66,3 +83,9 @@
   height: 100px;
   width: 100px;
 }
+
+.comment_user_time_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
