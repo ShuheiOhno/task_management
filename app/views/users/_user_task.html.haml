@@ -1,0 +1,43 @@
+.user_task
+  .user_task_wrapper
+    .user_task_content
+      あなたのタスク一覧
+  - @user_tasks.each do |user_task|
+    .user_task_main
+      .user_task_main_wrapper
+        .user_task_main_wrapper__title
+          タスクタイトル
+          = user_task.title
+        .user_task_main_wrapper__estimated_time  
+          予測時間:
+          = user_task.estimated_time
+          時間
+        .user_task_main_wrapper__creater
+          作成者
+          = User.find(user_task.user_id).name
+        .user_task_main_wrapper__project
+          元のプロジェクト:
+          = Project.find(user_task.project_id).title
+      .user_comment_btn_wrapper
+        %button{:class => "user_task_display_btn"}
+          コメントを表示
+        %button{:class => "user_task_hide_btn"}
+          コメントを非表示
+      .user_task_comment_list
+        タスクへのコメント
+        .user_task_comment
+          - user_task.task_comment.each do |task_comment|
+            .user_task_comment_wrapper
+              .user_task_comment_wrapper__title
+                タイトル:
+                = task_comment.title
+              .user_task_comment_wrapper__comment
+                コメント
+                %br
+                = task_comment.comment
+              .user_task_comment_wrapper__from_user
+                From:
+                = task_comment.user.name
+              .user_task_comment_wrapper__to_user
+                To:
+                = User.find(task_comment.to_user_id).name

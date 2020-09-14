@@ -1,0 +1,64 @@
+.user_task {
+  height: 100%;
+  width: 100%;
+}
+
+.user_task_wrapper {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+
+
+.user_task_main_wrapper {
+  height: 100%;
+  width: 90%;
+  border: solid 1px black;
+  padding: 5px;
+  margin-top: 10px;
+  background-color: rgb(143, 143, 236);
+  &__title {
+    padding: 5px;
+  }
+  &__estimated_time {
+    padding: 0 5px;
+  }
+  &__creater {
+    padding: 0 5px;
+  }
+  &__project {
+    padding: 0 5px;
+  }
+}
+
+.user_comment_btn_wrapper {
+  margin: 10px 0;
+}
+
+.user_task_display_btn {
+  background-color: wheat;
+}
+
+.user_task_hide_btn {
+  display: none;
+  background-color: red;
+  color: white;
+}
+
+
+
+.user_task_comment_list {
+  width: 90%;
+  height: 100%;
+  margin: 10px auto 0;
+  display: none;
+}
+
+.user_task_comment_wrapper {
+  width: 90%;
+  padding: 5px;
+  margin: 10px 0;
+  border: solid 1px black;
+}
