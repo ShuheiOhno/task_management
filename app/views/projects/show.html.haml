@@ -79,6 +79,7 @@
         = form_with url: project_tasks_path(params[:id]), method: :post do |f|
           .add_task_title
             タスク名
+            %br
             = f.text_field :title
           .add_task_estimated_time
             予測時間(number)
