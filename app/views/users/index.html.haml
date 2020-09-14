@@ -1,10 +1,13 @@
 ユーザータスク管理画面に変更する
-.user_task
-  .user_task_main
-    - @user_tasks.each do |user_task|
-      .user_task_main__title
-        = user_task.title
-      .user_task_main__estimated_time  
-        = user_task.estimated_time
-        時間
+.main
+  .main_wrapper
+    .main_left
+      いくつタスクがあるか、プロジェクトごとのタスク一覧、完了率
+
+      -# = render "users/user_project"
+    .main_middle
+      = render "users/user_task"
+    .main_right
+      = render "comments/comment_index"
+
 

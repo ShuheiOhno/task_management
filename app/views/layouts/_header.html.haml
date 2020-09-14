@@ -11,7 +11,9 @@
       .header_wrapper__user_message
         = link_to user_message_user_path(current_user.id), class:"link_text" do
           メッセージ
-      -# .header_wrapper__user_task
+      .header_wrapper__user_task
+        = link_to users_path, class:"link_text" do
+          タスク
 
     - else
       .header_wrapper__login
@@ -23,8 +25,6 @@
     .header_wrapper__projects_list
       = link_to projects_path, class:"link_text" do
         プロジェクト一覧
-    .header_wrapper__user_index
-      = link_to users_path, class:"link_text" do
-        ユーザーページ（index）
+
 
 
