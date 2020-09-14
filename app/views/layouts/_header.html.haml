@@ -6,10 +6,13 @@
           ログアウト
       .header_wrapper__user_show
         = link_to user_path(current_user.id), class:"link_text" do
-          ユーザーページ（show)
+          プロジェクト
+          -# ユーザーページ（show)
       .header_wrapper__user_message
         = link_to user_message_user_path(current_user.id), class:"link_text" do
           メッセージ
+      -# .header_wrapper__user_task
+
     - else
       .header_wrapper__login
         = link_to new_user_session_path, class:"link_text" do

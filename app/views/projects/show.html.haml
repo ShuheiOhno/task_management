@@ -52,7 +52,7 @@
   .project_detail_center
     プロジェクトへのコメント
     - @project.project_comments.each do |comment|
-      = link_to project_project_comment_path(comment.id), class:"project_link" do
+      = link_to project_project_comment_path(id: comment.id, project_id: comment.project_id), class:"project_link" do
         .project_detail_center_wrapper
           .project_detail_center_title
             タイトル:

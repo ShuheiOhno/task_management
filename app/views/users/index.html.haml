@@ -1,9 +1,10 @@
-- @projects.each do |project|
-  タイトル
-  = project.title
-  %br
-  - project.users.each do |join_user|
-    参加者
-    = join_user.name
+ユーザータスク管理画面に変更する
+.user_task
+  .user_task_main
+    - @user_tasks.each do |user_task|
+      .user_task_main__title
+        = user_task.title
+      .user_task_main__estimated_time  
+        = user_task.estimated_time
+        時間
 
-  %br

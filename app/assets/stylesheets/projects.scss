@@ -3,8 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.owner_project_link_content {
+  font-size: 20px;
+  padding: 0 20px;
+}
 
-
+.owner_project_content {
+  padding: 10px 20px 0 20px;
+}
 
 
 
@@ -145,4 +151,25 @@
 
 .project_link {
   text-decoration: none;
+}
+
+
+// ただのproject/show
+.project_comment_main {
+  height: 100%;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.project_comment_wrapper {
+  text-align: center;
+  &__title {
+    padding: 10px;
+  }
+  &__comment {
+    padding: 0 10px;
+  }
+  &__from {
+    padding: 10px;
+  }
 }

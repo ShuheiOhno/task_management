@@ -1,0 +1,15 @@
+.project_comment_main
+  .project_comment_wrapper
+    .project_comment_wrapper__title
+      タイトル:
+      = @project_comment.title
+    .project_comment_wrapper__comment
+      コメント
+      %br
+      = @project_comment.comment
+    .project_comment_wrapper__from
+      From:
+      = @project_comment.user.name
+    .project_comment_wrapper__to
+      To:
+      = @to_user.name

@@ -1,11 +1,11 @@
 .main_owner_project
-  = current_user.name
-  さんのマイページ（作業スペース）です。
-  = link_to new_project_path do
-    新しいプロジェクトを投稿する
-  %br
+  .owner_project_link_content
+    = link_to new_project_path,class:"project_link" do
+      = icon("fas", "plus-square")
+    新しいプロジェクトを追加する
   .owner_project
-    リーダーになっているプロジェクト
+    .owner_project_content
+      リーダーになっているプロジェクト
     - @owner_projects.each do |owner_project|
       = link_to project_path(owner_project.id), class:"owner_project_wrapper_link" do
         .owner_project_wrapper

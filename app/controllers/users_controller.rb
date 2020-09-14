@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @projects = Project.all
+    @user_tasks = Task.where(user_id: current_user.id)
   end
   
   def show
