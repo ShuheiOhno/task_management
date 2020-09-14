@@ -6,39 +6,45 @@
 
 .project_message_wrapper {
   height: 50%;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
   overflow: scroll;
   border: 1px solid black;
-  background-color: lightcoral;
   &__title {
-    text-align: center;
+    padding: 0 5px;
   }
   &__from_user {
-    text-align: center;
+    padding: 0 5px;
   }
   &__comment {
-    text-align: center;
+    padding: 0 5px;
   }
 }
 
 
 
 // タスク
+.task_message {
+  height: 100%;
+  width: 100%;
+  margin: 10px;
+}
+
 .task_message_wrapper {
   height: 50%;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
   margin-bottom: 10px;
   overflow: scroll;
   border: 1px solid black;
-  background-color: lightpink;
   &__title {
-    text-align: center;
+    padding: 0 5px;
   }
   &__from_user {
-    text-align: center;
+    padding: 0 5px;
   }
   &__comment {
-    text-align: center;
+    padding: 0 5px;
   }
 }
 

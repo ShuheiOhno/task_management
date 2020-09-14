@@ -4,6 +4,10 @@ class UserCommentsController < ApplicationController
 
   def new
     @user_comment = UserComment.new
+    @users = []
+    User.all.each do |user|
+      @users << [user.name ,user.id]
+    end
   end
 
   def create

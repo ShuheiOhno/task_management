@@ -1,32 +1,79 @@
-プロジェクト詳細画面
 .project_detail_main
   .project_detail_left
     .project_detail
       .project_detail_title
-        タイトル:
+        プロジェクトタイトル:
         = @project.title
-      .project_detail_explanation
-        説明:
-        = @project.explanation
       .project_detail_deadline
         締め切り:
-        = @project.deadline
+        = @project.deadline.strftime("%Y年%m月%d日 %H時%M分")
       .project_detail_user
-        発足者:
+        責任者:
         = User.find(@project.user_id).name
+      .project_detail_explanation_content
+        説明
+      .project_detail_explanation
+        .project_detail_explanation_box
+          = @project.explanation
+      .owner_project_function
+        .owner_project_wrapper__comment_link
+          = link_to new_project_project_comment_path(@project.id), class:"owner_project_wrapper_link" do
+            .owner_project_icon
+              = icon("far", "comment")
+              コメント
+        .owner_project_wrapper__edit_link
+          = link_to edit_project_path(@project.id), class:"owner_project_wrapper_link" do
+            .owner_project_icon
+              = icon("far", "edit")
+              編集
+        .owner_project_wrapper__delete_link
+          = link_to project_path(@project.id), method: :delete, class:"owner_project_wrapper_link" do
+            .owner_project_icon
+              = icon("fas", "trash")
+              削除
+      .member_btn_wrapper
+        %button{ :class => "project_detail_join_user_show" }
+          メンバーを表示する
+        %button{ :class => "project_detail_join_user_hide" }
+          メンバーを非表示にする
       .project_detail_join_user
-        メンバー:
         - @project.users.each do |join_user|
           .join_users_name
           = join_user.name
       = form_with url: project_join_project_users_path(project_id: params[:id]), method: :post do |f|
-        ユーザー番号を入力してください
-        %br
-        = f.text_field :user_id
-        = f.submit "send"
+        .user_number
+          メンバー追加
+          %br
+          ユーザーを選択してください
+        .user_number_form
+          = f.select :user_id,@users, {include_blank: "---"}
+          = f.submit "追加する"
 
+  .project_detail_center
+    プロジェクトへのコメント
+    - @project.project_comments.each do |comment|
+      = link_to project_project_comment_path(comment.id), class:"project_link" do
+        .project_detail_center_wrapper
+          .project_detail_center_title
+            タイトル:
+            = comment.title
+          .project_detail_center_content
+            コメント:
+            = comment.comment
+          .to_from_wrapper
+            .project_detail_center_from_user
+              From:
+              = comment.user.name
+              さん
+            .project_detail_center_to_user
+              To:
+              = User.find(comment.to_user_id).name
+              さん
+
+      
+    
   .project_detail_right
-    タスクを追加する
+    ・タスクを追加する
     .detail_task_wrapper
       .add_task
         = form_with url: project_tasks_path(params[:id]), method: :post do |f|
@@ -35,18 +82,24 @@
             = f.text_field :title
           .add_task_estimated_time
             予測時間(number)
-            = f.text_field :estimated_time
-            = f.submit "send"
+            .estimated_time_wrapper
+              .estimated_time_wrapper__form
+                = f.text_field :estimated_time
+              .estimated_time_wrapper__btn
+                = f.submit "send"
       .project_detail_tasks
-        - @project.tasks.each do |task|
-          .project_detail_tasks_title
-            タイトル:
-            = task.title
-          .project_detail_tasks_time
-            予測時間:
-            = task.estimated_time
-            時間
-          
+        ・タスク一覧
+        - @project.tasks.order(id: "DESC").each do |task|
+          = link_to project_task_path(project_id: task.project.id, task_id: task.id), class:"project_link" do
+            .project_detail_tasks_wrapper
+              .project_detail_tasks_title
+                タイトル:
+                = task.title
+              .project_detail_tasks_time
+                予測時間:
+                = task.estimated_time
+                時間
+            
 
 
 

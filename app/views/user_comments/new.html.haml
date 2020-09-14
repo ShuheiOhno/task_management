@@ -1,21 +1,18 @@
-user new comment
-%br
-%br
-ユーザーにコメントする
-= form_with url: user_comments_path, method: :post do |f|
-  %br
-  ユーザーへのコメントタイトル
-  %br
-  = f.text_field :title
-  %br
-  コメント
-  %br
-  = f.text_area :comment
-  %br
-  宛先（ユーザーID）
-  %br
-  = f.text_field :to_user_id
-  %br
-  = f.submit "send"
-  %br
-%br
+.user_new_comment
+  ユーザーにコメントする
+  = form_with url: user_comments_path, method: :post do |f|
+    .user_new_comment_wrapper
+      .user_new_comment_title
+        ユーザーへのコメントタイトル
+      .user_new_comment_title_field
+        = f.text_field :title
+      .user_new_comment_comment
+        コメント
+      .user_new_comment_comment_field
+        = f.text_area :comment, class: "user_comment_field"
+      .user_new_comment_to_user
+        宛先（ユーザーID）
+      .user_new_comment_to_user_field
+        = f.select :to_user_id, @users, {include_blank: "---"}, class:"user_new_comment_select_field"
+      .user_new_comment_btn
+        = f.submit "send"

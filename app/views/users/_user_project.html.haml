@@ -1,10 +1,6 @@
 .main_owner_project
   = current_user.name
   さんのマイページ（作業スペース）です。
-
-  = link_to new_user_comment_path do
-    誰かにメッセージを送る
-
   = link_to new_project_path do
     新しいプロジェクトを投稿する
   %br
