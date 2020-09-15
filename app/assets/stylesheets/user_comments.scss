@@ -163,3 +163,60 @@
   height: 30px;
   width: 200px;
 }
+
+
+.reply_list_link {
+  padding: 5px;
+}
+
+// user_comment/show
+.user_comment_detail {
+  height: 50%;
+  width: 100%;
+}
+
+.user_comment_detail_font {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.user_comment_detail_main {
+  height: 50%;
+  width: 40%;
+  margin: 20px auto;
+  border: solid 1px black;
+  padding: 5px;
+}
+.user_comment_detail_title {
+  padding: 0 5px;
+}
+.user_comment_detail_comment {
+  padding: 5px;
+}
+
+
+
+.user_comment_detail_to_from_wrapper {
+  display: flex;
+}
+.user_comment_detail_from_user {
+  padding-left: 5px;
+}
+.user_comment_detail_to_user {
+  padding-left: 15px;
+}
+
+.user_comment_detail_reply {
+  height: 50%;
+  width: 40%;
+  margin: 10px auto;
+}
+
+.user_comment_detail_reply_wrapper {
+  border: solid 1px black;
+  padding: 5px;
+  margin-bottom: 10px;
+  &__content {
+    padding: 5px 0 10px;
+  }
+}

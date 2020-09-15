@@ -1,1 +1,31 @@
-user_comment/show
+.user_comment_detail
+  .user_comment_detail_font
+    メッセージ詳細画面
+  .user_comment_detail_main
+    .user_comment_detail_title
+      タイトル:
+      = @user_comment.title
+    .user_comment_detail_comment
+      内容
+      %br
+      = @user_comment.comment
+    .user_comment_detail_to_from_wrapper
+      .user_comment_detail_from_user
+        From:
+        = @user_comment.user.name
+      .user_comment_detail_to_user
+        To:
+        = User.find(@user_comment.to_user_id).name
+
+  .user_comment_detail_reply
+    返信一覧
+    - @replies.each do |reply|
+      .user_comment_detail_reply_wrapper
+        .user_comment_detail_reply_wrapper__content
+          内容
+          %br
+          = reply.reply
+        .user_comment_detail_reply_wrapper__from_user
+          From:
+          = reply.user.name
+    

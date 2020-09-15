@@ -33,6 +33,10 @@
           .main_user_comment_wrapper__message
             内容:
             = receive_comment.comment
+          .reply_list_link
+            = link_to new_user_comment_reply_user_comment_path(receive_comment.id), class:"link" do
+              = icon("fas", "reply")
+              返信する
       
       .reply_list
         ・返信一覧
@@ -47,7 +51,8 @@
                 誰から:
                 = User.find(reply.user_id).name
             .reply_list_link
-              = link_to new_user_comment_reply_user_comment_path(receive_comment.id) do
+              = link_to new_user_comment_reply_user_comment_path(receive_comment.id), class:"link" do
+                = icon("fas", "reply")
                 返信する
 
   .send_list
@@ -65,6 +70,10 @@
           .send_list_content
             内容:
             = send_comment.comment
+          .reply_list_link
+            = link_to new_user_comment_reply_user_comment_path(send_comment.id), class:"link" do
+              = icon("fas", "reply")
+              返信する
       
       .reply_list
         ・返信一覧
@@ -79,5 +88,6 @@
                 誰から:
                 = User.find(reply.user_id).name
               .reply_list_link
-                = link_to new_user_comment_reply_user_comment_path(send_comment.id) do
+                = link_to new_user_comment_reply_user_comment_path(send_comment.id), class:"link" do
+                  = icon("fas", "reply")
                   返信する

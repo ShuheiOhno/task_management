@@ -1,4 +1,6 @@
 .project_comment_main
+  .project_comment_main_font
+    プロジェクトへのコメント
   .project_comment_wrapper
     .project_comment_wrapper__title
       タイトル:
@@ -7,9 +9,10 @@
       コメント
       %br
       = @project_comment.comment
-    .project_comment_wrapper__from
-      From:
-      = @project_comment.user.name
-    .project_comment_wrapper__to
-      To:
-      = @to_user.name
+    .project_comment_to_from_wrapper
+      .project_comment_to_from_wrapper__from_user
+        From:
+        = @project_comment.user.name
+      .project_comment_to_from_wrapper__to_user
+        To:
+        = @to_user.name

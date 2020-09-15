@@ -9,30 +9,36 @@
   width: 100%;
   margin: 10px;
 }
+
+.new_task_comment_font {
+  text-align: center;
+}
+
 .new_task_comment_main {
   height: 100%;
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
 }
 
 .new_task_comment_wrapper {
   margin: 10px;
   &__title {
-    padding: 5px;
+    padding: 10px;
   }
   &__comment {
-    padding: 0 5px;
+    padding: 0 10px;
   }
   &__to_user {
-    padding: 0 5px;
+    padding: 0 10px;
   }
   &__submit_btn {
-    padding: 5px;
+    padding: 10px;
   }
 }
 
 .comment_title {
   padding: 5px;
+  width: 80%;
 }
 
 .comment_area {

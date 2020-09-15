@@ -2,17 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+
+// project_comment/new
+
 .new_project_comment {
   height: 100%;
   width: 100%;
   margin: 10px;
-  // background-color: yellow;
+}
+
+.new_project_comment_font {
+  text-align: center;
 }
 
 .new_project_comment_main {
   height: 100%;
-  width: 50%;
-  margin: 0 auto;
+  width: 40%;
+  margin: 10px auto;
   // background-color: wheat;
 }
 
@@ -35,9 +43,55 @@
 
 .new_comment_field {
   height: 300px;
-  width: 80%;
+  width: 90%;
+  padding: 5px;
 }
 
 .new_project_comment_text_field {
-  padding-left: 5px;
+  padding: 5px;
+  width: 90%;
 }
+
+
+// project_comment/show
+.project_comment_main {
+  height: 100%;
+  width: 100%;
+  margin: 10px;
+}
+
+.project_comment_main_font {
+  text-align: center;
+  margin: 20px;
+}
+
+.project_comment_wrapper {
+  height: 100%;
+  width: 40%;
+  margin: 0 auto;
+  border: solid 1px black;
+}
+
+.project_comment_wrapper {
+  padding: 5px;
+  overflow: scroll;
+  word-wrap: break-word;
+  &__title {
+    padding: 10px;
+  }
+  &__comment {
+    padding: 0 10px;
+  }
+}
+.project_comment_to_from_wrapper {
+  display: flex;
+  padding: 10px;
+  &__from_user {
+    padding: 0 0 5px;
+  }
+  &__to_user {
+    padding: 0 20px;
+  }
+}
+
+

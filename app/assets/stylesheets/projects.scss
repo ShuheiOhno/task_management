@@ -182,27 +182,6 @@
 
 
 
-// ただのproject/show
-.project_comment_main {
-  height: 100%;
-  width: 50%;
-  margin: 0 auto;
-}
-
-.project_comment_wrapper {
-  text-align: center;
-  &__title {
-    padding: 10px;
-  }
-  &__comment {
-    padding: 0 10px;
-  }
-  &__from {
-    padding: 10px;
-  }
-}
-
-
 
 // project/new
 
@@ -239,6 +218,7 @@
 
 .new_title_field {
   padding: 5px;
+  width: 90%;
 }
 
 .new_explanation_field {
@@ -248,3 +228,35 @@
 }
 
 
+// project/edit
+.edit_project {
+  height: 100%;
+  width: 100%;
+}
+
+.edit_project_main {
+  height: 100%;
+  width: 35%;
+  margin: 0 auto;
+}
+
+.edit_project_main_font {
+  margin: 10px;
+  text-align: center;
+}
+
+.edit_project_wrapper {
+  margin: 10px;
+  &__title {
+    padding: 5px;
+  }
+  &__explanation {
+    padding: 5px;
+  }
+  &__deadline {
+    padding: 0 5px;
+  }
+  &__submit_btn {
+    padding: 0 5px;
+  }
+}

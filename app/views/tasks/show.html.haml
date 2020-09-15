@@ -1,23 +1,25 @@
 .task_detail
-  .task_detail_main
+  .task_detail_font
     タスク詳細ページ
+  .task_detail_main
     .task_detail_wrapper
       .task_detail_wrapper__title
         タイトル:
         = @task.title
-      .task_detail_wrapper__estimated_time
-        予測時間:
-        = @task.estimated_time
-        時間
-      .task_detail_wrapper__user
-        作成者:
-        = @task.user.name
-      .task_detail_wrapper__to_user
-        担当者:
-        = User.find(@task.to_user_id).name
       .task_detail_wrapper__project_name
         元のプロジェクトの名前:
         = @task.project.title
+      .task_detail_title_estimated_user_wrapper
+        .task_detail_wrapper_estimated_time
+          予測時間:
+          = @task.estimated_time
+          時間
+        .task_detail_wrapper_user
+          作成者:
+          = @task.user.name
+        .task_detail_wrapper_to_user
+          担当者:
+          = User.find(@task.to_user_id).name
       
       .edit_delete_wrapper
         .edit_delete_wrapper__edit

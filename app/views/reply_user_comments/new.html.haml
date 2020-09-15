@@ -1,8 +1,22 @@
-ssss
-= form_with url: user_comment_reply_user_comments_path, method: :post, local: true do |f|
-  %br
-  返信内容
-  %br
-  = f.text_area :reply
-  %br
-  = f.submit "send"
+.reply
+  .reply_main
+    .reply_wrapper
+      返信ページ
+      .reply_title_comment
+        .title_comment_wrapper
+          %p
+          受信メッセージ
+          %p
+          タイトル:
+          = UserComment.find(params[:user_comment_id]).title
+          %p
+          内容:
+          %br
+          = UserComment.find(params[:user_comment_id]).comment
+      = form_with url: user_comment_reply_user_comments_path, method: :post, local: true do |f|
+        .reply_content
+          返信内容
+        .reply_text
+          = f.text_area :reply, class:"reply_text_form"
+        .reply_submit_btn
+          = f.submit "send"
