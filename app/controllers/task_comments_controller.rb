@@ -4,6 +4,10 @@ class TaskCommentsController < ApplicationController
 
   def new
     @task_comment = TaskComment.new
+    @users = []
+    User.all.each do |user|
+      @users << [user.name, user.id]
+    end
   end
 
   def create

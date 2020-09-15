@@ -96,6 +96,9 @@ ActiveRecord::Schema.define(version: 2020_09_11_070255) do
     t.integer "complete_id"
     t.bigint "project_id"
     t.bigint "user_id"
+    t.integer "to_user_id"
+    t.datetime "start_time"
+    t.datetime "stop_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_tasks_on_project_id"

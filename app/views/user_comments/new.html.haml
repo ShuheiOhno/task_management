@@ -2,17 +2,17 @@
   ユーザーにコメントする
   = form_with url: user_comments_path, method: :post do |f|
     .user_new_comment_wrapper
-      .user_new_comment_title
+      .user_new_comment_wrapper__title
         ユーザーへのコメントタイトル
-      .user_new_comment_title_field
+        %br
         = f.text_field :title
-      .user_new_comment_comment
+      .user_new_comment_wrapper__comment
         コメント
-      .user_new_comment_comment_field
+        %br
         = f.text_area :comment, class: "user_comment_field"
-      .user_new_comment_to_user
+      .user_new_comment_wrapper__to_user
         宛先（ユーザーID）
-      .user_new_comment_to_user_field
+        %br
         = f.select :to_user_id, @users, {include_blank: "---"}, class:"user_new_comment_select_field"
-      .user_new_comment_btn
+      .user_new_comment_wrapper__submit_btn
         = f.submit "send"

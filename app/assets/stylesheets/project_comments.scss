@@ -1,3 +1,43 @@
 // Place all the styles related to the project_comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new_project_comment {
+  height: 100%;
+  width: 100%;
+  margin: 10px;
+  // background-color: yellow;
+}
+
+.new_project_comment_main {
+  height: 100%;
+  width: 50%;
+  margin: 0 auto;
+  // background-color: wheat;
+}
+
+.new_project_comment_wrapper {
+  margin: 10px;
+  &__title {
+    padding: 5px;
+  }
+  &__comment {
+    padding: 5px;
+  }
+  &__to_user {
+    padding: 5px;
+  }
+  &__submit_btn {
+    padding: 5px;
+  }
+
+}
+
+.new_comment_field {
+  height: 300px;
+  width: 80%;
+}
+
+.new_project_comment_text_field {
+  padding-left: 5px;
+}

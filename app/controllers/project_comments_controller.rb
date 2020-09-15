@@ -4,6 +4,10 @@ class ProjectCommentsController < ApplicationController
 
   def new
     @project_comment = ProjectComment.new
+    @users = [] 
+    User.all.each do |user|
+      @users << [user.name, user.id]
+    end
   end
 
   def create

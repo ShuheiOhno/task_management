@@ -107,10 +107,6 @@
 
 
 
-
-
-
-
 // 右
 .project_detail_right {
   height: 100%;
@@ -127,11 +123,19 @@
 .add_task {
   height: 100%;
   width: 90%;
-  padding: 10px;
+  padding: 0 10px;
+}
+
+.add_task_title {
+  padding: 5px;
+}
+
+.add_task_user {
+  padding: 0 5px;
 }
 
 .add_task_estimated_time {
-  margin-top: 5px;
+  padding: 5px;
 }
 
 .estimated_time_wrapper {
@@ -147,11 +151,35 @@
 .project_detail_tasks_wrapper {
   border: solid 1px black;
   margin: 10px;
+  &__title {
+    padding: 5px;
+  }
+  &__time {
+    padding: 0 5px;
+  }
+  &__time_to_user {
+    padding: 5px;
+  }
 }
 
 .project_link {
   text-decoration: none;
 }
+
+.time_btn_wrapper {
+  display: flex;
+  padding-left: 5px;
+}
+
+.task_start_time {
+  padding: 5px;
+}
+
+.task_stop_time {
+  padding: 5px;
+}
+
+
 
 
 // ただのproject/show
@@ -173,3 +201,50 @@
     padding: 10px;
   }
 }
+
+
+
+// project/new
+
+
+.new_project {
+  height: 100%;
+  width: 100%;
+}
+
+.new_project_main {
+  height: 100%;
+  width: 50%;
+  margin: 10px auto;
+}
+
+.new_project_wrapper {
+  margin: 10px;
+  &__title {
+    padding: 5px;
+  }
+  &__explanation {
+    padding: 0 5px;
+  }
+  &__deadline {
+    padding: 0 5px;
+  }
+  &__user {
+    padding: 0 5px;
+  }
+  &__submit_btn {
+    padding: 0 5px;
+  }
+}
+
+.new_title_field {
+  padding: 5px;
+}
+
+.new_explanation_field {
+  height: 300px;
+  width: 450px;
+  padding: 5px;
+}
+
+

@@ -8,11 +8,16 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     # @project.join_project_users.new
+    @users = []
+    User.all.each do |user|
+      @users << [user.name, user.id]
+    end
   end
 
   def create
     Project.create(project_params)
-    redirect_to project_path(@project.id)
+    redirect_to root_path
+    # redirect_to project_path(@project.id)
   end
 
   def show
@@ -26,7 +31,12 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    # binding.pry
     @project = Project.find(params[:id])
+    @users = []
+    User.all.each do |user|
+      @users << [user.name, user.id]
+    end
   end
 
   def update
