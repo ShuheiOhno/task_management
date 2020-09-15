@@ -8,4 +8,12 @@ class Project < ApplicationRecord
   # 実験
   has_many :users,through: :join_project_users , dependent: :destroy
 
+  def self.search(search)
+    if search != ""
+      Project.where('title LIKE(?)', "%#{search}%")
+    else
+      Project.all
+    end
+  end
+
 end

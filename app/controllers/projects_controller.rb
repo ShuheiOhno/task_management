@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
   
   def index
     @projects = Project.all
+    @tasks = Task.all
   end
 
   def new
@@ -27,7 +28,6 @@ class ProjectsController < ApplicationController
     User.all.each do |user|
       @users << [user.name, user.id]
     end
-    
   end
 
   def edit
@@ -49,6 +49,11 @@ class ProjectsController < ApplicationController
     project = Project.find(params[:id])
     project.destroy
     redirect_to root_path
+  end
+
+  def search
+    @projects = Project.search(params[:keyword])
+    binding.pry
   end
 
 private

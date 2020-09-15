@@ -1,61 +1,37 @@
-プロジェクト一覧画面＋タスク一覧画面（検索ページ）の左側にしたい
-%br
-プロジェクト一覧
-%br
-= link_to new_project_path do
-  新しいプロジェクトを投稿する
-%br
+.all_project_task
+  .all_project
+    .main_join_project
+      = icon("fas", "search")
+      タイトルで検索してください
+      = form_with url: search_projects_path, local: true, method: :get, class:"project_search_form" do |f|
+        = f.text_field :keyword, class: "search_input"
+        = f.submit "検索", class:"search_btn"
 
-= link_to new_user_comment_path do
-  ユーザーにコメントする 
+      .content_row
+        -# - @projects.each do |project|
+        -#   = render partial: "projects/index", locals: { project: project }
 
-%br
-%br
-%br
+      .main_join_project_font
+        プロジェクト一覧
+      .join_project
+        - @projects.each do |project|
+          .project_and_task_wrapper
+            = link_to project_path(project.id), class:"owner_project_wrapper_link" do
+              .join_project_wrapper
+                .join_project_wrapper__title
+                  プロジェクトタイトル:
+                  = project.title
+                .join_project_wrapper__owner
+                  責任者
+                  = User.find(project.user_id).name
+                .join_project_wrapper__explanation
+                  説明
+                  %br
+                  = project.explanation
+                .join_project_wrapper__deadline
+                  締め切り:
+                  = project.deadline
 
-- @projects.each do |project|
-  プロジェクトタイトル
-  = project.title
-  %br
-  リーダー
-  = User.find(project.user_id).name
-  %br
-  - project.users.each do |join_user|
-    参加者
-    = join_user.name
-  %br
-    = link_to project_path(project.id) do
-      詳細
-    = link_to edit_project_path(project.id) do
-      編集
-    = link_to project_path(project.id), method: :delete do
-      削除
-  %br
-    各コメント
-    %br
-    - project.project_comments.each do |project_comment|
-      = project_comment.title
-      %br
-      投稿者
-      = User.find(project_comment.user_id).name
-      %br
-  %br
 
-%br
-- if user_signed_in?
-  ユーザーからあなたへのコメント
-  %br
-    - UserComment.where(to_user_id: current_user.id).each do |comment|
-      タイトル
-      %br
-      = comment.title
-      %br
-      コメント
-      %br
-      = comment.comment
-      %br
-      誰から
-      %br
-      = User.find_by(id: comment.user_id).name
-      %br
-      %br
+  = render "tasks/all_task"
+

@@ -20,8 +20,14 @@ Rails.application.routes.draw do
     resources :join_project_users
     resources :tasks do
       resources :task_comments
+      collection do
+        get "search"
+      end
     end
     resources :project_comments
+    collection do
+      get "search"
+    end
   end
 
   resources :comments

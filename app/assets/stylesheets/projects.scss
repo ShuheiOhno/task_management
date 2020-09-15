@@ -13,9 +13,25 @@
 }
 
 
+// project/index
+.all_project_task {
+  display: flex;
+  margin: 10px;
+}
+
+.all_project {
+  height: 100%;
+  width: 50%;
+}
+
+.all_task {
+  height: 100%;
+  width: 50%;
+}
 
 
-// project_show
+
+// project/show
 .project_detail_main {
   height: 100%;
   width: 100%;
