@@ -1,17 +1,17 @@
 -# edit
 -# @projectをProjectに変更したら、値が送れるようになった。projectの中にtask_idカラムがないことが原因かも
-.new_project
-  .new_project_main
-    タスク編集画面
-    .new_project_wrapper
+.edit_task
+  .edit_task_main
+    .edit_task_wrapper
+      タスク編集画面
       = form_with model:[Project, @task], local:true do |f|
-        .new_project_wrapper__title
+        .edit_task_wrapper__title
           タスク名
           %br
           = f.text_field :title
-        .new_project_wrapper__user
+        .edit_task_wrapper__estimated_time
           予測時間
           %br
           = f.text_field :estimated_time
-        .new_project_wrapper__submit_btn
+        .edit_task_wrapper__submit_btn
           = f.submit "send"

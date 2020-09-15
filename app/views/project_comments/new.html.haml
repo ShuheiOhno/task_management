@@ -1,6 +1,7 @@
 .new_project_comment
-  .new_project_comment_main
+  .new_project_comment_font
     新規プロジェクトコメント(new)
+  .new_project_comment_main
     = form_with  url: project_project_comments_path(project_id: params[:project_id]), method: :post, local: true do |f|
       .new_project_comment_wrapper
         .new_project_comment_wrapper__title

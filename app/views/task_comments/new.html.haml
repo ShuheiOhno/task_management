@@ -1,6 +1,7 @@
 .new_task_comment
-  .new_task_comment_main
+  .new_task_comment_font
     タスクコメント
+  .new_task_comment_main
     .new_task_comment_wrapper
       = form_with url:  project_task_task_comments_path, method: :post, local: true do |f|
         .new_task_comment_wrapper__title

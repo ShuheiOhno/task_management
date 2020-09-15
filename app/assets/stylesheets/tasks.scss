@@ -3,12 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
 // task/show
 
 .task_detail {
   height: 100%;
   width: 100%;
   // background-color: yellow;
+}
+
+.task_detail_font {
+  height: 100%;
+  width: 100%;
+  margin: 20px;
+  text-align: center;
 }
 
 .task_detail_main {
@@ -19,18 +27,9 @@
 }
 
 .task_detail_wrapper {
-  margin: 10px;
+  margin: 20px;
   border: solid 1px black;
   &__title {
-    padding: 5px;
-  }
-  &__estimated_time {
-    padding: 5px;
-  }
-  &__user {
-    padding: 5px;
-  }
-  &__to_user {
     padding: 5px;
   }
   &__project_name {
@@ -38,8 +37,22 @@
   }
 }
 
+.task_detail_title_estimated_user_wrapper {
+  display: flex;
+  margin: 5px;
+  margin-bottom: 20px;
+}
+
+.task_detail_wrapper_user {
+  padding-left: 30px;
+}
+.task_detail_wrapper_to_user {
+  padding-left: 30px;
+}
+
 .edit_delete_wrapper {
   display: flex;
+  margin-bottom: 10px;
   &__edit {
     padding-left: 15px;
   }
@@ -77,4 +90,33 @@
   &__to_user {
     padding: 5px 0 5px 10px;
   }
+}
+
+
+// task/edit
+.edit_task {
+  height: 100%;
+  width: 100%;
+}
+
+.edit_task_main {
+  height: 100%;
+  width: 100%;
+  margin: 10px;
+}
+
+.edit_task_wrapper {
+  height: 100%;
+  width: 20%;
+  margin: 10px auto;
+  &__title {
+    padding: 5px;
+  }
+  &__estimated_time {
+    padding: 5px;
+  }
+  &__submit_btn {
+    padding: 5px;
+  }
+  
 }

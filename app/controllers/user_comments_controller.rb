@@ -15,6 +15,11 @@ class UserCommentsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @user_comment = UserComment.find(params[:id])
+    @replies = ReplyUserComment.where(user_comment_id: @user_comment.id)
+  end
+
   private
   def user_comment_params
     params.permit(:title, :comment, :to_user_id

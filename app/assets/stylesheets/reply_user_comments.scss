@@ -1,3 +1,48 @@
 // Place all the styles related to the reply_user_comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.reply {
+  height: 100%;
+  width: 100%;
+}
+.reply_main {
+  height: 100%;
+  width: 50%;
+  margin: 10px auto;
+  // background-color: black;
+}
+.reply_wrapper {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.reply_title_comment {
+  width: 100%;
+  margin: 10px;
+  word-wrap: break-word;
+  overflow: scroll;
+}
+
+.title_comment_wrapper {
+  padding: 5px;
+  border: solid 1px black;
+}
+
+.reply_content {
+  padding: 5px;
+}
+
+.reply_text {
+  padding: 5px;
+}
+
+.reply_text_form {
+  height: 300px;
+  width: 450px;
+  padding: 5px;
+}
+
+.reply_submit_btn {
+  padding: 5px;
+}

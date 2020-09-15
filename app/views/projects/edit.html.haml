@@ -1,18 +1,19 @@
 -# 編集ページ
-.new_project
-  .new_project_main
-    新規プロジェクト
-    .new_project_wrapper
+.edit_project
+  .edit_project_main
+    .edit_project_main_font
+      プロジェクト編集画面
+    .edit_project_wrapper
       = form_with model: @project do |f|
-        .new_project_wrapper__title
+        .edit_project_wrapper__title
           タイトル
           %br
           = f.text_field :title, class:"new_title_field"
-        .new_project_wrapper__explanation
+        .edit_project_wrapper__explanation
           説明
           %br
           = f.text_area :explanation, class:"new_explanation_field"
-        .new_project_wrapper__deadline
+        .edit_project_wrapper__deadline
           締め切り
           %br
           = f.datetime_field :deadline
@@ -20,7 +21,7 @@
         -#   メンバーを追加（id）
         -#   %br
         -#   = f.select :user_id, @users, class:"new_user_select"
-        .new_project_wrapper__submit_btn
+        .edit_project_wrapper__submit_btn
           %br
           = f.submit "send"
         
