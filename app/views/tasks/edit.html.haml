@@ -1,20 +1,17 @@
-edit
-%br
--# -# cost_time、complete_idは最後に入力
+-# edit
 -# @projectをProjectに変更したら、値が送れるようになった。projectの中にtask_idカラムがないことが原因かも
-= form_with model:[Project, @task], local:true do |f|
-  タスク名
-  = f.text_field :title
-  %br
-  予測時間(number)
-  = f.text_field :estimated_time
-  %br
-  かかった時間
-  %br
-  = f.text_field :cost_time
-  %br
-  完了か未完了か（complete_id）
-  %br
-  = f.text_field :complete_id
-  = f.submit "send"
-
+.new_project
+  .new_project_main
+    タスク編集画面
+    .new_project_wrapper
+      = form_with model:[Project, @task], local:true do |f|
+        .new_project_wrapper__title
+          タスク名
+          %br
+          = f.text_field :title
+        .new_project_wrapper__user
+          予測時間
+          %br
+          = f.text_field :estimated_time
+        .new_project_wrapper__submit_btn
+          = f.submit "send"

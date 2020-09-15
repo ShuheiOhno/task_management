@@ -41,12 +41,26 @@
                   = task.user.name
                 .task_wrapper__detail
                   = link_to project_task_path(task_id: task.id, project_id: task.project_id), class:"task_wrapper_link" do
-                    タスク詳細(編集、削除、開始、終了)
                     .task_comment_function
                       = link_to new_project_task_task_comment_path(task_id: task.id, project_id: task.project_id), class:"task_wrapper_link" do
                         .task_comment_icon
                           = icon("far", "comment")
                           コメントする
+                  .time_btn_wrapper
+                    - if task.start_time == nil || task.start_time.task_id != task.id
+                      .task_start_time
+                        = form_with url: start_times_path(task_id: task.id), method: :post do |f|
+                          = f.submit "開始"
+                    - if task.start_time != nil && task.stop_time == nil
+                      .task_stop_time
+                        開始日時:
+                        = task.start_time.created_at
+                        = form_with url: stop_times_path(task_id: task.id), method: :post do |f|
+                          = f.submit "終了"
+                    -if task.stop_time != nil && task.stop_time != nil
+                      = task.stop_time.created_at
+                      に完了しました
+
 
                 -# 作業コメント一覧
                 -# .task_comment

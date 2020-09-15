@@ -12,6 +12,6 @@ class StartTimesController < ApplicationController
 
   private
   def start_time_params
-    params.permit(:task_id)
+    params.permit(:task_id).merge(task_id: params[:task_id])
   end
 end

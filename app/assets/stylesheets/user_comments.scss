@@ -137,17 +137,26 @@
 }
 
 .user_new_comment_wrapper {
-
+  margin: 10px;
+  &__title {
+    padding: 5px;
+  }
+  &__comment {
+    padding: 0 5px;
+  }
+  &__to_user {
+    padding: 0 5px;
+  }
+  &__submit_btn {
+    padding: 10px 5px;
+  }
 }
 
-.user_new_comment_to_user_field {
-  // height: 30px;
-  // width: 200px;
-}
+
 
 .user_comment_field {
   height: 300px;
-  width: 400px;
+  width: 450px;
 }
 
 .user_new_comment_select_field {

@@ -5,19 +5,34 @@
   - @user_tasks.each do |user_task|
     .user_task_main
       .user_task_main_wrapper
-        .user_task_main_wrapper__title
-          タスクタイトル
-          = user_task.title
-        .user_task_main_wrapper__estimated_time  
-          予測時間:
-          = user_task.estimated_time
-          時間
-        .user_task_main_wrapper__creater
-          作成者
-          = User.find(user_task.user_id).name
-        .user_task_main_wrapper__project
-          元のプロジェクト:
-          = Project.find(user_task.project_id).title
+        = link_to project_task_path(project_id: user_task.project_id, id: current_user.id, task_id: user_task.id), class: "link" do
+          .user_task_main_wrapper__title
+            タスクタイトル
+            = user_task.title
+          .user_task_main_wrapper__estimated_time  
+            予測時間:
+            = user_task.estimated_time
+            時間
+          .user_task_main_wrapper__creater
+            作成者
+            = User.find(user_task.user_id).name
+          .user_task_main_wrapper__project
+            元のプロジェクト:
+            = Project.find(user_task.project_id).title
+        .time_btn_wrapper
+          - if user_task.start_time == nil || user_task.start_time.task_id != user_task.id
+            .task_start_time
+              = form_with url: start_times_path(task_id: user_task.id), method: :post do |f|
+                = f.submit "開始"
+          - if user_task.start_time != nil && user_task.stop_time == nil
+            .task_stop_time
+              開始日時:
+              = user_task.start_time.created_at
+              = form_with url: stop_times_path(task_id: user_task.id), method: :post do |f|
+                = f.submit "終了"
+          -if user_task.stop_time != nil && user_task.stop_time != nil
+            = user_task.stop_time.created_at
+            に完了しました
       .user_comment_btn_wrapper
         %button{:class => "user_task_display_btn"}
           コメントを表示

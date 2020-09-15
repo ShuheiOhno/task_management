@@ -81,6 +81,9 @@
             タスク名
             %br
             = f.text_field :title
+          .add_task_user 
+            担当
+            = f.select :to_user_id, @users
           .add_task_estimated_time
             予測時間(number)
             .estimated_time_wrapper
@@ -88,35 +91,38 @@
                 = f.text_field :estimated_time
               .estimated_time_wrapper__btn
                 = f.submit "send"
+
       .project_detail_tasks
         ・タスク一覧
         - @project.tasks.order(id: "DESC").each do |task|
           = link_to project_task_path(project_id: task.project.id, task_id: task.id), class:"project_link" do
             .project_detail_tasks_wrapper
-              .project_detail_tasks_title
+              .project_detail_tasks_wrapper__title
                 タイトル:
                 = task.title
-              .project_detail_tasks_time
+              .project_detail_tasks_wrapper__time
                 予測時間:
                 = task.estimated_time
                 時間
+              .project_detail_tasks_wrapper__time_to_user
+                担当
+                = User.find(task.to_user_id).name
+              
+              .time_btn_wrapper
+                - if task.start_time == nil || task.start_time.task_id != task.id
+                  .task_start_time
+                    = form_with url: start_times_path(task_id: task.id), method: :post do |f|
+                      = f.submit "開始"
+                - if task.start_time != nil && task.stop_time == nil
+                  .task_stop_time
+                    開始日時:
+                    = task.start_time.created_at
+                    = form_with url: stop_times_path(task_id: task.id), method: :post do |f|
+                      = f.submit "終了"
+                -if task.stop_time != nil && task.stop_time != nil
+                  = task.stop_time.created_at
+                  に完了しました
+
+
+
             
-
-
-
-
-
-  -# = link_to new_project_task_path(project_id: params[:id]), class:"project_link" do
-  -#   新しい作業を追加する
-
-  -# %br
-  -# = link_to project_tasks_path(project_id: params[:id]), class:"project_link" do
-  -#   作業一覧
-  -# %br
-
-
-  -# %br
-  -# %br
-  -# %br
-  -# = link_to new_project_project_comment_path(project_id: params[:id]) do
-  -#   プロジェクトへコメントする

@@ -1,26 +1,25 @@
-新しいプロジェクト
-%br
-%br
--# = form_with model: @project do |f|
-= form_for @project do |f|
-  %br
-  タイトル
-  %br
-  = f.text_field :title
-  %br
-  説明
-  %br
-  = f.text_area :explanation
-  %br
-  締め切り
-  %br
-  = f.datetime_field :deadline
-  %br
-  メンバーを追加（id）
-  %br
-  = f.text_field :user_id
-  -# = f.text_field :project_id
-
-  %br
-  = f.submit "send"
-  
+.new_project
+  .new_project_main
+    新規プロジェクト
+    .new_project_wrapper
+      = form_for @project do |f|
+        .new_project_wrapper__title
+          タイトル
+          %br
+          = f.text_field :title, class:"new_title_field"
+        .new_project_wrapper__explanation
+          説明
+          %br
+          = f.text_area :explanation, class:"new_explanation_field"
+        .new_project_wrapper__deadline
+          締め切り
+          %br
+          = f.datetime_field :deadline
+        .new_project_wrapper__user
+          メンバーを追加（id）
+          %br
+          = f.select :user_id, @users, class:"new_user_select"
+        .new_project_wrapper__submit_btn
+          %br
+          = f.submit "send"
+        

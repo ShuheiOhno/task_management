@@ -1,3 +1,80 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// task/show
+
+.task_detail {
+  height: 100%;
+  width: 100%;
+  // background-color: yellow;
+}
+
+.task_detail_main {
+  // background-color: wheat;
+  height: 100%;
+  width: 40%;
+  margin: 10px auto;
+}
+
+.task_detail_wrapper {
+  margin: 10px;
+  border: solid 1px black;
+  &__title {
+    padding: 5px;
+  }
+  &__estimated_time {
+    padding: 5px;
+  }
+  &__user {
+    padding: 5px;
+  }
+  &__to_user {
+    padding: 5px;
+  }
+  &__project_name {
+    padding: 5px;
+  }
+}
+
+.edit_delete_wrapper {
+  display: flex;
+  &__edit {
+    padding-left: 15px;
+  }
+  &__delete {
+    padding-left: 15px;
+  }
+}
+
+.task_link {
+  text-decoration: none;
+}
+
+
+.task_detail_comment_list {
+  height: 100%;
+  width: 40%;
+  margin: 10px auto;
+}
+
+.task_detail_comment {
+  margin: 10px;
+}
+
+.task_detail_comment_wrapper {
+  padding: 5px;
+  border: solid 1px black;
+  margin: 10px auto;
+}
+
+.task_detail_comment_from_to_wrapper {
+  display: flex;
+  &__from_user {
+    padding: 5px;
+  }
+  &__to_user {
+    padding: 5px 0 5px 10px;
+  }
+}

@@ -12,6 +12,6 @@ class StopTimesController < ApplicationController
 
   private
   def stop_time_params
-    params.permit(:task_id).merge(task_id: params[:id])
+    params.permit(:task_id).merge(task_id: params[:task_id])
   end
 end
