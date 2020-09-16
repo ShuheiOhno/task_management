@@ -1,0 +1,39 @@
+.user_task_info {
+  height: 100%;
+  width: 100%;
+  // text-align: center;
+}
+
+.user_task_info_wrapper {
+  height: 100%;
+  width: 60%;
+  margin: 0 auto;
+  &__rate {
+    margin: 10px;
+  }
+  &__count {
+    margin: 10px;
+  }
+  &__complete_task {
+    margin: 10px;
+  }
+  &__complete_task_list {
+    margin: 10px;
+  }
+  &__no_complete_task {
+    margin: 10px;
+  }
+  &__no_complete_task_list {
+    margin: 10px;
+  }
+}
+
+
+
+.complete_task_link {
+  padding-left: 10%;
+}
+
+.no_complete_task_link {
+  padding-left: 10%;
+}
