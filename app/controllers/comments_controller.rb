@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     comment = Comment.find(params[:id])
     # binding.pry
     comment.destroy
-    redirect_back(fallback_location: )
+    # redirect_back(fallback_location: )
   end
 
   private
