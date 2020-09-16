@@ -3,13 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+// tasks/_all_task
+.all_task {
+  height: 100%;
+  width: 40%;
+  margin: 0 auto;
+}
+
+// search
+.task_search {
+  text-align: center;
+  margin: 10px;
+}
+
+.search_input {
+  padding: 5px;
+  width: 50%;
+}
 
 // task/show
-
 .task_detail {
   height: 100%;
   width: 100%;
-  // background-color: yellow;
 }
 
 .task_detail_font {
@@ -20,7 +35,6 @@
 }
 
 .task_detail_main {
-  // background-color: wheat;
   height: 100%;
   width: 40%;
   margin: 10px auto;

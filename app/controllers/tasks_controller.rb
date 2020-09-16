@@ -35,6 +35,10 @@ class TasksController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @tasks = Task.search(params[:keyword])
+  end
+
   private
   def task_params
     params.permit(
