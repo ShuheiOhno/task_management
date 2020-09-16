@@ -2,7 +2,7 @@
   .new_comment
     = form_with url: comments_path, class:"form_comment", method: :post, local: true do |f|
       .comment_content
-        コメントする
+        チャット
       .comment_form
         = f.text_area :content, class:"comment_content_form"
       .image_and_submit_wrapper

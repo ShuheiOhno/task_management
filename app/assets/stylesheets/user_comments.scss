@@ -227,6 +227,7 @@
   margin: 20px auto;
   border: solid 1px black;
   padding: 5px;
+  word-wrap: break-word;
 }
 .user_comment_detail_title {
   padding: 0 5px;
@@ -251,6 +252,7 @@
   height: 50%;
   width: 30%;
   margin: 10px auto;
+  word-wrap: break-word;
 }
 
 .user_comment_detail_reply_font {

@@ -8,7 +8,8 @@
     .user_comment_detail_comment
       内容
       %br
-      = @user_comment.comment
+      = safe_join(@user_comment.comment.split("\n"),tag(:br))
+
     .user_comment_detail_to_from_wrapper
       .user_comment_detail_from_user
         From:
@@ -25,7 +26,7 @@
         .user_comment_detail_reply_wrapper__content
           内容
           %br
-          = reply.reply
+          = safe_join(reply.reply.split("\n"),tag(:br))
         .user_comment_detail_reply_wrapper__from_user
           From:
           = reply.user.name
