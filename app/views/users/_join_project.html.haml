@@ -7,7 +7,7 @@
         = link_to project_path(project.id), class:"owner_project_wrapper_link" do
           .join_project_wrapper
             .join_project_wrapper__title
-              プロジェクトタイトル:
+              タイトル:
               = project.title
             .join_project_wrapper__owner
               責任者
@@ -17,7 +17,7 @@
             -#   = project.explanation
             .join_project_wrapper__deadline
               締め切り:
-              = project.deadline
+              = project.deadline.strftime("%Y年%m月%d日 %H時%M分")
             .join_project_function
               .join_project_wrapper__comment_link
                 = link_to new_project_project_comment_path(project.id), class:"owner_project_wrapper_link" do
@@ -54,11 +54,11 @@
                     - if task.start_time != nil && task.stop_time == nil
                       .task_stop_time
                         開始日時:
-                        = task.start_time.created_at
+                        = task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
                         = form_with url: stop_times_path(task_id: task.id), method: :post do |f|
                           = f.submit "終了"
                     -if task.stop_time != nil && task.stop_time != nil
-                      = task.stop_time.created_at
+                      = task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
                       に完了しました
 
 

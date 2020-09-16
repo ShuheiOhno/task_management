@@ -16,6 +16,10 @@
         .task_wrapper__charge
           担当:
           = task.user.name
+        .task_wrapper__task_comment
+          = link_to new_project_task_task_comment_path(task_id: task.id, project_id: task.project_id), class:"link" do
+            = icon("far", "comment")
+            タスクにコメントする
         .task_wrapper__detail
           .time_btn_wrapper
             - if task.start_time == nil || task.start_time.task_id != task.id
@@ -25,11 +29,11 @@
             - if task.start_time != nil && task.stop_time == nil
               .task_stop_time
                 開始日時:
-                = task.start_time.created_at
+                = task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
                 = form_with url: stop_times_path(task_id: task.id), method: :post do |f|
                   = f.submit "終了"
             -if task.stop_time != nil && task.stop_time != nil
-              = task.stop_time.created_at
+              = task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
               に完了しました
 
 

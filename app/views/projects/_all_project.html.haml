@@ -22,8 +22,12 @@
                 = User.find(project.user_id).name
               .join_project_wrapper__deadline
                 締め切り:
-                = project.deadline
+                = project.deadline.strftime("%Y年%m月%d日 %H時%M分")
+              .join_project_wrapper__project_comment
+                = link_to new_project_project_comment_path(project_id: project.id), class:"link" do
+                  = icon("far", "comment")
+                  プロジェクトにコメントする
               .join_project_wrapper__explanation
                 説明
                 %br
-                = project.explanation
+                = safe_join(project.explanation.split("\n"),tag(:br))

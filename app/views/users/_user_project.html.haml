@@ -13,11 +13,12 @@
             タイトル:
             = owner_project.title
           .owner_project_wrapper__explanation
-            説明:
-            = owner_project.explanation
+            説明
+            %br
+            = safe_join(owner_project.explanation.split("\n"),tag(:br))
           .owner_project_wrapper__deadline
             締め切り:
-            = owner_project.deadline
+            = owner_project.deadline.strftime("%Y年%m月%d日 %H時%M分")
           .owner_project_function
             .owner_project_wrapper__comment_link
               = link_to new_project_project_comment_path(owner_project.id), class:"owner_project_wrapper_link" do

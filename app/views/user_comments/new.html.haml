@@ -1,11 +1,12 @@
 .user_new_comment
-  ユーザーにコメントする
+  .user_new_comment_font
+    ユーザーにコメントする
   = form_with url: user_comments_path, method: :post do |f|
     .user_new_comment_wrapper
       .user_new_comment_wrapper__title
         ユーザーへのコメントタイトル
         %br
-        = f.text_field :title
+        = f.text_field :title, class:"user_new_comment_title_field"
       .user_new_comment_wrapper__comment
         コメント
         %br
