@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     member do
       get "user_message"
     end
-
   end
 
 

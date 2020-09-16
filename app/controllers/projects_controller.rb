@@ -53,7 +53,6 @@ class ProjectsController < ApplicationController
 
   def search
     @projects = Project.search(params[:keyword])
-    binding.pry
   end
 
 private

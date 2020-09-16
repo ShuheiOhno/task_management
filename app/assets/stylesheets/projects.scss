@@ -13,6 +13,14 @@
 }
 
 
+
+// search
+.project_search {
+  text-align: center;
+  margin: 10px;
+}
+
+
 // project/index
 .all_project_task {
   display: flex;
@@ -21,13 +29,14 @@
 
 .all_project {
   height: 100%;
-  width: 50%;
+  width: 40%;
+  margin: 0 auto;
 }
 
-.all_task {
-  height: 100%;
-  width: 50%;
-}
+// .all_task {
+//   height: 100%;
+//   width: 50%;
+// }
 
 
 

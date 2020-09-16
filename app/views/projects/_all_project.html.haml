@@ -1,0 +1,29 @@
+.all_project
+  .main_join_project
+    .project_search
+      = icon("fas", "search")
+      プロジェクトタイトルで検索してください
+      = form_with url: search_projects_path, local: true, method: :get, class:"project_search_form" do |f|
+        = f.text_field :keyword, class: "search_input"
+        = f.submit "検索", class:"search_btn"
+
+    .main_join_project_font
+      プロジェクト一覧
+    .join_project
+      - @projects.each do |project|
+        .project_and_task_wrapper
+          = link_to project_path(project.id), class:"owner_project_wrapper_link" do
+            .join_project_wrapper
+              .join_project_wrapper__title
+                プロジェクトタイトル:
+                = project.title
+              .join_project_wrapper__owner
+                責任者
+                = User.find(project.user_id).name
+              .join_project_wrapper__deadline
+                締め切り:
+                = project.deadline
+              .join_project_wrapper__explanation
+                説明
+                %br
+                = project.explanation

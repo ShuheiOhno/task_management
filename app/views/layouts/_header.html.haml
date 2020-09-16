@@ -6,13 +6,15 @@
           ログアウト
       .header_wrapper__user_show
         = link_to user_path(current_user.id), class:"link_text" do
+          = icon("fas", "project-diagram")
           プロジェクト
-          -# ユーザーページ（show)
       .header_wrapper__user_message
         = link_to user_message_user_path(current_user.id), class:"link_text" do
+          = icon("far", "envelope")
           メッセージ
       .header_wrapper__user_task
         = link_to users_path, class:"link_text" do
+          = icon("fas", "tasks")
           タスク
 
     - else
@@ -24,7 +26,8 @@
           新規登録
     .header_wrapper__projects_list
       = link_to projects_path, class:"link_text" do
-        プロジェクト一覧
+        = icon("fas", "search")
+        一覧/検索
 
 
 

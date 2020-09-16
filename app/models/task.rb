@@ -5,4 +5,13 @@ class Task < ApplicationRecord
   has_one :stop_time
   has_many :task_comment,dependent: :destroy
   # belongs_to :complete, optional: true
+
+  def self.search(search)
+    if search != ""
+      Task.where('title LIKE(?)', "%#{search}%")
+    else
+      Task.all
+    end
+  end
+
 end
