@@ -20,6 +20,8 @@
   height: 100%;
   width: 90%;
   border: solid 1px black;
+  word-wrap: break-word;
+
   padding: 5px;
   margin-top: 10px;
   &__title {
@@ -34,7 +36,12 @@
   &__project {
     padding: 0 5px;
   }
+  &__task_comment {
+    padding: 10px;
+  }
 }
+
+
 
 .user_comment_btn_wrapper {
   margin: 10px 0;

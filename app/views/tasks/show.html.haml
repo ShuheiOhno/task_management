@@ -30,7 +30,10 @@
           = link_to project_task_path, class:"task_link", method: :delete do
             = icon("fas", "trash")
             削除
-      
+        .edit_delete_wrapper__task_comment
+          = link_to new_project_task_task_comment_path(project_id: @task.project_id, task_id: @task.id), class:"task_link" do
+            = icon("far", "comment")
+            タスクにコメントする
       .time_btn_wrapper
         - if @task.start_time == nil || @task.start_time.task_id != @task.id
           .task_start_time

@@ -4,7 +4,7 @@
       あなたが担当するタスクの情報
     .user_task_info_wrapper__rate
       ・タスク完了率:
-      = (@complete_tasks.count.to_f / @user_tasks.count.to_f) * 100
+      = ((@complete_tasks.count.to_f / @user_tasks.count.to_f) * 100).round(1)
       = "%"
     .user_task_info_wrapper__count
       ・全てのタスクの数:

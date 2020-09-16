@@ -18,7 +18,8 @@
         = User.find(@user_comment.to_user_id).name
 
   .user_comment_detail_reply
-    返信一覧
+    .user_comment_detail_reply_font
+      返信一覧
     - @replies.each do |reply|
       .user_comment_detail_reply_wrapper
         .user_comment_detail_reply_wrapper__content

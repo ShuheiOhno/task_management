@@ -14,7 +14,7 @@
         説明
       .project_detail_explanation
         .project_detail_explanation_box
-          = @project.explanation
+          = safe_join(@project.explanation.split("\n"),tag(:br))
       .owner_project_function
         .owner_project_wrapper__comment_link
           = link_to new_project_project_comment_path(@project.id), class:"owner_project_wrapper_link" do
@@ -57,9 +57,6 @@
           .project_detail_center_title
             タイトル:
             = comment.title
-          .project_detail_center_content
-            コメント:
-            = comment.comment
           .to_from_wrapper
             .project_detail_center_from_user
               From:
@@ -69,6 +66,10 @@
               To:
               = User.find(comment.to_user_id).name
               さん
+          .project_detail_center_content
+            コメント
+            %br
+            = safe_join(comment.comment.split("\n"),tag(:br))
 
       
     
@@ -107,7 +108,11 @@
               .project_detail_tasks_wrapper__time_to_user
                 担当
                 = User.find(task.to_user_id).name
-              
+              .project_detail_tasks_wrapper__task_comment
+                = link_to new_project_task_task_comment_path(project_id: task.project_id, task_id: task.id), class:"link" do
+                  = icon("far", "comment")
+                  タスクにコメントする
+
               .time_btn_wrapper
                 - if task.start_time == nil || task.start_time.task_id != task.id
                   .task_start_time
@@ -116,11 +121,11 @@
                 - if task.start_time != nil && task.stop_time == nil
                   .task_stop_time
                     開始日時:
-                    = task.start_time.created_at
+                    = task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
                     = form_with url: stop_times_path(task_id: task.id), method: :post do |f|
                       = f.submit "終了"
                 -if task.stop_time != nil && task.stop_time != nil
-                  = task.stop_time.created_at
+                  = task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
                   に完了しました
 
 

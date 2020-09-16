@@ -23,7 +23,7 @@
   height: 100%;
   width: 90%;
   margin: 10px auto;
-  overflow: scroll;
+  word-wrap: break-word;
   border: solid 1px black;
   &__title {
     margin: 5px;
@@ -37,8 +37,11 @@
   &__deadline {
     margin: 5px;
   }
+  &__project_comment {
+    margin: 5px;
+  }
   &__comment_link {
-    margin: 5px 0;
+    margin: 5px 0 10px 0;
   }
   &__edit_link {
     margin: 5px 0;
@@ -81,17 +84,20 @@
 .task_wrapper {
   height: 100%;
   width: 90%;
-  overflow: scroll;
+  word-wrap: break-word;
   border: solid 1px black;
   margin: 10px auto;
   &__title {
-    padding: 5px;
+    margin: 5px;
   }
   &__charge {
-    padding: 0 5px;
+    margin: 0 5px;
+  }
+  &__task_comment {
+    margin: 5px 10px;
   }
   &__detail {
-    padding: 5px;
+    margin: 5px;
   }
  
 }

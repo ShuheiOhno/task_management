@@ -48,6 +48,7 @@
 .task_detail_wrapper {
   margin: 20px;
   border: solid 1px black;
+  word-wrap: break-word;
   &__title {
     padding: 5px;
   }
@@ -78,6 +79,9 @@
   &__delete {
     padding-left: 15px;
   }
+  &__task_comment {
+    padding-left: 15px;
+  }
 }
 
 .task_link {
@@ -92,13 +96,15 @@
 }
 
 .task_detail_comment {
-  margin: 10px;
+  margin: 20px;
 }
 
 .task_detail_comment_wrapper {
   padding: 5px;
   border: solid 1px black;
   margin: 10px auto;
+  word-wrap: break-word;
+  overflow: scroll;
 }
 
 .task_detail_comment_from_to_wrapper {
