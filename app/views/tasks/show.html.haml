@@ -20,16 +20,16 @@
         .task_detail_wrapper_to_user
           担当者:
           = User.find(@task.to_user_id).name
-      
-      .edit_delete_wrapper
-        .edit_delete_wrapper__edit
-          = link_to edit_project_task_path(task_id: params[:task_id]), class:"task_link" do
-            = icon("fas", "edit")
-            編集
-        .edit_delete_wrapper__delete
-          = link_to project_task_path, class:"task_link", method: :delete do
-            = icon("fas", "trash")
-            削除
+      - if current_user.id == @task.user_id && user_signed_in?
+        .edit_delete_wrapper
+          .edit_delete_wrapper__edit
+            = link_to edit_project_task_path(task_id: params[:task_id]), class:"task_link" do
+              = icon("fas", "edit")
+              編集
+          .edit_delete_wrapper__delete
+            = link_to project_task_path, class:"task_link", method: :delete do
+              = icon("fas", "trash")
+              削除
         .edit_delete_wrapper__task_comment
           = link_to new_project_task_task_comment_path(project_id: @task.project_id, task_id: @task.id), class:"task_link" do
             = icon("far", "comment")

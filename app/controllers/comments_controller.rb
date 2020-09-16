@@ -17,8 +17,13 @@ class CommentsController < ApplicationController
     else
       render :index
     end
+  end
 
-    # redirect_to user_path(current_user.id)
+  def destroy
+    comment = Comment.find(params[:id])
+    # binding.pry
+    comment.destroy
+    redirect_back(fallback_location: )
   end
 
   private

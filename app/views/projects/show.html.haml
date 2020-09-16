@@ -21,16 +21,17 @@
             .owner_project_icon
               = icon("far", "comment")
               コメント
-        .owner_project_wrapper__edit_link
-          = link_to edit_project_path(@project.id), class:"owner_project_wrapper_link" do
-            .owner_project_icon
-              = icon("far", "edit")
-              編集
-        .owner_project_wrapper__delete_link
-          = link_to project_path(@project.id), method: :delete, class:"owner_project_wrapper_link" do
-            .owner_project_icon
-              = icon("fas", "trash")
-              削除
+        - if @project.user_id == current_user.id && user_signed_in?
+          .owner_project_wrapper__edit_link
+            = link_to edit_project_path(@project.id), class:"owner_project_wrapper_link" do
+              .owner_project_icon
+                = icon("far", "edit")
+                編集
+          .owner_project_wrapper__delete_link
+            = link_to project_path(@project.id), method: :delete, class:"owner_project_wrapper_link" do
+              .owner_project_icon
+                = icon("fas", "trash")
+                削除
       .member_btn_wrapper
         %button{ :class => "project_detail_join_user_show" }
           メンバーを表示する
