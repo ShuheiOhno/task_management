@@ -2,6 +2,21 @@ class UsersController < ApplicationController
   def index
     @user_tasks = Task.where(user_id: current_user.id)
     @comments = Comment.all
+
+    @complete_tasks = []
+    @user_tasks.each do |complete_task|
+      if complete_task.stop_time
+        @complete_tasks << complete_task
+      end
+    end
+
+    @no_complete_tasks = []
+    @user_tasks.each do |no_complete_task|
+      if no_complete_task.stop_time == nil
+        @no_complete_tasks << no_complete_task
+      end
+    end
+
   end
   
   def show

@@ -1,0 +1,31 @@
+.user_task_info
+  .user_task_info_wrapper
+    .user_task_info_wrapper__font
+      あなたが担当するタスクの情報
+    .user_task_info_wrapper__rate
+      ・タスク完了率:
+      = (@complete_tasks.count.to_f / @user_tasks.count.to_f) * 100
+      = "%"
+    .user_task_info_wrapper__count
+      ・全てのタスクの数:
+      = @user_tasks.count
+    .user_task_info_wrapper__complete_task
+      ・完了したタスク:
+      = @complete_tasks.count
+    .user_task_info_wrapper__complete_task_list
+      ・完了したタスク一覧
+      - @complete_tasks.each do |complete_task|
+        .complete_task_link
+          .complete_task_title
+            = link_to project_task_path(task_id: complete_task.id, project_id: complete_task.project_id, id: current_user.id), class:"link" do
+              = complete_task.title
+    .user_task_info_wrapper__no_complete_task
+      ・完了していないタスク:
+      = @no_complete_tasks.count
+    .user_task_info_wrapper__no_complete_task_list
+      ・完了していないタスク一覧
+      - @no_complete_tasks.each do |no_complete_task|
+        .no_complete_task_link
+          = link_to project_task_path(task_id: no_complete_task.id, project_id: no_complete_task.project_id, id: current_user.id), class:"link" do
+            .no_complete_task_title
+              = no_complete_task.title
