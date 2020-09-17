@@ -26,10 +26,11 @@ Rails.application.routes.draw do
     resources :project_comments
     collection do
       get "search"
+      patch "complete"
     end
   end
 
   resources :comments
-  resources :start_times
-  resources :stop_times
+  resources :start_times, only: :create
+  resources :stop_times, only: :create
 end
