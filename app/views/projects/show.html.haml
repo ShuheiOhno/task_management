@@ -41,14 +41,20 @@
         - @project.users.each do |join_user|
           .join_users_name
           = join_user.name
-      = form_with url: project_join_project_users_path(project_id: params[:id]), method: :post do |f|
+      = form_with url: project_join_project_users_path(project_id: params[:id]), method: :post, local: true do |f|
         .user_number
           メンバー追加
           %br
           ユーザーを選択してください
         .user_number_form
-          = f.select :user_id,@users, {include_blank: "---"}
+          = f.select :user_id, @users, {include_blank: "---"}
           = f.submit "追加する"
+          -# %br
+          -# メンバーを追加
+          -# %br
+          -# = f.collection_check_boxes :user_ids, User.all, :id, :name do |user|
+          -#   = user.label { user.check_box + user.text}
+          -#   = f.submit "追加する"
 
   .project_detail_center
     プロジェクトへのコメント

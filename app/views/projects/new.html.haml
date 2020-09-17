@@ -17,9 +17,16 @@
           %br
           = f.datetime_field :deadline
         .new_project_wrapper__user
-          メンバーを追加（id）
+          -# メンバーを追加（セレクトボックスで選ぶ）
+          -# %br
+          -# = f.select :select_user_ids, @users, class:"new_user_select"
+          -# %br
+          -# メンバーを追加（チェックボックスで選ぶ）
+          メンバーを追加
           %br
-          = f.select :user_id, @users, class:"new_user_select"
+          = f.collection_check_boxes :user_ids, User.all, :id, :name do |user|
+            = user.label { user.check_box + user.text}
+
         .new_project_wrapper__submit_btn
           %br
           = f.submit "send"
