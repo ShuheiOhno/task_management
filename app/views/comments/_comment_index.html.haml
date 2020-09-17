@@ -12,7 +12,7 @@
             = icon("fas", "images fa-2x")
             = f.file_field :image, class: "image_field"
         .comment_submit
-          = f.submit "send", class:"comment_submit_btn"
+          = f.submit "送信", class:"submit_btn"
   .comment_list
     - @comments.order(created_at: "DESC").each do |comment|
       .comment_list_wrapper

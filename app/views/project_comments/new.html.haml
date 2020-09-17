@@ -1,6 +1,8 @@
 .new_project_comment
   .new_project_comment_font
-    新規プロジェクトコメント(new)
+    = icon("fas", "project-diagram")
+    = icon("far", "comment")
+    プロジェクトにコメントする
   .new_project_comment_main
     = form_with  url: project_project_comments_path(project_id: params[:project_id]), method: :post, local: true do |f|
       .new_project_comment_wrapper
@@ -17,5 +19,5 @@
           %br
           = f.select :to_user_id, @users
         .new_project_comment_wrapper__submit_btn
-          = f.submit "send"
+          = f.submit "送信",class:"submit_btn"
       
