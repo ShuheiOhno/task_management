@@ -36,6 +36,10 @@
   color: white;
 }
 
+.receive_list_font {
+  text-align: center;
+}
+
 .receive_list_display_click {
   background-color: wheat;
   color: black;
@@ -90,6 +94,10 @@
   display: none;
 }
 
+.reply_list_font {
+  text-align: center;
+}
+
 .reply_list_wrapper {
   padding: 0 5px 5px 5px ;
   border: 1px solid black;
@@ -99,6 +107,7 @@
 .reply_list_wrapper {
   margin: 5px 0;
   word-wrap: break-word;
+  background-color: blanchedalmond;
 }
 
 .reply_list_content {
@@ -126,6 +135,11 @@
 
 
 // 送信
+.send_list_font {
+  margin-top: 30px;
+  text-align: center;
+}
+
 .send_list_wrapper {
   height: 50%;
   width: 90%;

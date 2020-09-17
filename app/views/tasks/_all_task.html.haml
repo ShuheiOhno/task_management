@@ -6,12 +6,14 @@
       = f.text_field :keyword, class: "search_input"
       = f.submit "検索", class:"search_btn"
   .all_task_font
+    = icon("fas", "tasks")
     タスク一覧
   - @tasks.each do |task|
     = link_to project_task_path(task_id: task.id, project_id: task.project_id, id: current_user.id), class:"task_wrapper_link" do
       .task_wrapper
         .task_wrapper__title
-          タスクタイトル:
+          = icon("fas", "tasks")
+          タイトル:
           = task.title
         .task_wrapper__charge
           担当:
@@ -19,7 +21,7 @@
         .task_wrapper__task_comment
           = link_to new_project_task_task_comment_path(task_id: task.id, project_id: task.project_id), class:"link" do
             = icon("far", "comment")
-            タスクにコメントする
+            コメントする
         .task_wrapper__detail
           .time_btn_wrapper
             - if task.start_time == nil || task.start_time.task_id != task.id

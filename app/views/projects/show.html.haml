@@ -1,8 +1,12 @@
 .project_detail_main
   .project_detail_left
     .project_detail
+      .project_detail_font
+        = icon("fas", "project-diagram")
+        プロジェクト詳細
       .project_detail_title
-        プロジェクトタイトル:
+        = icon("fas", "project-diagram")
+        タイトル:
         = @project.title
       .project_detail_deadline
         締め切り:
@@ -42,31 +46,38 @@
           .join_users_name
           = join_user.name
       = form_with url: project_join_project_users_path(project_id: params[:id]), method: :post, local: true do |f|
-        .user_number
-          メンバー追加
-          %br
-          ユーザーを選択してください
-        .user_number_form
-          = f.select :user_id, @users, {include_blank: "---"}
-          = f.submit "追加する"
+        .add_user
+          .user_number
+            = icon("fas", "users")
+            メンバー追加
+            %br
+            ユーザーを選択してください
+          .user_number_form
+            = f.select :user_id, @users, {include_blank: "---"}, class:"add_user_select"
+            = f.submit "追加", class:"submit_btn"
           -# %br
           -# メンバーを追加
           -# %br
           -# = f.collection_check_boxes :user_ids, User.all, :id, :name do |user|
           -#   = user.label { user.check_box + user.text}
           -#   = f.submit "追加する"
-        .complete_project
-          プロジェクトを完了、もしくは中止にする
-          = form_with url: complete_projects_path(id: @project.id), method: :PATCH, local:true do |f|
-            .complete_project_select
-              = f.collection_select :complete_id, Complete.all, :id, :name
-              = f.submit "send"
+          .complete_project
+            = icon("fas", "check-circle")
+            プロジェクトを完了、もしくは中止にする
+            = form_with url: complete_projects_path(id: @project.id), method: :PATCH, local:true do |f|
+              .complete_project_select
+                = f.collection_select :complete_id, Complete.all, :id, :name, {class: "complete_select"}
+                = f.submit "決定", class:"submit_btn"
   .project_detail_center
-    プロジェクトへのコメント
+    .project_detail_center_font
+      = icon("fas", "project-diagram")
+      = icon("far", "comment")
+      このプロジェクトへのコメント
     - @project.project_comments.each do |comment|
       = link_to project_project_comment_path(id: comment.id, project_id: comment.project_id), class:"project_link" do
         .project_detail_center_wrapper
           .project_detail_center_title
+            = icon("far", "comment") 
             タイトル:
             = comment.title
           .to_from_wrapper
@@ -86,31 +97,40 @@
       
     
   .project_detail_right
-    ・タスクを追加する
+    .add_task_font
+      = icon("fas", "plus-square")
+      = icon("fas", "tasks")
+      タスクを追加(ここをクリック)
     .detail_task_wrapper
       .add_task
         = form_with url: project_tasks_path(params[:id]), method: :post, local: true do |f|
           .add_task_title
-            タスク名
+            = icon("fas", "tasks")
+            タイトル
             %br
-            = f.text_field :title
-          .add_task_user 
-            担当
-            = f.select :to_user_id, @users
-          .add_task_estimated_time
-            予測時間(number)
-            .estimated_time_wrapper
-              .estimated_time_wrapper__form
-                = f.text_field :estimated_time
-              .estimated_time_wrapper__btn
-                = f.submit "send"
+            = f.text_field :title, class:"add_task_field"
+          .add_task_user_time_wrapper
+            .add_task_user 
+              担当
+              %br
+              = f.select :to_user_id, @users
+            .add_task_estimated_time
+              予測時間
+              .estimated_time_wrapper
+                .estimated_time_wrapper__form
+                  = f.text_field :estimated_time, class:"add_task_time_field", placeholder:"単位：時間"
+                .estimated_time_wrapper__btn
+                  = f.submit "追加", class:"submit_btn"
 
       .project_detail_tasks
-        ・タスク一覧
+        .project_detail_tasks_font
+          = icon("fas", "tasks")
+          タスク一覧
         - @project.tasks.order(id: "DESC").each do |task|
           = link_to project_task_path(project_id: task.project.id, task_id: task.id), class:"project_link" do
             .project_detail_tasks_wrapper
               .project_detail_tasks_wrapper__title
+                = icon("fas", "tasks")
                 タイトル:
                 = task.title
               .project_detail_tasks_wrapper__time
@@ -129,13 +149,13 @@
                 - if task.start_time == nil || task.start_time.task_id != task.id
                   .task_start_time
                     = form_with url: start_times_path(task_id: task.id), method: :post do |f|
-                      = f.submit "開始"
+                      = f.submit "開始", class:"submit_btn"
                 - if task.start_time != nil && task.stop_time == nil
                   .task_stop_time
                     開始日時:
                     = task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
                     = form_with url: stop_times_path(task_id: task.id), method: :post do |f|
-                      = f.submit "終了"
+                      = f.submit "終了", class:"submit_btn"
                 -if task.stop_time != nil && task.stop_time != nil
                   = task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
                   に完了しました

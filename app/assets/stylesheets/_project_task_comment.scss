@@ -4,10 +4,15 @@
   margin: 10px;
 }
 
+.project_message_font {
+  margin:0 0 10px 10px;
+}
+
 .project_message_wrapper {
   height: 50%;
   width: 95%;
   margin: 0 auto;
+  padding: 5px;
   word-wrap: break-word;
   overflow: scroll;
   border: 1px solid black;
@@ -31,11 +36,16 @@
   margin: 10px;
 }
 
+.task_message_font {
+  margin:0 0 10px 10px;
+}
+
 .task_message_wrapper {
   height: 50%;
   width: 95%;
   margin: 0 auto;
   margin-bottom: 10px;
+  padding: 5px;
   word-wrap: break-word;
   overflow: scroll;
   border: 1px solid black;

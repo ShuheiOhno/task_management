@@ -8,6 +8,7 @@
         = f.submit "検索", class:"search_btn"
 
     .main_join_project_font
+      = icon("fas", "project-diagram")
       プロジェクト一覧
     .join_project
       - @projects.each do |project|
@@ -15,7 +16,8 @@
           = link_to project_path(project.id), class:"owner_project_wrapper_link" do
             .join_project_wrapper
               .join_project_wrapper__title
-                プロジェクトタイトル:
+                = icon("fas", "project-diagram")
+                タイトル:
                 = project.title
               .join_project_wrapper__owner
                 責任者
@@ -26,7 +28,7 @@
               .join_project_wrapper__project_comment
                 = link_to new_project_project_comment_path(project_id: project.id), class:"link" do
                   = icon("far", "comment")
-                  プロジェクトにコメントする
+                  コメントする
               .join_project_wrapper__explanation
                 説明
                 %br

@@ -2,6 +2,7 @@
   .owner_project_link_font
     = link_to new_project_path,class:"project_link" do
       = icon("fas", "plus-square")
+      = icon("fas", "project-diagram")
       新しいプロジェクトを追加する
   .owner_project
     .owner_project_content
@@ -10,6 +11,7 @@
       = link_to project_path(owner_project.id), class:"owner_project_wrapper_link" do
         .owner_project_wrapper
           .owner_project_wrapper__title
+            = icon("fas", "project-diagram")
             タイトル:
             = owner_project.title
           .owner_project_wrapper__explanation
