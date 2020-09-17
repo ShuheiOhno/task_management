@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(version: 2020_09_11_070255) do
   create_table "project_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "project_id"
     t.bigint "user_id"
-    t.string "title"
-    t.text "comment"
-    t.integer "to_user_id"
+    t.string "title", null: false
+    t.text "comment", null: false
+    t.integer "to_user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_project_comments_on_project_id"
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 2020_09_11_070255) do
   end
 
   create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "title"
-    t.text "explanation"
-    t.datetime "deadline"
+    t.string "title", null: false
+    t.text "explanation", null: false
+    t.datetime "deadline", null: false
     t.bigint "user_id"
     t.integer "complete_id"
     t.datetime "created_at", precision: 6, null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_09_11_070255) do
   end
 
   create_table "reply_user_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.text "reply"
+    t.text "reply", null: false
     t.bigint "user_id"
     t.bigint "user_comment_id"
     t.datetime "created_at", precision: 6, null: false
@@ -80,9 +80,9 @@ ActiveRecord::Schema.define(version: 2020_09_11_070255) do
   create_table "task_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "task_id"
     t.bigint "user_id"
-    t.string "title"
-    t.text "comment"
-    t.integer "to_user_id"
+    t.string "title", null: false
+    t.text "comment", null: false
+    t.integer "to_user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["task_id"], name: "index_task_comments_on_task_id"
@@ -90,15 +90,12 @@ ActiveRecord::Schema.define(version: 2020_09_11_070255) do
   end
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.integer "cost_time"
     t.integer "estimated_time"
-    t.integer "complete_id"
     t.bigint "project_id"
     t.bigint "user_id"
-    t.integer "to_user_id"
-    t.datetime "start_time"
-    t.datetime "stop_time"
+    t.integer "to_user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_tasks_on_project_id"
@@ -107,9 +104,9 @@ ActiveRecord::Schema.define(version: 2020_09_11_070255) do
 
   create_table "user_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "title"
-    t.text "comment"
-    t.integer "to_user_id"
+    t.string "title", null: false
+    t.text "comment", null: false
+    t.integer "to_user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_user_comments_on_user_id"

@@ -8,6 +8,10 @@ class Project < ApplicationRecord
   # 実験
   has_many :users,through: :join_project_users , dependent: :destroy
 
+  validates :title, presence: true
+  validates :explanation, presence: true
+  validates :deadline, presence: true
+
   def self.search(search)
     if search != ""
       Project.where('title LIKE(?)', "%#{search}%")

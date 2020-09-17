@@ -11,8 +11,14 @@ class ProjectCommentsController < ApplicationController
   end
 
   def create
-    ProjectComment.create(project_comment_params)
-    redirect_to root_path
+    project_comment = ProjectComment.new(project_comment_params)
+    if project_comment.save
+      redirect_to project_path(id: project_comment.project_id)
+      flash[:notice] = "コメントしました"
+    else
+      redirect_back(fallback_location: new_project_path)
+      flash[:notice] = "コメント投稿に失敗しました"
+    end
   end
 
   def show

@@ -21,9 +21,9 @@ class CommentsController < ApplicationController
 
   def destroy
     comment = Comment.find(params[:id])
-    # binding.pry
     comment.destroy
-    # redirect_back(fallback_location: )
+    flash[:notice] = "削除しました"
+    redirect_to users_path
   end
 
   private

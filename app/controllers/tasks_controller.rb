@@ -9,12 +9,17 @@ class TasksController < ApplicationController
   end
   
   def create
-    Task.create(task_params)
-    redirect_to root_path
+    task = Task.new(task_params)
+    if task.save
+      redirect_to project_task_path(project_id: task.project_id, task_id: task.id, id: current_user.id)
+      flash[:notice] = "タスクを保存しました"
+    else
+      redirect_to project_path(id: task.project_id)
+      flash[:notice] = "タスクの保存に失敗しました"
+    end
   end
 
   def show
-    # @task = Task.find(params[:id])
     @task = Task.find(params[:task_id])
   end
 
@@ -24,15 +29,21 @@ class TasksController < ApplicationController
   
   def update
     task = Task.find(params[:id])
-    # task[:start_time] = Time.now
-    task.update(edit_task_params)
-    redirect_to root_path
+    if task.update(edit_task_params)
+      redirect_to project_task_path(project_id: task.project_id, task_id: task.id, id: current_user.id)
+      flash[:notice] = "タスクを編集しました"
+    else
+      redirect_to edit_project_task_path(project_id: task.project_id, task_id: task.id, id: current_user.id)
+      flash[:notice] = "タスクの編集に失敗しました"
+    end
   end
 
   def destroy
-    task = Task.find(params[:id])
+    
+    task = Task.find(params[:task_id])
     task.destroy
-    redirect_to root_path
+    flash[:notice] = "タスクを削除しました"
+    redirect_to users_path
   end
 
   def search

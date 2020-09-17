@@ -11,8 +11,14 @@ class UserCommentsController < ApplicationController
   end
 
   def create
-    UserComment.create(user_comment_params)
-    redirect_to root_path
+    user_comment = UserComment.create(user_comment_params)
+    if user_comment.save
+      redirect_to user_message_user_path(id: current_user.id)
+      flash[:notice] = "メッセージを送信しました"
+    else
+      redirect_to new_user_comment_path
+      flash[:notice] = "メッセージの送信に失敗しました"
+    end
   end
 
   def show

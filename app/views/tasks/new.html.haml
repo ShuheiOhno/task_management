@@ -1,7 +1,7 @@
 タスク新規投稿ページ（new）
 %br
 -# -# cost_time、complete_idは最後に入力
-= form_with url: project_tasks_path(project_id: params[:project_id]) ,method: :post do |f|
+= form_with url: project_tasks_path(project_id: params[:project_id]) ,method: :post, local: true do |f|
 
   タスク名
   = f.text_field :title

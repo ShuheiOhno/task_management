@@ -6,6 +6,9 @@ class Task < ApplicationRecord
   has_many :task_comment,dependent: :destroy
   # belongs_to :complete, optional: true
 
+  validates :title, presence: true
+  validates :to_user_id, presence: true
+
   def self.search(search)
     if search != ""
       Task.where('title LIKE(?)', "%#{search}%")

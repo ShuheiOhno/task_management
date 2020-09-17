@@ -49,13 +49,13 @@
                   .time_btn_wrapper
                     - if task.start_time == nil || task.start_time.task_id != task.id
                       .task_start_time
-                        = form_with url: start_times_path(task_id: task.id), method: :post do |f|
+                        = form_with url: start_times_path(task_id: task.id), method: :post, local: true do |f|
                           = f.submit "開始"
                     - if task.start_time != nil && task.stop_time == nil
                       .task_stop_time
                         開始日時:
                         = task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
-                        = form_with url: stop_times_path(task_id: task.id), method: :post do |f|
+                        = form_with url: stop_times_path(task_id: task.id), method: :post, local: true do |f|
                           = f.submit "終了"
                     -if task.stop_time != nil && task.stop_time != nil
                       = task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")

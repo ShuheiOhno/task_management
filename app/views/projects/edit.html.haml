@@ -4,7 +4,7 @@
     .edit_project_main_font
       プロジェクト編集画面
     .edit_project_wrapper
-      = form_with model: @project do |f|
+      = form_with model: @project, local: true do |f|
         .edit_project_wrapper__title
           タイトル
           %br

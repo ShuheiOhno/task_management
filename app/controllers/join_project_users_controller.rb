@@ -5,8 +5,16 @@ class JoinProjectUsersController < ApplicationController
   end
 
   def create
-    JoinProjectUser.create(join_project_user_params)
-    redirect_to project_path(params[:project_id])
+    # JoinProjectUser.create(join_project_user_params)
+    join_user = JoinProjectUser.new(join_project_user_params)
+    if join_user.save
+      # redirect_to project_path(id: join_user.project_id)
+      flash[:notice] = "ユーザーを追加しました"
+      redirect_back(fallback_location: project_path(id: join_user.project_id))
+      # render project_path(id: join_user.project_id)
+      # render action: :show
+    end
+    
   end
 
   def destroy

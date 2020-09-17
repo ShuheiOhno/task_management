@@ -16,9 +16,13 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    Project.create(project_params)
-    redirect_to root_path
-    # redirect_to project_path(@project.id)
+    new_project = Project.new(project_params)
+    if new_project.save
+      redirect_to project_path(id: new_project.id)
+    else
+      redirect_to new_project_path
+      flash[:notice] = "登録に失敗しました。"
+    end
   end
 
   def show
@@ -31,7 +35,6 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    # binding.pry
     @project = Project.find(params[:id])
     @users = []
     User.all.each do |user|
@@ -41,14 +44,20 @@ class ProjectsController < ApplicationController
 
   def update
     project = Project.find(params[:id])
-    project.update(project_params)
-    redirect_to root_path
+    if project.update(project_params)
+      redirect_to project_path(id: project.id)
+      flash[:notice] = "編集しました。"
+    else
+      redirect_to edit_project_path(project.id)
+      flash[:notice] = "編集に失敗しました。"
+    end
   end
 
   def destroy
     project = Project.find(params[:id])
     project.destroy
-    redirect_to root_path
+    flash[:notice] = "プロジェクトを削除しました"
+    redirect_to user_path(id: current_user.id)
   end
 
   def search
