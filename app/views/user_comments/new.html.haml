@@ -1,7 +1,7 @@
 .user_new_comment
   .user_new_comment_font
     ユーザーにコメントする
-  = form_with url: user_comments_path, method: :post do |f|
+  = form_with url: user_comments_path, method: :post, local: true do |f|
     .user_new_comment_wrapper
       .user_new_comment_wrapper__title
         ユーザーへのコメントタイトル

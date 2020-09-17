@@ -4,6 +4,9 @@
       .header_wrapper__logout
         = link_to destroy_user_session_path, class:"link_text" do
           ログアウト
+      .header_wrapper__login_user
+        = current_user.name
+        さんがログイン中
       .header_wrapper__user_show
         = link_to user_path(current_user.id), class:"link_text" do
           = icon("fas", "project-diagram")

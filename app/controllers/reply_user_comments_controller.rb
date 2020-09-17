@@ -5,8 +5,14 @@ class ReplyUserCommentsController < ApplicationController
   end
 
   def create
-    ReplyUserComment.create!(reply_user_comment_params)
-    redirect_to user_path(current_user.id)
+    reply = ReplyUserComment.create(reply_user_comment_params)
+    if reply.save
+      redirect_to user_message_user_path(id: current_user.id)
+      flash[:notice] = "返信しました"
+    else
+      redirect_to new_user_comment_reply_user_comment_path(user_comment_id: reply.user_comment_id)
+      flash[:notice] = "返信に失敗しました"
+    end
   end
 
   def show

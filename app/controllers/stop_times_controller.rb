@@ -1,13 +1,14 @@
 class StopTimesController < ApplicationController
-  def index
-  end
 
-  def new
-    @stop_time = StopTime.new
-  end
-  
   def create
-    StopTime.create(stop_time_params)
+    stop_time = StopTime.create(stop_time_params)
+
+    if stop_time.save
+      redirect_to project_task_path(project_id: stop_time.task.project_id, task_id: stop_time.task_id, id: current_user.id)
+      flash[:notice] = "タスクを終了しました"
+    else
+      flash[:notice] = "タスクを終了できませんでした"
+    end
   end
 
   private

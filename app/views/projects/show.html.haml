@@ -78,7 +78,7 @@
     ・タスクを追加する
     .detail_task_wrapper
       .add_task
-        = form_with url: project_tasks_path(params[:id]), method: :post do |f|
+        = form_with url: project_tasks_path(params[:id]), method: :post, local: true do |f|
           .add_task_title
             タスク名
             %br

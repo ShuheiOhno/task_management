@@ -11,8 +11,14 @@ class TaskCommentsController < ApplicationController
   end
 
   def create
-    TaskComment.create(task_comment_params)
-    redirect_to root_path
+    task_comment = TaskComment.create(task_comment_params)
+    if task_comment.save
+      redirect_to project_task_path(project_id: task_comment.task.project_id, task_id: task_comment.task_id, id: current_user.id)
+      flash[:notice] = "コメントを保存しました"
+    else
+      redirect_back(fallback_location: new_project_task_task_comment_path(project_id: task_comment.task.project_id, task_id: task_comment.task_id))
+      flash[:notice] = "コメントの保存に失敗しました"
+    end
   end
 
   def show
