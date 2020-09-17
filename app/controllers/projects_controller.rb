@@ -73,15 +73,35 @@ class ProjectsController < ApplicationController
     @projects = Project.search(params[:keyword])
   end
 
+  def complete
+    project = Project.find(params[:id])
+    if project.update(complete_project_params)
+      if project.complete_id == 1
+        redirect_to project_path(id: project.id)
+        flash[:notice] = "プロジェクトを終了（完遂）しました。"
+      else
+        redirect_to project_path(id: project.id)
+        flash[:notice] = "プロジェクトを中止しました。"
+      end
+    else
+      redirect_to edit_project_path(project.id)
+      flash[:notice] = "編集に失敗しました。"
+    end
+  end
+
 private
   def project_params
     params.require(:project).permit(
-      :title, :explanation, :deadline, :user_id,
+      :title, :explanation, :deadline,
+      :user_id, :complete_id
     ).merge(user_id: current_user.id)
   end
 
-  def project_user_params
-    params.permit(:user_ids)
+  def complete_project_params
+    params.permit(
+      :title, :explanation, :deadline,
+      :user_id, :complete_id
+    ).merge(user_id: current_user.id)
   end
 
   def move_to_index

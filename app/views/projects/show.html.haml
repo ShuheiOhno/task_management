@@ -55,7 +55,12 @@
           -# = f.collection_check_boxes :user_ids, User.all, :id, :name do |user|
           -#   = user.label { user.check_box + user.text}
           -#   = f.submit "追加する"
-
+        .complete_project
+          プロジェクトを完了、もしくは中止にする
+          = form_with url: complete_projects_path(id: @project.id), method: :PATCH, local:true do |f|
+            .complete_project_select
+              = f.collection_select :complete_id, Complete.all, :id, :name
+              = f.submit "send"
   .project_detail_center
     プロジェクトへのコメント
     - @project.project_comments.each do |comment|
