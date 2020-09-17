@@ -1,13 +1,15 @@
 .task_detail
   .task_detail_font
+    = icon("fas", "tasks")
     タスク詳細ページ
   .task_detail_main
     .task_detail_wrapper
       .task_detail_wrapper__title
+        = icon("fas", "tasks")
         タイトル:
         = @task.title
       .task_detail_wrapper__project_name
-        元のプロジェクトの名前:
+        元のプロジェクト:
         = @task.project.title
       .task_detail_title_estimated_user_wrapper
         .task_detail_wrapper_estimated_time
@@ -50,7 +52,10 @@
           に完了しました
   
   .task_detail_comment_list
-    タスクへのコメント
+    .task_detail_comment_list_font
+      = icon("fas", "tasks")
+      = icon("far", "comment")
+      タスクへのコメント
     .task_detail_comment
       - @task.task_comment.each do |task_comment|
         .task_detail_comment_wrapper

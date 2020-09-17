@@ -18,11 +18,14 @@
       返信を非表示
 
   .receive_list
-    ・個人メッセージ(受信)
+    .receive_list_font
+      = icon("far", "envelope")
+      個人メッセージ(受信)
     - @receive_user_comment.each do |receive_comment|
       = link_to user_comment_path(receive_comment.id), class:"message_link" do
         .main_user_comment_wrapper
           .main_user_comment_title
+            = icon("far", "envelope")
             タイトル:
             = receive_comment.title
           .main_user_comment_from_user
@@ -38,28 +41,33 @@
               返信する
       
       .reply_list
-        ・返信一覧
+        .reply_list_font
+          = icon("fas", "reply")
+          返信一覧
         - receive_comment.reply_user_comments.each do |reply|
           .reply_list_wrapper
-            .reply_list_from_user
-              From:
-              = User.find(reply.user_id).name
             .reply_list_content
+              = icon("fas", "reply")
               内容
               %br
               = safe_join(reply.reply.split("\n"),tag(:br))
+            .reply_list_from_user
+              From:
+              = User.find(reply.user_id).name
             .reply_list_link
               = link_to new_user_comment_reply_user_comment_path(receive_comment.id), class:"link" do
                 = icon("fas", "reply")
                 返信する
 
   .send_list
-    ・個人メッセージ(送信)
+    .send_list_font
+      = icon("far", "envelope")
+      個人メッセージ(送信)
     - @send_user_comment.each do |send_comment|
       = link_to user_comment_path(send_comment.id), class:"message_link" do
         .send_list_wrapper
-          -# .send_title_user_wrapper
           .send_list_title
+            = icon("far", "envelope")
             タイトル:
             = send_comment.title
           .send_list_to_user
@@ -73,16 +81,18 @@
             = link_to new_user_comment_reply_user_comment_path(send_comment.id), class:"link" do
               = icon("fas", "reply")
               返信する
-      
       .reply_list
-        ・返信一覧
+        .reply_list_font
+          = icon("fas", "reply")
+          返信一覧
         - send_comment.reply_user_comments.each do |reply|
           .reply_list_wrapper
             .reply_list_content_user_wrapper
               .reply_list_content
+                = icon("fas", "reply")
                 内容:
-                = link_to user_comment_reply_user_comment_path(user_comment_id: reply.user_comment_id) do
-                  = reply.reply
+                -# = link_to user_comment_reply_user_comment_path(user_comment_id: reply.user_comment_id) do
+                = reply.reply
               .reply_list_from_user
                 From:
                 = User.find(reply.user_id).name

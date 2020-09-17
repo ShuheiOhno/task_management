@@ -54,6 +54,11 @@
 //   padding: 30px;
 // }
 
+.project_detail_font {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 .project_detail_title {
   padding: 0 5px;
   word-wrap: break-word;
@@ -92,16 +97,45 @@
 .project_detail_join_user_show {
   background-color: wheat;
   color: black;
+  cursor: pointer;
 }
 
 .project_detail_join_user_hide {
   display: none;
   background-color: red;
   color: white;
+  cursor: pointer;
 }
 
 .project_detail_join_user {
   display: none;
+}
+
+.add_user {
+  margin: 30px 0;
+}
+
+.user_number_form {
+  // width: 90%;
+  margin: 10px 0;
+}
+
+.complete_project {
+  margin: 30px 0;
+}
+
+.add_user_select {
+  height: 25px;
+  width: 150px;
+}
+
+#complete_id {
+  height: 25px;
+  width: 70px;
+}
+
+.complete_project_select {
+  margin: 10px 0;
 }
 
 
@@ -109,6 +143,10 @@
 .project_detail_center {
   height: 100%;
   width: 35%;
+}
+
+.project_detail_center_font {
+  text-align: center;
 }
 
 .project_detail_center_wrapper {
@@ -126,10 +164,12 @@
 
 .to_from_wrapper{
   display: flex;
-  justify-content: space-between;
   margin: 10px 0;
 }
 
+.project_detail_center_to_user {
+  margin-left: 30px;
+}
 
 
 
@@ -140,13 +180,21 @@
   // text-align: center;
 }
 
+.add_task_font {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+
+
 .detail_task_wrapper {
   height: 100%;
   width: 90%;
-
 }
 
 .add_task {
+  display: none;
   height: 100%;
   width: 90%;
   margin: 0 10px;
@@ -156,8 +204,25 @@
   margin: 5px;
 }
 
+.add_task_field {
+  height: 20px;
+  width: 300px;
+  padding: 5px;
+}
+
+.add_task_user_time_wrapper {
+  display: flex;
+  margin: 10px 0;
+}
+
+#to_user_id {
+  height: 33px;
+  width: 125px;
+}
+
+
 .add_task_user {
-  margin: 0 5px;
+  margin: 5px;
 }
 
 .add_task_estimated_time {
@@ -167,11 +232,16 @@
 .estimated_time_wrapper {
   display: flex;
   &__btn {
-    margin-left: 10px;
+    margin: 10px 0 10px 10px;
   }
 }
 
+.add_task_time_field {
+  height: 20px;
+  width: 100px;
+  padding: 5px;
 
+}
 
 
 .project_detail_tasks_wrapper {
@@ -190,6 +260,10 @@
   &__task_comment {
     margin: 5px;
   }
+}
+
+.project_detail_tasks_font {
+  margin-left: 10px;
 }
 
 .project_link {

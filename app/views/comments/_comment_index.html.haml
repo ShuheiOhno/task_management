@@ -2,6 +2,7 @@
   .new_comment
     = form_with url: comments_path, class:"form_comment", method: :post, local: true do |f|
       .comment_content
+        = icon("far", "comments")
         チャット
       .comment_form
         = f.text_area :content, class:"comment_content_form"
@@ -16,6 +17,7 @@
     - @comments.order(created_at: "DESC").each do |comment|
       .comment_list_wrapper
         .comment_content
+          = icon("far", "comments")
           コメント
           %br
           = safe_join(comment.content.split("\n"),tag(:br))
