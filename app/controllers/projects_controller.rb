@@ -17,11 +17,20 @@ class ProjectsController < ApplicationController
 
   def create
     new_project = Project.new(project_params)
+    binding.pry
     if new_project.save
+      
+
+      params[:project][:user_ids].each do |join_user_id|
+        if join_user_id != nil
+          JoinProjectUser.create(user_id: join_user_id, project_id: new_project.id)
+        end
+      end
       redirect_to project_path(id: new_project.id)
+      flash[:notice] = "プロジェクトを作成しました。"
     else
       redirect_to new_project_path
-      flash[:notice] = "登録に失敗しました。"
+      flash[:notice] = "プロジェクトの作成に失敗しました。"
     end
   end
 
@@ -69,6 +78,10 @@ private
     params.require(:project).permit(
       :title, :explanation, :deadline, :user_id,
     ).merge(user_id: current_user.id)
+  end
+
+  def project_user_params
+    params.permit(:user_ids)
   end
 
   def move_to_index
