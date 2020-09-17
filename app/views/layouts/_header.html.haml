@@ -1,9 +1,6 @@
 .header
   .header_wrapper
     - if user_signed_in?
-      .header_wrapper__logout
-        = link_to destroy_user_session_path, class:"link_text" do
-          ログアウト
       .header_wrapper__login_user
         = current_user.name
         さんがログイン中
@@ -19,6 +16,14 @@
         = link_to users_path, class:"link_text" do
           = icon("fas", "tasks")
           タスク
+      .header_wrapper__projects_list
+        = link_to projects_path, class:"link_text" do
+          = icon("fas", "search")
+          一覧/検索
+      .header_wrapper__logout
+        = link_to destroy_user_session_path, class:"link_text" do
+          ログアウト
+
 
     - else
       .header_wrapper__login
@@ -27,10 +32,10 @@
       .header_wrapper__user_sign_in
         = link_to new_user_registration_path, class:"link_text" do
           新規登録
-    .header_wrapper__projects_list
-      = link_to projects_path, class:"link_text" do
-        = icon("fas", "search")
-        一覧/検索
+      .header_wrapper__projects_list
+        = link_to projects_path, class:"link_text" do
+          = icon("fas", "search")
+          一覧/検索
 
 
 

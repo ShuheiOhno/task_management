@@ -8,10 +8,15 @@
 }
 .reply_main {
   height: 100%;
-  width: 50%;
+  width: 60%;
   margin: 10px auto;
   // background-color: black;
 }
+
+.reply_main_font {
+  text-align: center;
+}
+
 .reply_wrapper {
   width: 50%;
   margin: 0 auto;
@@ -31,6 +36,7 @@
 
 .reply_content {
   padding: 5px;
+  text-align: center;
 }
 
 .reply_text {

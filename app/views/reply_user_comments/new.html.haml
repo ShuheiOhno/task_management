@@ -1,7 +1,9 @@
 .reply
   .reply_main
-    .reply_wrapper
+    .reply_main_font
+      = icon("fas", "reply")
       返信ページ
+    .reply_wrapper
       .reply_title_comment
         .title_comment_wrapper
           %p
@@ -15,8 +17,9 @@
           = UserComment.find(params[:user_comment_id]).comment
       = form_with url: user_comment_reply_user_comments_path, method: :post, local: true do |f|
         .reply_content
+          = icon("fas", "reply")
           返信内容
         .reply_text
           = f.text_area :reply, class:"reply_text_form"
         .reply_submit_btn
-          = f.submit "send"
+          = f.submit "送信",class:"submit_btn"

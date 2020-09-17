@@ -1,6 +1,8 @@
 .new_task_comment
   .new_task_comment_font
-    タスクコメント
+    = icon("fas", "tasks")
+    = icon("far", "comment")
+    タスクにコメントする
   .new_task_comment_main
     .new_task_comment_wrapper
       = form_with url:  project_task_task_comments_path, method: :post, local: true do |f|
@@ -17,4 +19,4 @@
           %br
           = f.select :to_user_id, @users
         .new_task_comment_wrapper__submit_btn
-          = f.submit "send"
+          = f.submit "送信",class:"submit_btn"
