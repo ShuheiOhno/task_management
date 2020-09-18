@@ -7,15 +7,7 @@ class User < ApplicationRecord
   has_many :projects,through: :join_project_users ,dependent: :destroy
   has_many :project_comments, dependent: :destroy
   has_many :task_comments, dependent: :destroy
-  has_many :user_comments, dependent: :destroy
-  
+  has_many :user_comments, dependent: :destroy  
   has_many :reply_user_comments, dependent: :destroy
-
   has_one :comment
-
-  # 下が怪しい
-  # has_many :join_project_users, dependent: :destroy
-
-  # 実験
-  # has_many :projects,through: :join_project_users , dependent: :destroy
 end

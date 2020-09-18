@@ -17,10 +17,7 @@ class ProjectsController < ApplicationController
 
   def create
     new_project = Project.new(project_params)
-    binding.pry
     if new_project.save
-      
-
       params[:project][:user_ids].each do |join_user_id|
         if join_user_id != nil
           JoinProjectUser.create(user_id: join_user_id, project_id: new_project.id)
