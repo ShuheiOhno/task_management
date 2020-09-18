@@ -61,13 +61,16 @@
           -# = f.collection_check_boxes :user_ids, User.all, :id, :name do |user|
           -#   = user.label { user.check_box + user.text}
           -#   = f.submit "追加する"
-          .complete_project
-            = icon("fas", "check-circle")
-            プロジェクトを完了、もしくは中止にする
-            = form_with url: complete_projects_path(id: @project.id), method: :PATCH, local:true do |f|
-              .complete_project_select
-                = f.collection_select :complete_id, Complete.all, :id, :name, {class: "complete_select"}
-                = f.submit "決定", class:"submit_btn"
+      .complete_project
+        = icon("fas", "check-circle")
+        プロジェクトを完了、もしくは中止にする
+        = form_with url: complete_projects_path(id: @project.id), method: :PATCH, local:true do |f|
+          .complete_project_select
+            = f.collection_select :complete_id, Complete.all, :id, :name, {class: "complete_select"}
+            = f.submit "決定", class:"submit_btn"
+  
+
+
   .project_detail_center
     .project_detail_center_font
       = icon("fas", "project-diagram")
@@ -95,7 +98,6 @@
             %br
             = safe_join(comment.comment.split("\n"),tag(:br))
 
-      
     
   .project_detail_right
     .add_task_font
