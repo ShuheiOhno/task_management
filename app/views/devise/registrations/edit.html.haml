@@ -4,7 +4,7 @@
   = render "devise/shared/error_messages", resource: resource
   .field
     = f.label :name
-    %em (20 characters maximum)
+    %em
     %br/
     = f.text_field :name, autofocus: true, maxlength: "20"
   .field
@@ -23,7 +23,7 @@
       %br/
       %em
         = @minimum_password_length
-        characters minimum
+        文字以内
   .field
     = f.label :password_confirmation
     %br/

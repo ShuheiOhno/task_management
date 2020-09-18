@@ -1,8 +1,10 @@
 .user_comment_detail
   .user_comment_detail_font
+    = icon("far", "envelope")
     メッセージ詳細画面
   .user_comment_detail_main
     .user_comment_detail_title
+      = icon("far", "envelope")
       タイトル:
       = @user_comment.title
     .user_comment_detail_comment
@@ -20,10 +22,12 @@
 
   .user_comment_detail_reply
     .user_comment_detail_reply_font
+      = icon("fas", "reply")
       返信一覧
     - @replies.each do |reply|
       .user_comment_detail_reply_wrapper
         .user_comment_detail_reply_wrapper__content
+          = icon("fas", "reply")
           内容
           %br
           = safe_join(reply.reply.split("\n"),tag(:br))

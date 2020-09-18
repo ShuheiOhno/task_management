@@ -1,41 +1,42 @@
 .header
   .header_wrapper
     - if user_signed_in?
-      .header_wrapper__login_user
-        = current_user.name
-        さんがログイン中
-      .header_wrapper__user_show
-        = link_to user_path(current_user.id), class:"link_text" do
-          = icon("fas", "project-diagram")
-          プロジェクト
-      .header_wrapper__user_message
-        = link_to user_message_user_path(current_user.id), class:"link_text" do
-          = icon("far", "envelope")
-          メッセージ
-      .header_wrapper__user_task
-        = link_to users_path, class:"link_text" do
-          = icon("fas", "tasks")
-          タスク
-      .header_wrapper__projects_list
-        = link_to projects_path, class:"link_text" do
-          = icon("fas", "search")
-          一覧/検索
-      .header_wrapper__logout
-        = link_to destroy_user_session_path, class:"link_text" do
-          ログアウト
-
+      .login_user_name
+        .header_wrapper__login_user
+          = current_user.name
+          さんがログイン中
+      .main_link_list
+        .main_link_list__user_show
+          = link_to user_path(current_user.id), class:"link_text" do
+            = icon("fas", "project-diagram")
+            プロジェクト
+        .main_link_list__user_message
+          = link_to user_message_user_path(current_user.id), class:"link_text" do
+            = icon("far", "envelope")
+            メッセージ
+        .main_link_list__user_task
+          = link_to users_path, class:"link_text" do
+            = icon("fas", "tasks")
+            タスク
+        .main_link_list__projects_list
+          = link_to projects_path, class:"link_text" do
+            = icon("fas", "search")
+            一覧/検索
+      .logout_link
+        .logout_link__logout
+          = link_to destroy_user_session_path, class:"link_text" do
+            ログアウト
 
     - else
-      .header_wrapper__login
-        = link_to new_user_session_path, class:"link_text" do
-          ログイン 
-      .header_wrapper__user_sign_in
-        = link_to new_user_registration_path, class:"link_text" do
-          新規登録
-      .header_wrapper__projects_list
-        = link_to projects_path, class:"link_text" do
-          = icon("fas", "search")
-          一覧/検索
+      .login_sign_up_header_wrapper
+        .login_sign_up_wrapper
+          .login_logout_wrapper__login
+            = link_to new_user_session_path, class:"link_text" do
+              ログイン(log in)
+          .login_logout_wrapper__user_sign_up
+            = link_to new_user_registration_path, class:"link_text" do
+              新規登録(Sign up)
+
 
 
 
