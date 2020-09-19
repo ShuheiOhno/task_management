@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :user_comments do
     resources :reply_user_comments
   end 
-  root "comments#index"
+  root to: "comments#index"
   # root "users#show"
   resources :users do
     member do
