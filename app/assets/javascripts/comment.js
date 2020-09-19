@@ -56,7 +56,8 @@ $(function(){
       console.log(html)
       $('.comment_list').prepend(html);      
       $('.form_comment')[0].reset();
-      $(".comment_submit_btn").prop('disabled', false);
+      $(".submit_btn").prop('disabled', false);
+      // $(".comment_submit_btn").prop('disabled', false);
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
