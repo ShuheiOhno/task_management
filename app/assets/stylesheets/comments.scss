@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// comment/index
+.sign {
+  width: 100%;
+  margin: 50px 0;
+  text-align: center;
+  &__in_link {
+    margin: 10px;
+  }
+  &__up_link {
+    margin: 10px;
+  }
+}
+
+
+
 .comment {
   height: 100%;
   width: 100%;
@@ -93,3 +108,4 @@ margin-right: 20px;
 .comment_delete {
   margin: 0 0 5px 5px;
 }
+
