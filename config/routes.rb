@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :user_comments do
     resources :reply_user_comments
   end 
-  root "users#show"
+  root "comments#index"
+  # root "users#show"
   resources :users do
     member do
       get "user_message"
