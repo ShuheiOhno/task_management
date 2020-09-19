@@ -65,6 +65,19 @@
   margin-left: 10px;
 }
 
+.task_list_display {
+  background-color: wheat;
+  color: black;
+  cursor: pointer;
+}
+
+.task_list_hide {
+  display: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
 
 // task css
 .task_list_hide {

@@ -34,6 +34,21 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @all_users = User.all
+    
+
+    @join_project_user_ids = []
+    @project.users.each do |user|
+      @join_project_user_ids << user.id
+    end
+
+    @no_select_users = []
+    @all_users.each do |user|
+      # - @join_project_user_ids.each do |user_id|
+      # if 
+      # binding.pry
+      #   user.projects
+    end
+    
     @users = []
     User.all.each do |user|
       @users << [user.name, user.id]

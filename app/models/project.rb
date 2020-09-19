@@ -3,7 +3,7 @@ class Project < ApplicationRecord
   has_many :project_comments, dependent: :destroy
   has_many :join_project_users, dependent: :destroy
 
-  has_many :users,through: :join_project_users , dependent: :destroy
+  has_many :users,through: :join_project_users, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :complete
