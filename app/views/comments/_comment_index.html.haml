@@ -21,19 +21,19 @@
           コメント
           %br
           = safe_join(comment.content.split("\n"),tag(:br))
-        -# .comment_images
-        -#   - if comment.image.url
-        -#     = image_tag comment.image.url, class:"comment_image"
-        -# .comment_user_time_wrapper
-        -#   .comment_user_name
-        -#     = comment.user.name
-        -#     さん
-        -#   .comment_time
-        -#     = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
-        -# - if current_user.id == comment.user_id && user_signed_in?
-        -#   .comment_delete
-        -#     = link_to comment_path(comment.id), method: :delete, class:"link" do
-        -#       = icon("fas", "trash")
-        -#       削除
+        .comment_images
+          - if comment.image.url
+            = image_tag comment.image.url, class:"comment_image"
+        .comment_user_time_wrapper
+          .comment_user_name
+            = comment.user.name
+            さん
+          .comment_time
+            = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+        - if current_user.id == comment.user_id && user_signed_in?
+          .comment_delete
+            = link_to comment_path(comment.id), method: :delete, class:"link" do
+              = icon("fas", "trash")
+              削除
 
 

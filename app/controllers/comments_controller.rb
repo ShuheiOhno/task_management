@@ -7,8 +7,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
-  def create
-    # Comment.create(comment_params)
+  def create    
     @comment = Comment.new(comment_params)
     if @comment.save
       respond_to do |format|
