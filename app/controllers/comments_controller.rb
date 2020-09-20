@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
-  def create    
+  def create
     @comment = Comment.new(comment_params)
     if @comment.save
       respond_to do |format|
@@ -28,8 +28,5 @@ class CommentsController < ApplicationController
   private
   def comment_params
     params.permit(:content, :image).merge(user_id: current_user.id)
-
-    # comment/index.html.hamlで使うなら下
-    # params.require(:comment).permit(:content, :image).merge(user_id: current_user.id)
   end
 end
