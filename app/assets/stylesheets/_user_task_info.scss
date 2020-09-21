@@ -32,10 +32,37 @@
 
 
 
-.complete_task_link {
+.complete_task_title {
   padding-left: 10%;
+  display: none;
 }
 
-.no_complete_task_link {
+
+.no_complete_task_title {
   padding-left: 10%;
+  display: none;
+}
+
+.user_task_info_wrapper__complete_show_btn {
+  background-color: wheat;
+}
+
+.user_task_info_wrapper__complete_hide_btn {
+ display: none;
+ background-color: red;
+ color: white;
+}
+
+.complete_task_btn_wrapper {
+  margin: 5px 20px;
+}
+
+.user_task_info_wrapper__no_complete_show_btn {
+  background-color: wheat;
+}
+
+.user_task_info_wrapper__no_complete_hide_btn {
+ display: none;
+ background-color: red;
+ color: white;
 }
