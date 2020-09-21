@@ -4,15 +4,19 @@
       = icon("fas", "tasks")
       あなたが担当するタスクの情報
     .user_task_info_wrapper__rate
-      ・タスク完了率:
-      = ((@complete_tasks.count.to_f / @user_tasks.count.to_f) * 100).round(1)
-      = "%"
+      - if @user_tasks.count.to_f != 0
+        ・タスク完了率:
+        = ((@complete_tasks.count.to_f / @user_tasks.count.to_f) * 100).round(1)
+        = "%"
     .user_task_info_wrapper__count
       ・全てのタスクの数:
       = @user_tasks.count
     .user_task_info_wrapper__complete_task
       ・完了したタスク:
       = @complete_tasks.count
+    .user_task_info_wrapper__no_complete_task
+      ・完了していないタスク:
+      = @no_complete_tasks.count
     .user_task_info_wrapper__complete_task_list
       ・完了したタスク一覧
       - @complete_tasks.each do |complete_task|
@@ -20,9 +24,6 @@
           .complete_task_title
             = link_to project_task_path(task_id: complete_task.id, project_id: complete_task.project_id, id: current_user.id), class:"link" do
               = complete_task.title
-    .user_task_info_wrapper__no_complete_task
-      ・完了していないタスク:
-      = @no_complete_tasks.count
     .user_task_info_wrapper__no_complete_task_list
       ・完了していないタスク一覧
       - @no_complete_tasks.each do |no_complete_task|

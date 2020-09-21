@@ -8,8 +8,22 @@
         = icon("fas", "tasks")
         タイトル:
         = @task.title
+      .task_detail_wrapper__status
+        状態:
+        - if @task.start_time == nil
+          まだ開始していません
+        -  elsif @task.stop_time == nil
+          作業中
+        - else
+          = icon("far", "check-circle")
+          完了
+          = icon("far", "check-circle")
+      .task_detail_wrapper__created_at
+        作成日時:
+        = @task.created_at.strftime("%Y年%m月%d日 %H時%M分")
       .task_detail_wrapper__project_name
-        元のプロジェクト:
+        = icon("fas", "project-diagram")
+        プロジェクト:
         = @task.project.title
       .task_detail_title_estimated_user_wrapper
         .task_detail_wrapper_estimated_time
@@ -41,14 +55,15 @@
           .task_start_time
             = form_with url: start_times_path(task_id: @task.id), method: :post, local: true do |f|
               = f.submit "開始", class:"start_btn"
-        - if @task.start_time != nil && @task.stop_time == nil
+        - elsif @task.start_time != nil && @task.stop_time == nil
           .task_stop_time
             開始日時:
-            = @task.start_time.created_at
+            = @task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
             = form_with url: stop_times_path(task_id: @task.id), method: :post, local: true do |f|
               = f.submit "終了", class:"stop_btn"
-        - if @task.stop_time != nil && @task.stop_time != nil
-          = @task.stop_time.created_at
+          -# - if @task.stop_time != nil && @task.stop_time != nil
+        - else
+          = @task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
           に完了しました
   
   .task_detail_comment_list

@@ -3,79 +3,95 @@
     = icon("fas", "project-diagram")
     参加しているプロジェクト一覧
   .join_project
-    - @projects.each do |project|
-      .project_and_task_wrapper
-        = link_to project_path(project.id), class:"owner_project_wrapper_link" do
-          .join_project_wrapper
-            .join_project_wrapper__title
-              = icon("fas", "project-diagram")
-              タイトル:
-              = project.title
-            .join_project_wrapper__owner
-              責任者
-              = User.find(project.user_id).name
-            -# .join_project_wrapper__explanation
-            -#   説明:
-            -#   = project.explanation
-            .join_project_wrapper__deadline
-              締め切り:
-              = project.deadline.strftime("%Y年%m月%d日 %H時%M分")
-            .join_project_function
-              .join_project_wrapper__comment_link
-                = link_to new_project_project_comment_path(project.id), class:"owner_project_wrapper_link" do
-                  .owner_project_icon
-                    = icon("far", "comment")
-                    プロジェクトにコメントする
-        .btn_posotion
-          %button{ :class => "task_list_hide"}
-            タスク一覧非表示
-          %button{ :class => "task_list_display"}
-            タスク一覧表示
-        .task
-          - project.tasks.each do |task|
-            = link_to project_task_path(task_id: task.id, project_id: task.project_id, id: current_user.id), class:"task_wrapper_link" do
-              .task_wrapper
-                .task_wrapper__title
-                  = icon("fas", "tasks")
-                  タイトル:
-                  = task.title
-                .task_wrapper__charge
-                  担当:
-                  = task.user.name
-                .task_wrapper__detail
-                  = link_to project_task_path(task_id: task.id, project_id: task.project_id, id: current_user.id), class:"task_wrapper_link" do
-                    .task_comment_function
-                      = link_to new_project_task_task_comment_path(task_id: task.id, project_id: task.project_id), class:"task_wrapper_link" do
-                        .task_comment_icon
-                          = icon("far", "comment")
-                          コメントする
-                  .time_btn_wrapper
-                    - if task.start_time == nil || task.start_time.task_id != task.id
-                      .task_start_time
-                        = form_with url: start_times_path(task_id: task.id), method: :post, local: true do |f|
-                          = f.submit "開始"
-                    - if task.start_time != nil && task.stop_time == nil
-                      .task_stop_time
-                        開始日時:
-                        = task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
-                        = form_with url: stop_times_path(task_id: task.id), method: :post, local: true do |f|
-                          = f.submit "終了"
-                    -if task.stop_time != nil && task.stop_time != nil
-                      = task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
-                      に完了しました
-
-
-                -# 作業コメント一覧
-                -# .task_comment
-                -#   - task.task_comment.each do |task_comment|
-                -#     .task_comment_wrapper
-                -#       .task_comment_wrapper__title
-                -#         作業コメントタイトル:
-                -#         = task_comment.title
-                -#       .task_comment_wrapper__explanation
-                -#         作業コメント内容:
-                -#         = task_comment.comment
-                -#       .task_comment_wrapper__to_user
-                -#         宛先:
-                -#         = User.find(task_comment.to_user_id).name
-                
+    - if @projects != []
+      - @projects.each do |project|
+        .project_and_task_wrapper
+          = link_to project_path(project.id), class:"owner_project_wrapper_link" do
+            .join_project_wrapper
+              .join_project_wrapper__title
+                = icon("fas", "project-diagram")
+                タイトル:
+                = project.title
+              .join_project_wrapper__status
+                状態:
+                - if project.complete_id == nil
+                  未完了
+                - elsif project.complete_id == 2
+                  中止
+                - else
+                  = icon("far", "check-circle")
+                  完了
+                  = icon("far", "check-circle")
+              .join_project_wrapper__created_at
+                作成日:
+                = project.created_at.strftime("%Y年%m月%d日 %H時%M分")      
+              .join_project_wrapper__owner
+                責任者
+                = User.find(project.user_id).name
+              -# .join_project_wrapper__explanation
+              -#   説明:
+              -#   = project.explanation
+              .join_project_wrapper__deadline
+                締め切り:
+                = project.deadline.strftime("%Y年%m月%d日 %H時%M分")
+              .join_project_function
+                .join_project_wrapper__comment_link
+                  = link_to new_project_project_comment_path(project.id), class:"owner_project_wrapper_link" do
+                    .owner_project_icon
+                      = icon("far", "comment")
+                      プロジェクトにコメントする
+          .btn_posotion
+            %button{ :class => "task_list_hide"}
+              タスク一覧非表示
+            %button{ :class => "task_list_display"}
+              タスク一覧表示
+          .task
+            - if project.tasks != [] 
+              - project.tasks.each do |task|
+                = link_to project_task_path(task_id: task.id, project_id: task.project_id, id: current_user.id), class:"task_wrapper_link" do
+                  .task_wrapper
+                    .task_wrapper__title
+                      = icon("fas", "tasks")
+                      タイトル:
+                      = task.title
+                    .task_wrapper__charge
+                      担当:
+                      = task.user.name
+                    .task_wrapper__status
+                      状態:
+                      - if task.start_time == nil
+                        まだ開始していません
+                      -  elsif task.stop_time == nil
+                        作業中
+                      - else
+                        = icon("far", "check-circle")
+                        完了
+                        = icon("far", "check-circle")                  
+                    .task_wrapper__detail
+                      = link_to project_task_path(task_id: task.id, project_id: task.project_id, id: current_user.id), class:"task_wrapper_link" do
+                        .task_comment_function
+                          = link_to new_project_task_task_comment_path(task_id: task.id, project_id: task.project_id), class:"task_wrapper_link" do
+                            .task_comment_icon
+                              = icon("far", "comment")
+                              コメントする
+                      - if project.user_id == current_user.id
+                        .time_btn_wrapper
+                          - if task.start_time == nil || task.start_time.task_id != task.id
+                            .task_start_time
+                              = form_with url: start_times_path(task_id: task.id), method: :post, local: true do |f|
+                                = f.submit "開始", class:"start_btn"
+                          - if task.start_time != nil && task.stop_time == nil
+                            .task_stop_time
+                              開始日時:
+                              = task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                              = form_with url: stop_times_path(task_id: task.id), method: :post, local: true do |f|
+                                = f.submit "終了", class:"stop_btn"
+                          -if task.stop_time != nil && task.stop_time != nil
+                            = task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                            に完了しました
+            - else
+              .no_task_message
+                タスクが作成されていません
+    - else
+      .no_join_project
+        参加しているプロジェクトがありません
