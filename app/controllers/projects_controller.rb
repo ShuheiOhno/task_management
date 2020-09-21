@@ -91,9 +91,12 @@ class ProjectsController < ApplicationController
       if project.complete_id == 1
         redirect_to project_path(id: project.id)
         flash[:notice] = "プロジェクトを終了（完遂）しました。"
-      else
+      elsif project.complete_id == 2
         redirect_to project_path(id: project.id)
         flash[:notice] = "プロジェクトを中止しました。"
+      else
+        redirect_to project_path(id: project.id)
+        flash[:notice] = "プロジェクトを未完了にしました。"
       end
     else
       redirect_to edit_project_path(project.id)

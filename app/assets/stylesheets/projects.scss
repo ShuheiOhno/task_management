@@ -50,41 +50,41 @@
   margin: 0 auto;
 }
 
-// .project_detail {
-//   padding: 30px;
-// }
-
-.project_detail_font {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.project_detail_title {
-  padding: 0 5px;
-  word-wrap: break-word;
-}
-
-
-.project_detail_deadline{
+.project_detail {
   padding: 5px;
+  &__font {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  &__title {
+    padding: 5px;
+    word-wrap: break-word;
+  }
+  &__status {
+    margin: 0 5px;
+  }
+  &__created_at {
+    margin: 5px;
+  }
+  &__owner {
+    margin: 0 5px;
+  }
+  &__deadline {
+    margin: 5px;
+  }
+  &__explanation_font {
+    margin: 0 5px;
+  }
+  &__explanation {
+    height: 300px;
+    width: 90%;
+    border: solid 1px black;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    overflow: scroll;
+  }
 }
 
-.project_detail_user {
-  padding: 5px;
-}
-
-.project_detail_explanation_content {
-  padding: 5px;
-}
-
-.project_detail_explanation {
-  height: 300px;
-  width: 90%;
-  border: solid 1px black;
-  margin-bottom: 10px;
-  word-wrap: break-word;
-  overflow: scroll;
-}
 
 .project_detail_explanation_box {
   padding: 5px;
@@ -93,6 +93,7 @@
 .member_btn_wrapper {
   margin: 5px 0;
 }
+
 
 .project_detail_join_user_show {
   background-color: wheat;
@@ -116,7 +117,6 @@
 }
 
 .user_number_form {
-  // width: 90%;
   margin: 10px 0;
 }
 
@@ -151,10 +151,10 @@
 
 .project_detail_center_wrapper {
   height: 100%;
-  width: 90%;
+  width: 80%;
   border: solid 1px black;
-  margin: 10px;
-  padding: 10px;
+  padding: 5px;
+  margin: 10px auto;
   word-wrap: break-word;
 }
 
