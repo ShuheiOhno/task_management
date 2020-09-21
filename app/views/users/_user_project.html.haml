@@ -26,14 +26,14 @@
               = icon("far", "check-circle")
           .owner_project_wrapper__created_at
             作成日:
-            = owner_project.created_at.strftime("%Y年%m月%d日 %H時%M分")
+            = owner_project.created_at.strftime("%Y/%m/%d %H:%M")
           .owner_project_wrapper__task_rate
             タスク完遂率:
             = ((@complete_tasks.count.to_f / @user_tasks.count.to_f) * 100).round(1)
             = "%"
           .owner_project_wrapper__deadline
             締め切り:
-            = owner_project.deadline.strftime("%Y年%m月%d日 %H時%M分")
+            = owner_project.deadline.strftime("%Y/%m/%d %H:%M")
           .owner_project_wrapper__explanation
             説明
             %br

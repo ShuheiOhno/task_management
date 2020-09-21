@@ -15,6 +15,34 @@
   }
 }
 
+.root_wrapper {
+  width: 60%;
+  height: 100%;
+  margin: 10px auto;
+}
+
+.root_project_link {
+  width: 100%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.readme_btn {
+  background-color: wheat;
+}
+
+.readme {
+  width: 80%;
+  height: 100%;
+  margin: 30px auto;
+  display: none;
+}
+
+.readme_btn_wrapper {
+  text-align: center;
+  margin: 10px;
+}
+// ここまで
 
 
 .comment {
@@ -30,7 +58,7 @@
 
 .comment_content_form {
   height: 100px;
-  width: 90%;
+  width: 80%;
   padding: 5px;
   margin: 0 auto;
 }
@@ -53,7 +81,7 @@
 }
 
 .comment_submit {
-margin-right: 20px;
+margin-right: 40px;
 }
 
 
@@ -65,7 +93,7 @@ margin-right: 20px;
 
 .comment_list_wrapper {
   height: 100%;
-  width: 90%;
+  width: 80%;
   margin: 10px auto;
   border: solid 1px black;
   padding: 5px;

@@ -24,7 +24,7 @@
                   = icon("far", "check-circle")
               .join_project_wrapper__created_at
                 作成日:
-                = project.created_at.strftime("%Y年%m月%d日 %H時%M分")      
+                = project.created_at.strftime("%Y/%m/%d %H:%M")
               .join_project_wrapper__owner
                 責任者
                 = User.find(project.user_id).name
@@ -33,7 +33,7 @@
               -#   = project.explanation
               .join_project_wrapper__deadline
                 締め切り:
-                = project.deadline.strftime("%Y年%m月%d日 %H時%M分")
+                = project.deadline.strftime("%Y/%m/%d %H:%M")
               .join_project_function
                 .join_project_wrapper__comment_link
                   = link_to new_project_project_comment_path(project.id), class:"owner_project_wrapper_link" do
@@ -83,11 +83,11 @@
                           - if task.start_time != nil && task.stop_time == nil
                             .task_stop_time
                               開始日時:
-                              = task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                              = task.start_time.created_at.strftime("%Y/%m/%d %H:%M")
                               = form_with url: stop_times_path(task_id: task.id), method: :post, local: true do |f|
                                 = f.submit "終了", class:"stop_btn"
                           -if task.stop_time != nil && task.stop_time != nil
-                            = task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                            = task.stop_time.created_at.strftime("%Y/%m/%d %H:%M")
                             に完了しました
             - else
               .no_task_message

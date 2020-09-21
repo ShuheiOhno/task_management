@@ -8,8 +8,6 @@
   margin: 10px;
 }
 
-
-
 .new_user_message {
   margin-bottom: 10px;
   font-size: 20px;
@@ -64,7 +62,7 @@
 // 受信
 .main_user_comment_wrapper {
   height: 50%;
-  width: 90%;
+  width: 80%;
   word-wrap: break-word;
   border: 1px solid black;
   margin: 10px auto;
@@ -98,7 +96,7 @@
 // 返信
 .reply_list {
   height: 50%;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   overflow: scroll;
   display: none;
@@ -158,7 +156,7 @@
 
 .send_list_wrapper {
   height: 50%;
-  width: 90%;
+  width: 80%;
   overflow: scroll;
   border: 1px solid black;
   margin: 10px auto;

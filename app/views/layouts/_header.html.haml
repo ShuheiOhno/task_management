@@ -10,14 +10,14 @@
           = link_to user_path(current_user.id), class:"link_text" do
             = icon("fas", "project-diagram")
             プロジェクト
-        .main_link_list__user_message
-          = link_to user_message_user_path(current_user.id), class:"link_text" do
-            = icon("far", "envelope")
-            メッセージ
         .main_link_list__user_task
           = link_to users_path, class:"link_text" do
             = icon("fas", "tasks")
             タスク
+        .main_link_list__user_message
+          = link_to user_message_user_path(current_user.id), class:"link_text" do
+            = icon("far", "envelope")
+            メッセージ
         .main_link_list__projects_list
           = link_to projects_path, class:"link_text" do
             = icon("fas", "search")
@@ -26,6 +26,9 @@
         .logout_link__logout
           = link_to destroy_user_session_path, class:"link_text" do
             ログアウト
+        .help_link
+          = link_to comments_path do
+            = icon("fas", "question-circle")  
 
     - else
       .login_sign_up_header_wrapper

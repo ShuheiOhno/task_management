@@ -16,6 +16,14 @@
   justify-content: space-between;
 }
 
+.logout_link {
+  display: flex;
+}
+
+.help_link {
+  margin-left: 20px;
+}
+
 .link_text {
   text-decoration: none;
   margin-left: 15px;
