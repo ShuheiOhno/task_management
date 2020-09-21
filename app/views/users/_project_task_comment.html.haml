@@ -3,43 +3,64 @@
     = icon("fas", "project-diagram")
     = icon("far", "comment")
     プロジェクト関連のあなたへのコメント
-  - @to_user_project_comments.each do |project_comment|
-    = link_to project_path(project_comment.project.id) ,class:"procect_task_comment_link" do
-      .project_message_wrapper
-        .project_message_wrapper__title
-          = icon("fas", "project-diagram")
-          = icon("far", "comment")
-          プロジェクト:
-          = project_comment.project.title
-          %br
-          へのコメント
-        .project_message_wrapper__from_user
-          From:
-          = project_comment.user.name
-          さん
-        .project_message_wrapper__comment
-          コメント:
-          = project_comment.comment
-      %br
+    %button{ :class => "project_message_show_btn"}
+      表示
+    %button{ :class => "project_message_hide_btn"}
+      非表示
+  - if @to_user_project_comments!= []
+    - @to_user_project_comments.each do |project_comment|
+      = link_to project_path(project_comment.project.id) ,class:"procect_task_comment_link" do
+        .project_message_wrapper
+          .project_message_wrapper__title
+            = icon("far", "comment")
+            = icon("fas", "project-diagram")
+            = project_comment.project.title
+            へのコメント
+          .project_message_wrapper__from_user
+            From:
+            = project_comment.user.name
+            さん
+          .project_message_wrapper__created_at
+            送信日時:
+            = project_comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+          .project_message_wrapper__comment
+            コメント
+            %br
+            = project_comment.comment
+  - else
+    .no_message
+      コメントはありません
+
 .task_message
   .task_message_font
     = icon("fas", "tasks")
     = icon("far", "comment")
     タスク関連のあなたへのコメント
-  - @to_user_task_comments.each do |task_comment|
-    .task_message_wrapper
-      = link_to project_task_path(project_id: task_comment.task.project.id, task_id: task_comment.task.id),class:"procect_task_comment_link" do
-        .task_message_wrapper__title
-          = icon("fas", "tasks")
-          = icon("far", "comment")
-          タスク:
-          = task_comment.task.title
-          %br
-          へのメッセージ
-        .task_message_wrapper__from_user
-          From:
-          = task_comment.user.name
-          さん
-        .task_message_wrapper__comment
-          コメント
-          = task_comment.comment
+    %button{ :class => "task_message_show_btn"}
+      表示
+    %button{ :class => "task_message_hide_btn"}
+      非表示
+  - if @to_user_task_comments != []
+    - @to_user_task_comments.each do |task_comment|
+      .task_message_wrapper
+        = link_to project_task_path(project_id: task_comment.task.project.id, task_id: task_comment.task.id),class:"procect_task_comment_link" do
+          .task_message_wrapper__title
+            = icon("far", "comment")
+            = icon("fas", "tasks")
+            = task_comment.task.title
+            へのメッセージ
+          .task_message_wrapper__from_user
+            From:
+            = task_comment.user.name
+            さん
+          .task_message_wrapper__created_at
+            送信日時:
+            = task_comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+          .task_message_wrapper__comment
+            コメント
+            %br
+            = task_comment.comment
+  - else
+    .no_message
+      コメントはありません
+    
