@@ -19,15 +19,23 @@
       = @no_complete_tasks.count
     .user_task_info_wrapper__complete_task_list
       ・完了したタスク一覧
+      .complete_task_btn_wrapper
+        %button{ :class => "user_task_info_wrapper__complete_show_btn" }
+          完了したタスクを表示
+        %button{ :class => "user_task_info_wrapper__complete_hide_btn" }
+          完了したタスクを非表示
       - @complete_tasks.each do |complete_task|
-        .complete_task_link
-          .complete_task_title
-            = link_to project_task_path(task_id: complete_task.id, project_id: complete_task.project_id, id: current_user.id), class:"link" do
-              = complete_task.title
+        .complete_task_title
+          = link_to project_task_path(task_id: complete_task.id, project_id: complete_task.project_id, id: current_user.id), class:"link" do
+            = complete_task.title
     .user_task_info_wrapper__no_complete_task_list
       ・完了していないタスク一覧
+      .complete_task_btn_wrapper
+        %button{ :class => "user_task_info_wrapper__no_complete_show_btn" }
+          未完了のタスクを表示
+        %button{ :class => "user_task_info_wrapper__no_complete_hide_btn" }
+          未完了のタスクを非表示
       - @no_complete_tasks.each do |no_complete_task|
-        .no_complete_task_link
+        .no_complete_task_title
           = link_to project_task_path(task_id: no_complete_task.id, project_id: no_complete_task.project_id, id: current_user.id), class:"link" do
-            .no_complete_task_title
-              = no_complete_task.title
+            = no_complete_task.title
