@@ -14,13 +14,30 @@
             = icon("fas", "project-diagram")
             タイトル:
             = owner_project.title
+          .owner_project_wrapper__status
+            状態:
+            - if owner_project.complete_id == nil
+              未完了
+            - elsif owner_project.complete_id == 2
+              中止
+            - else
+              = icon("far", "check-circle")
+              完了
+              = icon("far", "check-circle")
+          .owner_project_wrapper__created_at
+            作成日:
+            = owner_project.created_at.strftime("%Y年%m月%d日 %H時%M分")
+          .owner_project_wrapper__task_rate
+            タスク完遂率:
+            = ((@complete_tasks.count.to_f / @user_tasks.count.to_f) * 100).round(1)
+            = "%"
+          .owner_project_wrapper__deadline
+            締め切り:
+            = owner_project.deadline.strftime("%Y年%m月%d日 %H時%M分")
           .owner_project_wrapper__explanation
             説明
             %br
             = safe_join(owner_project.explanation.split("\n"),tag(:br))
-          .owner_project_wrapper__deadline
-            締め切り:
-            = owner_project.deadline.strftime("%Y年%m月%d日 %H時%M分")
           .owner_project_function
             .owner_project_wrapper__comment_link
               = link_to new_project_project_comment_path(owner_project.id), class:"owner_project_wrapper_link" do

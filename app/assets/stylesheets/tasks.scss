@@ -41,19 +41,25 @@
 
 .task_detail_main {
   height: 100%;
-  width: 40%;
+  width: 35%;
   margin: 10px auto;
 }
 
 .task_detail_wrapper {
-  margin: 20px;
+  margin: 20px auto;
   border: solid 1px black;
   word-wrap: break-word;
   &__title {
-    padding: 5px;
+    margin: 5px;
+  }
+  &__status {
+    margin: 5px;
+  }
+  &__created_at {
+    margin: 5px;
   }
   &__project_name {
-    padding: 5px;
+    margin: 5px;
   }
 }
 
@@ -82,6 +88,10 @@
   &__task_comment {
     padding-left: 15px;
   }
+}
+
+.time_btn_wrapper {
+  margin: 5px;
 }
 
 .task_link {
