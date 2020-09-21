@@ -10,43 +10,54 @@
     タスク一覧
   - @tasks.each do |task|
     = link_to project_task_path(task_id: task.id, project_id: task.project_id, id: current_user.id), class:"task_wrapper_link" do
-      .task_wrapper
-        .task_wrapper__title
+      .task_detail_wrapper
+        .task_detail_wrapper__title
           = icon("fas", "tasks")
           タイトル:
           = task.title
-        .task_wrapper__charge
-          担当:
-          = task.user.name
-        .task_wrapper__task_comment
-          = link_to new_project_task_task_comment_path(task_id: task.id, project_id: task.project_id), class:"link" do
+        .task_detail_wrapper__status
+          状態:
+          - if task.start_time == nil
+            まだ開始していません
+          -  elsif task.stop_time == nil
+            作業中
+          - else
+            = icon("far", "check-circle")
+            完了
+            = icon("far", "check-circle")
+        .task_detail_wrapper__created_at
+          作成日時:
+          = task.created_at.strftime("%Y/%m/%d %H:%M")
+        .task_detail_wrapper__project_name
+          = icon("fas", "project-diagram")
+          プロジェクト:
+          = task.project.title
+        .task_detail_title_estimated_user_wrapper
+          .task_detail_wrapper_estimated_time
+            予測時間:
+            = task.estimated_time
+            時間
+          .task_detail_wrapper_user
+            作成者:
+            = task.user.name
+          .task_detail_wrapper_to_user
+            担当者:
+            = User.find(task.to_user_id).name
+        .edit_delete_wrapper__task_comment
+          = link_to new_project_task_task_comment_path(project_id: task.project_id, task_id: task.id), class:"task_link" do
             = icon("far", "comment")
-            コメントする
-        .task_wrapper__detail
-          .time_btn_wrapper
-            - if task.start_time == nil || task.start_time.task_id != task.id
-              .task_start_time
-                = form_with url: start_times_path(task_id: task.id), method: :post, local: true do |f|
-                  = f.submit "開始", class:"start_btn"
-            - if task.start_time != nil && task.stop_time == nil
-              .task_stop_time
-                開始日時:
-                = task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
-                = form_with url: stop_times_path(task_id: task.id), method: :post, local: true do |f|
-                  = f.submit "終了", class:"stop_btn"
-            -if task.stop_time != nil && task.stop_time != nil
-              = task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
-              に完了しました
-
-
--# .main_all_task
--#   .main_all_task_font
--#     タスク一覧
--#   .all_task
--#     - @tasks.each do |task|
--#       .all_task_wrapper
--#         .all_task_title
--#           = task.title
--#         .all_task_estimated_time
--#           = task.estimated_time
--#         .all_task
+            タスクにコメントする
+        .time_btn_wrapper
+          - if task.start_time == nil || task.start_time.task_id != task.id
+            .task_start_time
+              = form_with url: start_times_path(task_id: task.id), method: :post, local: true do |f|
+                = f.submit "開始", class:"start_btn"
+          - elsif task.start_time != nil && task.stop_time == nil
+            .task_stop_time
+              開始日時:
+              = task.start_time.created_at.strftime("%Y/%m/%d %H:%M")
+              = form_with url: stop_times_path(task_id: task.id), method: :post, local: true do |f|
+                = f.submit "終了", class:"stop_btn"
+          - else
+            = task.stop_time.created_at.strftime("%Y/%m/%d %H:%M")
+            に完了しました

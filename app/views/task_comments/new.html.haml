@@ -17,6 +17,6 @@
         .new_task_comment_wrapper__to_user
           宛先
           %br
-          = f.select :to_user_id, @users
+          = f.select :to_user_id, @users, {include_blank: "---"}
         .new_task_comment_wrapper__submit_btn
           = f.submit "送信",class:"submit_btn"

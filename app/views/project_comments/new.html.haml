@@ -17,7 +17,7 @@
         .new_project_comment_wrapper__to_user
           宛先のユーザーID
           %br
-          = f.select :to_user_id, @users
+          = f.select :to_user_id, @users, {include_blank: "---"}
         .new_project_comment_wrapper__submit_btn
           = f.submit "送信",class:"submit_btn"
       
