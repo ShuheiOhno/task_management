@@ -64,29 +64,36 @@
         - else
           = @task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
           に完了しました
-  
+          
   .task_detail_comment_list
     .task_detail_comment_list_font
       = icon("fas", "tasks")
       = icon("far", "comment")
       タスクへのコメント
-    .task_detail_comment
-      - @task.task_comment.each do |task_comment|
-        .task_detail_comment_wrapper
-          .task_detail_comment_wrapper__title
-            = icon("fas", "tasks")
-            = icon("far", "comment")
-            タイトル:
-            = task_comment.title
-          .task_detail_comment_from_to_wrapper
-            .task_detail_comment_from_to_wrapper__from_user
-              From:
-              = task_comment.user.name
-            .task_detail_comment_from_to_wrapper__to_user
-              To:
-              = User.find(task_comment.to_user_id).name
-          .task_detail_comment_wrapper__comment
-            コメント
-            %br
-            = task_comment.comment
+    - if @task.task_comment != []
+      .task_detail_comment
+        - @task.task_comment.each do |task_comment|
+          .task_detail_comment_wrapper
+            .task_detail_comment_wrapper__title
+              = icon("fas", "tasks")
+              = icon("far", "comment")
+              タイトル:
+              = task_comment.title
+            .task_detail_comment_from_to_wrapper
+              .task_detail_comment_from_to_wrapper__from_user
+                From:
+                = task_comment.user.name
+              .task_detail_comment_from_to_wrapper__to_user
+                To:
+                = User.find(task_comment.to_user_id).name
+            .task_detail_comment_wrapper__created_at 
+              送信日時:
+              = task_comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+            .task_detail_comment_wrapper__comment
+              コメント
+              %br
+              = task_comment.comment
+    - else
+      .no_message
+        コメントはありません
 

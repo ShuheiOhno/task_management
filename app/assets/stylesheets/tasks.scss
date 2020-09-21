@@ -119,16 +119,29 @@
   margin: 10px auto;
   word-wrap: break-word;
   overflow: scroll;
+  &__title {
+    margin: 0 5px;
+  }
+  &__created_at {
+    margin: 0 5px;
+  }
+  &__comment {
+    margin: 5px;
+  }
 }
 
 .task_detail_comment_from_to_wrapper {
   display: flex;
   &__from_user {
-    padding: 5px;
+    margin: 5px;
   }
   &__to_user {
-    padding: 5px 0 5px 10px;
+    margin: 5px 0 5px 10px;
   }
+}
+
+.no_message {
+  text-align: center;
 }
 
 

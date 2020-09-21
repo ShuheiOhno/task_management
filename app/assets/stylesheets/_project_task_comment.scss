@@ -16,14 +16,18 @@
   word-wrap: break-word;
   overflow: scroll;
   border: 1px solid black;
+  display: none;
   &__title {
-    padding: 0 5px;
+    margin: 0 5px;
   }
   &__from_user {
-    padding: 0 5px;
+    margin: 0 5px;
+  }
+  &__created_at {
+    margin: 0 5px;
   }
   &__comment {
-    padding: 10px 5px;
+    margin: 5px;
   }
 }
 
@@ -49,18 +53,43 @@
   word-wrap: break-word;
   overflow: scroll;
   border: 1px solid black;
+  display: none;
   &__title {
-    padding: 0 5px;
+    margin: 0 5px;
   }
   &__from_user {
-    padding: 0 5px;
+    margin: 0 5px;
+  }
+  &__created_at {
+    margin: 0 5px;
   }
   &__comment {
-    padding: 10px 5px;
+    margin: 5px;
   }
 }
-
 
 .procect_task_comment_link {
   text-decoration: none;
 }
+
+.project_message_show_btn {
+  background-color: wheat;
+  color: black;
+}
+.project_message_hide_btn {
+  display: none;
+  background-color: red;
+  color: white;
+}
+
+.task_message_show_btn {
+  background-color: wheat;
+  color: black;
+}
+.task_message_hide_btn {
+  display: none;
+  background-color: red;
+  color: white;
+}
+
+
