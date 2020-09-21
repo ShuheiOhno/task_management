@@ -1,0 +1,26 @@
+
+.project_detail_center_font
+  = icon("fas", "project-diagram")
+  = icon("far", "comment")
+  このプロジェクトへのコメント
+- @project.project_comments.each do |comment|
+  = link_to project_project_comment_path(id: comment.id, project_id: comment.project_id), class:"project_link" do
+    .project_detail_center_wrapper
+      .project_detail_center_title
+        = icon("fas", "project-diagram")
+        = icon("far", "comment") 
+        タイトル:
+        = comment.title
+      .project_detail_center_content
+        コメント
+        %br
+        = safe_join(comment.comment.split("\n"),tag(:br))
+      .to_from_wrapper
+        .project_detail_center_from_user
+          From:
+          = comment.user.name
+          さん
+        .project_detail_center_to_user
+          To:
+          = User.find(comment.to_user_id).name
+          さん

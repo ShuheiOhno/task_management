@@ -63,4 +63,10 @@ $(function(){
       alert("メッセージ送信に失敗しました");
     });
   });
+
+
+  $(".readme_btn").on("click", () => {
+    $(".readme").toggle();
+  })
+
 });

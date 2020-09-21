@@ -17,7 +17,7 @@
               = User.find(user_task.user_id).name
             .user_task_main_wrapper__created_at
               作成日時:
-              = user_task.created_at.strftime("%Y年%m月%d日 %H時%M分")
+              = user_task.created_at.strftime("%Y/%m/%d %H:%M")
             .user_task_main_wrapper__estimated_time  
               予測時間:
               = user_task.estimated_time
@@ -38,11 +38,11 @@
             - if user_task.start_time != nil && user_task.stop_time == nil
               .task_stop_time
                 開始日時:
-                = user_task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                = user_task.start_time.created_at.strftime("%Y/%m/%d %H:%M")
                 = form_with url: stop_times_path(task_id: user_task.id), method: :post, local: true do |f|
                   = f.submit "終了",class:"stop_btn"
             -if user_task.stop_time != nil && user_task.stop_time != nil
-              = user_task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
+              = user_task.stop_time.created_at.strftime("%Y/%m/%d %H:%M")
               に完了しました
         .user_comment_btn_wrapper
           %button{:class => "user_task_display_btn"}
@@ -62,7 +62,7 @@
                   = task_comment.title
                 .user_task_comment_wrapper__created_at
                   作成日時:
-                  = task_comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                  = task_comment.created_at.strftime("%Y/%m/%d %H:%M")
                 .user_task_comment_from_to_wrapper
                   .user_task_comment_from_to_wrapper__from_user
                     From:

@@ -20,7 +20,7 @@
           = icon("far", "check-circle")
       .task_detail_wrapper__created_at
         作成日時:
-        = @task.created_at.strftime("%Y年%m月%d日 %H時%M分")
+        = @task.created_at.strftime("%Y/%m/%d %H:%M")
       .task_detail_wrapper__project_name
         = icon("fas", "project-diagram")
         プロジェクト:
@@ -58,11 +58,11 @@
         - elsif @task.start_time != nil && @task.stop_time == nil
           .task_stop_time
             開始日時:
-            = @task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
+            = @task.start_time.created_at.strftime("%Y/%m/%d %H:%M")
             = form_with url: stop_times_path(task_id: @task.id), method: :post, local: true do |f|
               = f.submit "終了", class:"stop_btn"
         - else
-          = @task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
+          = @task.stop_time.created_at.strftime("%Y/%m/%d %H:%M")
           に完了しました
           
   .task_detail_comment_list
@@ -88,7 +88,7 @@
                 = User.find(task_comment.to_user_id).name
             .task_detail_comment_wrapper__created_at 
               送信日時:
-              = task_comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+              = task_comment.created_at.strftime("%Y/%m/%d %H:%M")
             .task_detail_comment_wrapper__comment
               コメント
               %br

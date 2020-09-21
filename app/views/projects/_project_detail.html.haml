@@ -1,0 +1,76 @@
+.project_detail
+  .project_detail__font
+    = icon("fas", "project-diagram")
+    プロジェクト詳細
+  .project_detail__title
+    = icon("fas", "project-diagram")
+    タイトル:
+    = @project.title
+  .project_detail__status
+    状態:
+    - if @project.complete == nil
+      未完了
+    - else
+      = @project.complete.name
+  .project_detail__created_at
+    作成日時:
+    = @project.created_at.strftime("%Y/%m/%d %H:%M")
+  .project_detail__owner
+    責任者:
+    = User.find(@project.user_id).name
+  .project_detail__deadline
+    締め切り:
+    = @project.deadline.strftime("%Y/%m/%d %H:%M")
+  .project_detail__explanation_font
+    説明
+  .project_detail__explanation
+    .project_detail_explanation_box
+      = safe_join(@project.explanation.split("\n"),tag(:br))
+  .owner_project_function
+    .owner_project_wrapper__comment_link
+      = link_to new_project_project_comment_path(@project.id), class:"owner_project_wrapper_link" do
+        .owner_project_icon
+          = icon("far", "comment")
+          コメント
+    - if @project.user_id == current_user.id && user_signed_in?
+      .owner_project_wrapper__edit_link
+        = link_to edit_project_path(@project.id), class:"owner_project_wrapper_link" do
+          .owner_project_icon
+            = icon("far", "edit")
+            編集
+      .owner_project_wrapper__delete_link
+        = link_to project_path(@project.id), method: :delete, class:"owner_project_wrapper_link" do
+          .owner_project_icon
+            = icon("fas", "trash")
+            削除
+  .member_btn_wrapper
+    %button{ :class => "project_detail_join_user_show" }
+      メンバーを表示する
+    %button{ :class => "project_detail_join_user_hide" }
+      メンバーを非表示にする
+  .project_detail_join_user
+    - @project.users.each do |join_user|
+      = join_user.name
+  = form_with url: project_join_project_users_path(project_id: params[:id]), method: :post, local: true do |f|
+    .add_user
+      .user_number
+        = icon("fas", "users")
+        メンバー追加
+        %br
+        ユーザーを選択してください
+      .user_number_form
+        = f.select :user_id, @users, {include_blank: "---"}, class:"add_user_select"
+        = f.submit "追加", class:"submit_btn"
+      -# %br
+      -# メンバーを追加
+      -# %br
+      -# = f.collection_check_boxes :user_ids, User.all, :id, :name do |user|
+      -#   = user.label { user.check_box + user.text}
+      -#   = f.submit "追加する"
+  .complete_project
+    = icon("fas", "check-circle")
+    プロジェクトを完了、もしくは中止にする
+    = form_with url: complete_projects_path(id: @project.id), method: :PATCH, local:true do |f|
+      .complete_project_select
+        = f.collection_select :complete_id, Complete.all, :id, :name, {include_blank: "---"}, {class: "complete_select"}
+        = f.submit "決定", class:"submit_btn"

@@ -2,7 +2,7 @@
   .new_user_message
     = link_to new_user_comment_path, class:"message_link" do
       = icon("fas", "envelope")
-    メッセージを送る
+      メッセージを送る
   .message_btn_list
     %button{ :class => "receive_list_display_click"}
       受信を表示
@@ -51,6 +51,11 @@
           - if receive_comment.reply_user_comments != []
             - receive_comment.reply_user_comments.each do |reply|
               .reply_list_wrapper
+                .reply_list_wrapper__content
+                  = icon("fas", "reply")
+                  内容
+                  %br
+                  = safe_join(reply.reply.split("\n"), tag(:br))
                 .reply_time_from_wrapper
                   .reply_time_from_wrapper__from_user
                     From:
@@ -61,11 +66,6 @@
                   -#   = link_to new_user_comment_reply_user_comment_path(send_comment.id), class:"link" do
                   -#     = icon("fas", "reply")
                   -#     返信する
-                .reply_list_wrapper__content
-                  = icon("fas", "reply")
-                  内容
-                  %br
-                  = safe_join(reply.reply.split("\n"), tag(:br))
           - else
             .no_message
               返信がありません
@@ -108,6 +108,11 @@
           - if send_comment.reply_user_comments != []
             - send_comment.reply_user_comments.each do |reply|
               .reply_list_wrapper
+                .reply_list_wrapper__content
+                  = icon("fas", "reply")
+                  内容
+                  %br
+                  = safe_join(reply.reply.split("\n"), tag(:br))
                 .reply_time_from_wrapper
                   .reply_time_from_wrapper__from_user
                     From:
@@ -118,11 +123,6 @@
                   -#   = link_to new_user_comment_reply_user_comment_path(send_comment.id), class:"link" do
                   -#     = icon("fas", "reply")
                   -#     返信する
-                .reply_list_wrapper__content
-                  = icon("fas", "reply")
-                  内容
-                  %br
-                  = safe_join(reply.reply.split("\n"), tag(:br))
           - else
             .no_message
               返信がありません
