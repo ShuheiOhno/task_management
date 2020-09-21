@@ -68,9 +68,20 @@
   word-wrap: break-word;
   border: 1px solid black;
   margin: 10px auto;
+  &__title {
+    margin: 5px;
+  }
   &__message {
-    padding: 0 5px;
+    margin: 0 5px;
     word-wrap: break-word;
+  }
+}
+
+.time_from_wrapper {
+  display: flex;
+  margin: 5px;
+  &__created_at {
+    margin-left: 20px;
   }
 }
 
@@ -90,7 +101,6 @@
   width: 90%;
   margin: 0 auto;
   overflow: scroll;
-  // border: 1px solid black;
   display: none;
 }
 
@@ -102,12 +112,19 @@
   padding: 0 5px 5px 5px ;
   border: 1px solid black;
   word-wrap: break-word;
+  margin: 10px auto;
+  background-color: blanchedalmond;
+  &__content {
+    margin: 5px;
+  }
 }
 
-.reply_list_wrapper {
-  margin: 5px 0;
-  word-wrap: break-word;
-  background-color: blanchedalmond;
+.reply_time_from_wrapper {
+  display: flex;
+  margin: 5px;
+  &__created_at {
+    margin-left: 20px;
+  }
 }
 
 .reply_list_content {
@@ -118,7 +135,6 @@
 .reply_list_from_user {
   padding: 5px;
 }
-
 
 
 .reply_list_hide_click {
@@ -146,30 +162,25 @@
   overflow: scroll;
   border: 1px solid black;
   margin: 10px auto;
+  &__title {
+    margin: 5px;
+    word-wrap: break-word;
+  }
+  &__content {
+    margin: 0 5px;
+    word-wrap: break-word;
+  }
 }
 
-.send_title_user_wrapper {
+.time_to_wrapper {
   display: flex;
-  justify-content: space-between;
-  padding: 0 5px 5px 5px ;
+  margin: 0 5px;
+  &__created_at {
+    margin: 0 0 5px 20px;
+  }
 }
 
-.send_list_title {
-  word-wrap: break-word;
-  padding: 5px;
-}
 
-.send_list_to_user {
-  padding: 0 0 5px 5px;
-}
-
-.send_list_content {
-  word-wrap: break-word;
-}
-
-.send_list_content {
-  padding: 0 5px;
-}
 
 
 // user_comment/new
@@ -220,7 +231,7 @@
 
 
 .reply_list_link {
-  padding: 5px;
+  margin: 0 0 5px 5px;
 }
 
 

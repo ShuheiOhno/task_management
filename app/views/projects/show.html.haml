@@ -1,22 +1,31 @@
 .project_detail_main
   .project_detail_left
     .project_detail
-      .project_detail_font
+      .project_detail__font
         = icon("fas", "project-diagram")
         プロジェクト詳細
-      .project_detail_title
+      .project_detail__title
         = icon("fas", "project-diagram")
         タイトル:
         = @project.title
-      .project_detail_deadline
-        締め切り:
-        = @project.deadline.strftime("%Y年%m月%d日 %H時%M分")
-      .project_detail_user
+      .project_detail__status
+        状態:
+        - if @project.complete == nil
+          未完了
+        - else
+          = @project.complete.name
+      .project_detail__created_at
+        作成日時:
+        = @project.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      .project_detail__owner
         責任者:
         = User.find(@project.user_id).name
-      .project_detail_explanation_content
+      .project_detail__deadline
+        締め切り:
+        = @project.deadline.strftime("%Y年%m月%d日 %H時%M分")
+      .project_detail__explanation_font
         説明
-      .project_detail_explanation
+      .project_detail__explanation
         .project_detail_explanation_box
           = safe_join(@project.explanation.split("\n"),tag(:br))
       .owner_project_function
@@ -43,7 +52,6 @@
           メンバーを非表示にする
       .project_detail_join_user
         - @project.users.each do |join_user|
-          .join_users_name
           = join_user.name
       = form_with url: project_join_project_users_path(project_id: params[:id]), method: :post, local: true do |f|
         .add_user
@@ -66,7 +74,7 @@
         プロジェクトを完了、もしくは中止にする
         = form_with url: complete_projects_path(id: @project.id), method: :PATCH, local:true do |f|
           .complete_project_select
-            = f.collection_select :complete_id, Complete.all, :id, :name, {class: "complete_select"}
+            = f.collection_select :complete_id, Complete.all, :id, :name, {include_blank: "---"}, {class: "complete_select"}
             = f.submit "決定", class:"submit_btn"
   
   
