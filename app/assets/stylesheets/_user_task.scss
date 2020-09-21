@@ -25,19 +25,22 @@
   padding: 5px;
   margin-top: 10px;
   &__title {
-    padding: 5px;
-  }
-  &__estimated_time {
-    padding: 0 5px;
+    margin: 5px;
   }
   &__creater {
-    padding: 0 5px;
+    margin: 5px;
+  }
+  &__created_at {
+    margin: 5px;
+  }
+  &__estimated_time {
+    margin: 5px;
   }
   &__project {
-    padding: 0 5px;
+    margin: 5px;
   }
   &__task_comment {
-    padding: 10px;
+    margin: 10px;
   }
 }
 
@@ -79,4 +82,34 @@
 
 .link {
   text-decoration: none;
+}
+
+.user_no_task_message {
+  text-align: center;
+}
+
+.user_task_comment_wrapper {
+  width: 90%;
+  margin: 5px 0;
+  background-color: wheat;
+  &__title {
+    margin: 0 5px;
+  }
+  &__created_at {
+    margin: 5px;
+  }
+  &__comment {
+    margin: 5px;
+  }
+}
+
+.user_task_comment_from_to_wrapper {
+  display: flex;
+  &__from_user {
+    margin: 0 5px;
+  }
+  &__to_user {
+    margin: 0 10px;
+    
+  }
 }

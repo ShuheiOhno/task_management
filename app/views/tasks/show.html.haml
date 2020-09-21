@@ -61,7 +61,6 @@
             = @task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
             = form_with url: stop_times_path(task_id: @task.id), method: :post, local: true do |f|
               = f.submit "終了", class:"stop_btn"
-          -# - if @task.stop_time != nil && @task.stop_time != nil
         - else
           = @task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
           に完了しました

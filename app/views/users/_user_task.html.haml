@@ -3,62 +3,78 @@
     .user_task_font
       = icon("fas", "tasks")
       あなたのタスク一覧
-  - @user_tasks.each do |user_task|
-    .user_task_main
-      .user_task_main_wrapper
-        = link_to project_task_path(project_id: user_task.project_id, id: current_user.id, task_id: user_task.id), class: "link" do
-          .user_task_main_wrapper__title
-            = icon("fas", "tasks")
-            タイトル
-            = user_task.title
-          .user_task_main_wrapper__estimated_time  
-            予測時間:
-            = user_task.estimated_time
-            時間
-          .user_task_main_wrapper__creater
-            作成者
-            = User.find(user_task.user_id).name
-          .user_task_main_wrapper__project
-            元のプロジェクト:
-            = Project.find(user_task.project_id).title
-          .user_task_main_wrapper__task_comment
-            = link_to new_project_task_task_comment_path(project_id: user_task.project_id, task_id: user_task.id), class:"task_link" do
-              = icon("far", "comment")
-              タスクにコメントする
-        .time_btn_wrapper
-          - if user_task.start_time == nil || user_task.start_time.task_id != user_task.id
-            .task_start_time
-              = form_with url: start_times_path(task_id: user_task.id), method: :post, local: true do |f|
-                = f.submit "開始",class:"start_btn"
-          - if user_task.start_time != nil && user_task.stop_time == nil
-            .task_stop_time
-              開始日時:
-              = user_task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
-              = form_with url: stop_times_path(task_id: user_task.id), method: :post, local: true do |f|
-                = f.submit "終了",class:"stop_btn"
-          -if user_task.stop_time != nil && user_task.stop_time != nil
-            = user_task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
-            に完了しました
-      .user_comment_btn_wrapper
-        %button{:class => "user_task_display_btn"}
-          コメントを表示
-        %button{:class => "user_task_hide_btn"}
-          コメントを非表示
-      .user_task_comment_list
-        タスクへのコメント
-        .user_task_comment
-          - user_task.task_comment.each do |task_comment|
-            .user_task_comment_wrapper
-              .user_task_comment_wrapper__title
-                タイトル:
-                = task_comment.title
-              .user_task_comment_wrapper__comment
-                コメント
-                %br
-                = task_comment.comment
-              .user_task_comment_wrapper__from_user
-                From:
-                = task_comment.user.name
-              .user_task_comment_wrapper__to_user
-                To:
-                = User.find(task_comment.to_user_id).name
+  - if @user_tasks != []
+    - @user_tasks.each do |user_task|
+      .user_task_main
+        .user_task_main_wrapper
+          = link_to project_task_path(project_id: user_task.project_id, id: current_user.id, task_id: user_task.id), class: "link" do
+            .user_task_main_wrapper__title
+              = icon("fas", "tasks")
+              タイトル
+              = user_task.title
+            .user_task_main_wrapper__creater
+              作成者
+              = User.find(user_task.user_id).name
+            .user_task_main_wrapper__created_at
+              作成日時:
+              = user_task.created_at.strftime("%Y年%m月%d日 %H時%M分")
+            .user_task_main_wrapper__estimated_time  
+              予測時間:
+              = user_task.estimated_time
+              時間
+            .user_task_main_wrapper__project
+              = icon("fas", "project-diagram")
+              プロジェクト:
+              = Project.find(user_task.project_id).title
+            .user_task_main_wrapper__task_comment
+              = link_to new_project_task_task_comment_path(project_id: user_task.project_id, task_id: user_task.id), class:"task_link" do
+                = icon("far", "comment")
+                タスクにコメントする
+          .time_btn_wrapper
+            - if user_task.start_time == nil || user_task.start_time.task_id != user_task.id
+              .task_start_time
+                = form_with url: start_times_path(task_id: user_task.id), method: :post, local: true do |f|
+                  = f.submit "開始",class:"start_btn"
+            - if user_task.start_time != nil && user_task.stop_time == nil
+              .task_stop_time
+                開始日時:
+                = user_task.start_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                = form_with url: stop_times_path(task_id: user_task.id), method: :post, local: true do |f|
+                  = f.submit "終了",class:"stop_btn"
+            -if user_task.stop_time != nil && user_task.stop_time != nil
+              = user_task.stop_time.created_at.strftime("%Y年%m月%d日 %H時%M分")
+              に完了しました
+        .user_comment_btn_wrapper
+          %button{:class => "user_task_display_btn"}
+            コメントを表示
+          %button{:class => "user_task_hide_btn"}
+            コメントを非表示
+        .user_task_comment_list
+          = icon("fas", "tasks")
+          = user_task.title
+          へのコメント
+          .user_task_comment
+            - user_task.task_comment.each do |task_comment|
+              .user_task_comment_wrapper
+                .user_task_comment_wrapper__title
+                  = icon("far", "comments")
+                  タイトル:
+                  = task_comment.title
+                .user_task_comment_wrapper__created_at
+                  作成日時:
+                  = task_comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                .user_task_comment_from_to_wrapper
+                  .user_task_comment_from_to_wrapper__from_user
+                    From:
+                    = task_comment.user.name
+                  .user_task_comment_from_to_wrapper__to_user
+                    To:
+                    = User.find(task_comment.to_user_id).name
+                .user_task_comment_wrapper__comment
+                  コメント
+                  %br
+                  = task_comment.comment
+  - else
+  .user_no_task_message
+    担当しているタスクはありません
+    
