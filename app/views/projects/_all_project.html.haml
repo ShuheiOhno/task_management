@@ -7,29 +7,45 @@
         = f.text_field :keyword, class: "search_input"
         = f.submit "検索", class:"search_btn"
 
-    .main_join_project_font
+    .main_join_project_font_all
       = icon("fas", "project-diagram")
       プロジェクト一覧
     .join_project
-      - @projects.each do |project|
-        .project_and_task_wrapper
-          = link_to project_path(project.id), class:"owner_project_wrapper_link" do
-            .join_project_wrapper
-              .join_project_wrapper__title
-                = icon("fas", "project-diagram")
-                タイトル:
-                = project.title
-              .join_project_wrapper__owner
-                責任者
-                = User.find(project.user_id).name
-              .join_project_wrapper__deadline
-                締め切り:
-                = project.deadline.strftime("%Y年%m月%d日 %H時%M分")
-              .join_project_wrapper__project_comment
-                = link_to new_project_project_comment_path(project_id: project.id), class:"link" do
-                  = icon("far", "comment")
-                  コメントする
-              .join_project_wrapper__explanation
-                説明
-                %br
-                = safe_join(project.explanation.split("\n"),tag(:br))
+      - if @projects != []
+        - @projects.each do |project|
+          .project_and_task_wrapper
+            = link_to project_path(project.id), class:"owner_project_wrapper_link" do
+              .join_project_wrapper
+                .join_project_wrapper__title
+                  = icon("fas", "project-diagram")
+                  タイトル:
+                  = project.title
+                .join_project_wrapper__status
+                  状態:
+                  - if project.complete_id == nil
+                    未完了
+                  - elsif project.complete_id == 2
+                    中止
+                  - else
+                    = icon("far", "check-circle")
+                    完了
+                    = icon("far", "check-circle")
+                .join_project_wrapper__created_at
+                  作成日:
+                  = project.created_at.strftime("%Y/%m/%d %H:%M")
+                .join_project_wrapper__owner
+                  責任者
+                  = User.find(project.user_id).name
+                .join_project_wrapper__explanation
+                  説明
+                  %br
+                  = safe_join(project.explanation.split("\n"),tag(:br))
+                .join_project_wrapper__deadline
+                  締め切り:
+                  = project.deadline.strftime("%Y/%m/%d %H:%M")
+                .join_project_function
+                  .join_project_wrapper__comment_link
+                    = link_to new_project_project_comment_path(project.id), class:"owner_project_wrapper_link" do
+                      .owner_project_icon
+                        = icon("far", "comment")
+                        プロジェクトにコメントする
