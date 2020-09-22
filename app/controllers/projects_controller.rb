@@ -36,18 +36,43 @@ class ProjectsController < ApplicationController
     @all_users = User.all
     
 
-    @join_project_user_ids = []
-    @project.users.each do |user|
-      @join_project_user_ids << user.id
+    # @join_project_user_ids = []
+    # @project.users.each do |user|
+    #   @join_project_user_ids << user.id
+    # end
+
+    @join_users = @project.users
+    @join_users_array = []
+    @join_users.each do |join_user|
+      @join_users_array << [join_user.name, join_user.id]
+    end
+    
+    @no_select_users = []
+    @test = []
+    @all_users.each do |user|
+      if @join_users_array.include?([user.name, user.id]) == false
+        @no_select_users << [user.name, user.id]
+      end
     end
 
-    @no_select_users = []
-    @all_users.each do |user|
-      # - @join_project_user_ids.each do |user_id|
-      # if 
-      # binding.pry
-      #   user.projects
-    end
+
+    # @project.users #参加しているユーザーリスト
+    # @no_select_users = []
+    # @all_users.each do |user|
+    #   @project.users.each do |join_user|
+    #     if join_user.id != user.id
+    #       if @no_select_users.include?([user.name, user.id]) == false
+    #         # binding.pry
+    #         @no_select_users << [user.name, user.id]
+    #       else
+    #         break
+    #       end
+    #     else
+    #       break
+    #       # return @no_select_users
+    #     end
+    #   end
+    # end
     
     @users = []
     User.all.each do |user|

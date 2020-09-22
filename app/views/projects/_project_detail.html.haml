@@ -59,7 +59,7 @@
         %br
         ユーザーを選択してください
       .user_number_form
-        = f.select :user_id, @users, {include_blank: "---"}, class:"add_user_select"
+        = f.select :user_id, @no_select_users, {include_blank: "---"}, class:"add_user_select"
         = f.submit "追加", class:"submit_btn"
       -# %br
       -# メンバーを追加
