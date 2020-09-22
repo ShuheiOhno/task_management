@@ -40,11 +40,12 @@
                     .owner_project_icon
                       = icon("far", "comment")
                       プロジェクトにコメントする
-          .btn_posotion
-            %button{ :class => "task_list_hide"}
-              タスク一覧非表示
-            %button{ :class => "task_list_display"}
-              タスク一覧表示
+          .btn_position_wrapper
+            .btn_position
+              %button{ :class => "task_list_hide"}
+                タスク一覧非表示
+              %button{ :class => "task_list_display"}
+                タスク一覧表示
           .task
             - if project.tasks != [] 
               - project.tasks.each do |task|

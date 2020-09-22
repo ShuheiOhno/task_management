@@ -88,15 +88,20 @@
   cursor: pointer;
 }
 
+.btn_position_wrapper {
+  width: 100%;
+  margin: 0 50px;
+
+}
+
+
 
 // task css
 .task_list_hide {
   display: none;
 }
 
-.btn_posotion {
-  padding-left: 30px;
-}
+
 
 .task {
   height: 100%;

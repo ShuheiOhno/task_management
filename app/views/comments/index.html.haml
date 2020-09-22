@@ -9,9 +9,9 @@
 - else
   .root_wrapper
     .root_project_link
-      = link_to user_path(current_user.id), class:"link_text" do
+      = link_to user_path(current_user.id), class:"first_link_text" do
         = icon("fas", "project-diagram")
-        まずはここからプロジェクトを作成、もしくは確認しましょう。
+        まずはここからプロジェクトを作成、確認しましょう。
     .readme_btn_wrapper
       %button{ :class => "readme_btn"}
         このサービスについて
