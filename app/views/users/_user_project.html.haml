@@ -17,7 +17,7 @@
           .owner_project_wrapper__status
             状態:
             - if owner_project.complete_id == nil
-              未完了
+              未完遂
             - elsif owner_project.complete_id == 2
               中止
             - else
@@ -27,10 +27,11 @@
           .owner_project_wrapper__created_at
             作成日:
             = owner_project.created_at.strftime("%Y/%m/%d %H:%M")
-          .owner_project_wrapper__task_rate
-            タスク完遂率:
-            = ((@complete_tasks.count.to_f / @user_tasks.count.to_f) * 100).round(1)
-            = "%"
+          -# .owner_project_wrapper__task_rate
+          -#   タスク完遂率:
+          -#   -# = ((owner_project.no_complete_task.to_f / owner_project.tasks.count.to_f) * 100).round(1)
+          -#   -# = ((@complete_tasks.count.to_f / @user_tasks.count.to_f) * 100).round(1)
+          -#   = "%"
           .owner_project_wrapper__deadline
             締め切り:
             = owner_project.deadline.strftime("%Y/%m/%d %H:%M")

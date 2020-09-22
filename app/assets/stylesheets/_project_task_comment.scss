@@ -16,7 +16,8 @@
   word-wrap: break-word;
   overflow: scroll;
   border: 1px solid black;
-  display: none;
+  // display: none;
+  background-color: white;
   &__title {
     margin: 0 5px;
   }
@@ -52,7 +53,8 @@
   word-wrap: break-word;
   overflow: scroll;
   border: 1px solid black;
-  display: none;
+  // display: none;
+  background-color: white;
   &__title {
     margin: 0 5px;
   }
@@ -74,9 +76,9 @@
 .project_message_show_btn {
   background-color: wheat;
   color: black;
+  display: none;
 }
 .project_message_hide_btn {
-  display: none;
   background-color: red;
   color: white;
 }
@@ -84,9 +86,9 @@
 .task_message_show_btn {
   background-color: wheat;
   color: black;
+  display: none;
 }
 .task_message_hide_btn {
-  display: none;
   background-color: red;
   color: white;
 }

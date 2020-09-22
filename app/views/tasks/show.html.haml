@@ -21,10 +21,11 @@
       .task_detail_wrapper__created_at
         作成日時:
         = @task.created_at.strftime("%Y/%m/%d %H:%M")
-      .task_detail_wrapper__project_name
-        = icon("fas", "project-diagram")
-        プロジェクト:
-        = @task.project.title
+      .task_detail_wrapper__project_name{style: "background-color: yellow;"}
+        = link_to project_path(id: @task.project.id), class:"link" do
+          = icon("fas", "project-diagram")
+          = @task.project.title
+          (元のプロジェクト詳細に戻る)
       .task_detail_title_estimated_user_wrapper
         .task_detail_wrapper_estimated_time
           予測時間:

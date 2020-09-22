@@ -1,6 +1,6 @@
 .comment
   .new_comment
-    = form_with url: comments_path, class:"form_comment", method: :post, local: true do |f|
+    = form_with url: comments_path, class:"form_comment", method: :post do |f|
       .comment_content
         = icon("far", "comments")
         チャット

@@ -8,7 +8,6 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    # @project.join_project_users.new
     @users = []
     User.all.each do |user|
       @users << [user.name, user.id]
@@ -34,12 +33,6 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @all_users = User.all
-    
-
-    # @join_project_user_ids = []
-    # @project.users.each do |user|
-    #   @join_project_user_ids << user.id
-    # end
 
     @join_users = @project.users
     @join_users_array = []
@@ -48,36 +41,30 @@ class ProjectsController < ApplicationController
     end
     
     @no_select_users = []
-    @test = []
     @all_users.each do |user|
       if @join_users_array.include?([user.name, user.id]) == false
         @no_select_users << [user.name, user.id]
       end
     end
-
-
-    # @project.users #参加しているユーザーリスト
-    # @no_select_users = []
-    # @all_users.each do |user|
-    #   @project.users.each do |join_user|
-    #     if join_user.id != user.id
-    #       if @no_select_users.include?([user.name, user.id]) == false
-    #         # binding.pry
-    #         @no_select_users << [user.name, user.id]
-    #       else
-    #         break
-    #       end
-    #     else
-    #       break
-    #       # return @no_select_users
-    #     end
-    #   end
-    # end
     
     @users = []
     User.all.each do |user|
       @users << [user.name, user.id]
     end
+
+    # rate用
+    task_denominator_count = @project.tasks.count
+    task_numerator_count_array = []
+    @project.tasks.each do |task|
+      if StopTime.where(task_id: task.id) != []
+        task_numerator_count_array << task
+      end
+    end
+    task_numerator_count = task_numerator_count_array.count
+    @rate = ( task_numerator_count.to_f / task_denominator_count.to_f) * 100
+
+
+
   end
 
   def edit

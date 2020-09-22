@@ -1,0 +1,61 @@
+
+// project/index
+.all_project_search_wrapper {
+  width: 100;
+  // background-color: #eee8e8;
+}
+
+.all_project_task {
+  display: flex;
+  padding: 10px;
+  background-color: #eee8e8;
+  
+}
+
+.all_project {
+  height: 100%;
+  width: 40%;
+  margin: 0 auto;
+}
+
+
+.project_search {
+  text-align: center;
+  margin: 10px;
+}
+
+.main_join_project_font_all {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+// tasks/_all_task
+
+.all_task_search_wrapper {
+  padding: 10px;
+  // background-color: #eee8e8;
+}
+
+.all_task {
+  height: 100%;
+  width: 35%;
+  margin: 0 auto;
+}
+
+.all_task_font {
+  width: 100%;
+  text-align: center;
+}
+
+// search
+.task_search {
+  text-align: center;
+  // margin: 10px;
+}
+
+.search_input {
+  padding: 5px;
+  width: 50%;
+}
+

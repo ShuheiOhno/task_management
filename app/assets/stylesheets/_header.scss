@@ -1,7 +1,9 @@
 .header {
   height: 50px;
   width: 100%;
-  background-color: aquamarine;
+  // background-color: aquamarine;
+  background-color: rgb(7, 7, 71);
+  color: white;
 }
 
 .header_wrapper{
@@ -14,6 +16,7 @@
 .main_link_list {
   display: flex;
   justify-content: space-between;
+  
 }
 
 .logout_link {
@@ -27,6 +30,12 @@
 .link_text {
   text-decoration: none;
   margin-left: 15px;
+  color: rgb(231, 230, 230);
+  font-weight: bold;
+}
+
+.fa-question-circle {
+  color: white;
 }
 
 
