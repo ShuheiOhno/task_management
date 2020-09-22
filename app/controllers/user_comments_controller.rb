@@ -26,6 +26,13 @@ class UserCommentsController < ApplicationController
     @replies = ReplyUserComment.where(user_comment_id: @user_comment.id)
   end
 
+  def destroy
+    user_comment = UserComment.find(params[:id])
+    user_comment.destroy
+    redirect_to  user_message_user_path(id: current_user.id)
+    flash[:notice] = "メッセージを削除しました"
+  end
+
   private
   def user_comment_params
     params.permit(:title, :comment, :to_user_id

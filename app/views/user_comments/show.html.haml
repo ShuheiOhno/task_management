@@ -11,7 +11,6 @@
       内容
       %br
       = safe_join(@user_comment.comment.split("\n"),tag(:br))
-
     .user_comment_detail_to_from_wrapper
       .user_comment_detail_from_user
         From:
@@ -19,19 +18,42 @@
       .user_comment_detail_to_user
         To:
         = User.find(@user_comment.to_user_id).name
+      .user_comment_detail_created_at
+        = @user_comment.created_at.strftime("%Y/%m/%d %H:%M")
+    .user_comment_detail_link_wrapper
+      .reply_list_link
+        = link_to new_user_comment_reply_user_comment_path(@user_comment.id), class:"link" do
+          = icon("fas", "reply")
+          返信する
+      - if @user_comment.user_id == current_user.id
+        .detail_delete_link
+          = link_to user_comment_path(@user_comment.id), class: "link", method: :delete do
+            = icon("fas", "trash")
+            削除する
+
+
 
   .user_comment_detail_reply
     .user_comment_detail_reply_font
       = icon("fas", "reply")
       返信一覧
-    - @replies.each do |reply|
-      .user_comment_detail_reply_wrapper
-        .user_comment_detail_reply_wrapper__content
-          = icon("fas", "reply")
-          内容
-          %br
-          = safe_join(reply.reply.split("\n"),tag(:br))
-        .user_comment_detail_reply_wrapper__from_user
-          From:
-          = reply.user.name
-    
+    - if @replies != []
+      - @replies.each do |reply|
+        .reply_list_wrapper
+          .reply_list_wrapper__content
+            = icon("fas", "reply")
+            内容
+            %br
+            = safe_join(reply.reply.split("\n"), tag(:br))
+          .reply_time_from_wrapper
+            .reply_time_from_wrapper__from_user
+              From:
+              = User.find(reply.user_id).name
+            .reply_time_from_wrapper__created_at
+              = reply.created_at.strftime("%Y/%m/%d %H:%M")
+
+    - else
+      .no_message
+        返信がありません
+
+

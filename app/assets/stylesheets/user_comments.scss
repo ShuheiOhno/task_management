@@ -201,20 +201,30 @@
 .user_new_comment_wrapper {
   margin: 10px;
   &__title {
-    padding: 5px;
+    margin: 5px;
   }
   &__comment {
-    padding: 0 5px;
+    margin: 0 5px;
   }
   &__to_user {
-    padding: 0 5px;
+    margin: 0 5px;
   }
   &__submit_btn {
-    padding: 10px 5px;
+    margin: 10px 5px;
   }
 }
 
+.user_comment_detail_created_at {
+  margin-left: 20px;
+}
 
+.user_comment_detail_link_wrapper {
+  display: flex;
+}
+
+.detail_delete_link {
+  margin-left: 20px;
+}
 
 .user_comment_field {
   height: 300px;
