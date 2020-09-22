@@ -79,6 +79,10 @@
               = icon("far", "comment")
               タイトル:
               = task_comment.title
+            .task_detail_comment_wrapper__comment
+              コメント
+              %br
+              = task_comment.comment
             .task_detail_comment_from_to_wrapper
               .task_detail_comment_from_to_wrapper__from_user
                 From:
@@ -86,13 +90,8 @@
               .task_detail_comment_from_to_wrapper__to_user
                 To:
                 = User.find(task_comment.to_user_id).name
-            .task_detail_comment_wrapper__created_at 
-              送信日時:
-              = task_comment.created_at.strftime("%Y/%m/%d %H:%M")
-            .task_detail_comment_wrapper__comment
-              コメント
-              %br
-              = task_comment.comment
+              .task_detail_comment_from_to_wrapper__created_at 
+                = task_comment.created_at.strftime("%Y/%m/%d %H:%M")
     - else
       .no_message
         コメントはありません

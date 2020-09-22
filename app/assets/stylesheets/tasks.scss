@@ -46,7 +46,7 @@
 }
 
 .task_detail_wrapper {
-  width: 80%;
+  width: 90%;
   margin: 20px auto;
   border: solid 1px black;
   word-wrap: break-word;
@@ -102,7 +102,7 @@
 
 .task_detail_comment_list {
   height: 100%;
-  width: 40%;
+  width: 35%;
   margin: 10px auto;
 }
 
@@ -123,9 +123,6 @@
   &__title {
     margin: 0 5px;
   }
-  &__created_at {
-    margin: 0 5px;
-  }
   &__comment {
     margin: 5px;
   }
@@ -139,6 +136,10 @@
   &__to_user {
     margin: 5px 0 5px 10px;
   }
+  &__created_at {
+    margin: 5px 0 5px 30px;
+  }
+
 }
 
 .no_message {

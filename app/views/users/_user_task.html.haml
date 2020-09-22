@@ -60,9 +60,10 @@
                   = icon("far", "comments")
                   タイトル:
                   = task_comment.title
-                .user_task_comment_wrapper__created_at
-                  作成日時:
-                  = task_comment.created_at.strftime("%Y/%m/%d %H:%M")
+                .user_task_comment_wrapper__comment
+                  コメント
+                  %br
+                  = task_comment.comment
                 .user_task_comment_from_to_wrapper
                   .user_task_comment_from_to_wrapper__from_user
                     From:
@@ -70,10 +71,8 @@
                   .user_task_comment_from_to_wrapper__to_user
                     To:
                     = User.find(task_comment.to_user_id).name
-                .user_task_comment_wrapper__comment
-                  コメント
-                  %br
-                  = task_comment.comment
+                  .user_task_comment_from_to_wrapper__created_at
+                    = task_comment.created_at.strftime("%Y/%m/%d %H:%M")
   - else
   .user_no_task_message
     担当しているタスクはありません
