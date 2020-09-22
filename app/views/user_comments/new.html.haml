@@ -16,4 +16,4 @@
         %br
         = f.select :to_user_id, @users, {include_blank: "---"}, class:"user_new_comment_select_field"
       .user_new_comment_wrapper__submit_btn
-        = f.submit "send"
+        = f.submit "送信", class:"submit_btn"

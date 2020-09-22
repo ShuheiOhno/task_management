@@ -32,7 +32,7 @@ $(function(){
       さん
       </div>
       <div class="comment_time">
-      ${comment.created_at}
+      ${comment.created_at.strftime("%Y/%m/%d %H:%M")}
       </div>
       </div>`
       return html;
