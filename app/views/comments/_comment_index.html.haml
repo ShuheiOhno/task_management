@@ -7,10 +7,10 @@
       .comment_form
         = f.text_area :content, class:"comment_content_form"
       .image_and_submit_wrapper
-        .comment_image
-          = f.label :image, class:"image_label" do
-            = icon("fas", "images fa-2x")
-            = f.file_field :image, class: "image_field"
+        -# .comment_image
+        -#   = f.label :image, class:"image_label" do
+        -#     = icon("fas", "images fa-2x")
+        -#     = f.file_field :image, class: "image_field"
         .comment_submit
           = f.submit "送信", class:"submit_btn"
   .comment_list
@@ -21,9 +21,9 @@
           コメント
           %br
           = safe_join(comment.content.split("\n"),tag(:br))
-        .comment_images
-          - if comment.image.url
-            = image_tag comment.image.url, class:"comment_image"
+        -# .comment_images
+        -#   - if comment.image.url
+        -#     = image_tag comment.image.url, class:"comment_image"
         .comment_user_time_wrapper
           .comment_user_name
             = comment.user.name
