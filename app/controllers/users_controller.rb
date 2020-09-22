@@ -18,7 +18,6 @@ class UsersController < ApplicationController
         @no_complete_tasks << no_complete_task
       end
     end
-
   end
   
   def show
@@ -38,15 +37,6 @@ class UsersController < ApplicationController
       @send_user_comment = UserComment.where(user_id: current_user.id)
       @comments = Comment.all
     end
-    # rate用
-    @user_tasks = Task.where(user_id: current_user.id)
-    @complete_tasks = []
-    @user_tasks.each do |complete_task|
-      if complete_task.stop_time
-        @complete_tasks << complete_task
-      end
-    end
-
   end
 
   def user_message

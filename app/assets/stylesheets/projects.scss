@@ -13,42 +13,17 @@
 }
 
 
-
-// search
-.project_search {
-  text-align: center;
-  margin: 10px;
-}
-
-.main_join_project_font_all {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-
-// project/index
-.all_project_task {
-  display: flex;
-  margin: 10px;
-}
-
-.all_project {
-  height: 100%;
-  width: 40%;
-  margin: 0 auto;
-}
-
-
-
 // project/show
 .project_detail_main {
   height: 100%;
   width: 100%;
   display: flex;
-  margin: 10px 30px;
+  padding: 10px 0;
+  margin: 0px auto;
+  background-color: #eee8e8;
 }
 
-// 左
+// 真ん中
 .project_detail_left {
   height: 100%;
   width: 30%;
@@ -62,20 +37,8 @@
     margin-bottom: 10px;
   }
   &__title {
-    padding: 5px;
+    margin: 5px;
     word-wrap: break-word;
-  }
-  &__status {
-    margin: 0 5px;
-  }
-  &__created_at {
-    margin: 5px;
-  }
-  &__owner {
-    margin: 0 5px;
-  }
-  &__deadline {
-    margin: 5px;
   }
   &__explanation_font {
     margin: 0 5px;
@@ -87,8 +50,43 @@
     margin-bottom: 10px;
     word-wrap: break-word;
     overflow: scroll;
+    background-color: white;
   }
 }
+
+.project_detail_some_wrapper {
+  display: none;
+  
+  &__status {
+    margin: 5px;
+  }
+  &__rate {
+    margin: 5px;
+  }
+  &__created_at {
+    margin: 5px;
+  }
+  &__owner {
+    margin: 5px;
+  }
+  &__deadline {
+    margin: 5px;
+  }
+}
+
+.project_detail_show {
+  background-color: wheat;
+  color: black;
+  margin: 5px 0;
+}
+
+.project_detail_hide {
+  display: none;
+  background-color: red;
+  color: white;
+  margin: 5px 0;
+}
+
 
 
 .project_detail_explanation_box {
@@ -144,10 +142,11 @@
 }
 
 
-// 真ん中
+//左
 .project_detail_center {
   height: 100%;
   width: 35%;
+  
 }
 
 .project_detail_center_font {
@@ -161,6 +160,7 @@
   padding: 5px;
   margin: 10px auto;
   word-wrap: break-word;
+  background-color: white;
 }
 
 .project_detail_center_content {
@@ -256,6 +256,7 @@
   border: solid 1px black;
   margin: 10px;
   word-wrap: break-word;
+  background-color: white;
   &__title {
     margin: 5px;
   }
@@ -296,16 +297,17 @@
 
 
 // project/new
-
 .new_project {
   height: 100%;
   width: 100%;
+  background-color: #eee8e8;
 }
 
 .new_project_main {
   height: 100%;
-  width: 40%;
-  margin: 10px auto;
+  width: 35%;
+  margin: 0px auto;
+  padding: 10px;
 }
 
 .new_project_wrapper {
@@ -329,7 +331,7 @@
 
 .new_title_field {
   padding: 5px;
-  width: 90%;
+  width: 100%;
 }
 
 .new_explanation_field {

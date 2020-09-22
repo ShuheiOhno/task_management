@@ -10,12 +10,13 @@
 
 .new_user_message {
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 24px;
   text-align: center;
 }
 
 .message_link {
   text-decoration: none;
+  background-color: yellow;
 }
 
 .message_btn_list {
@@ -54,6 +55,7 @@
 }
 
 .send_list_hide_click {
+  // display: none;
   background-color: red;
   color: white;
 }
@@ -66,6 +68,7 @@
   word-wrap: break-word;
   border: 1px solid black;
   margin: 10px auto;
+  background-color: white;
   &__title {
     margin: 5px;
   }
@@ -111,7 +114,7 @@
   border: 1px solid black;
   word-wrap: break-word;
   margin: 10px auto;
-  background-color: blanchedalmond;
+  background-color: white;
   &__content {
     margin: 5px;
   }
@@ -160,6 +163,7 @@
   overflow: scroll;
   border: 1px solid black;
   margin: 10px auto;
+  background-color: white;
   &__title {
     margin: 5px;
     word-wrap: break-word;

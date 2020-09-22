@@ -3,7 +3,7 @@ $(function(){
   function buildHTML(comment){
     if ( comment.image.url ) {
       let html =
-        `<div class="comment_list_wrapper">
+        `<div class="comment_list_wrapper" style="background-color:lightblue">
           <div class="comment_content">
             コメント:
             ${comment.content}
@@ -22,7 +22,7 @@ $(function(){
       return html;
     } else {
       let html =
-      `<div class="comment_list_wrapper">
+      `<div class="comment_list_wrapper" style="background-color:lightblue;">
       <div class="comment_content">
       コメント:
       ${comment.content}
@@ -32,7 +32,7 @@ $(function(){
       さん
       </div>
       <div class="comment_time">
-      ${comment.created_at.strftime("%Y/%m/%d %H:%M")}
+      ${comment.created_at}
       </div>
       </div>`
       return html;

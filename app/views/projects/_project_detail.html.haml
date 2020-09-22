@@ -6,21 +6,30 @@
     = icon("fas", "project-diagram")
     タイトル:
     = @project.title
-  .project_detail__status
-    状態:
-    - if @project.complete == nil
-      未完了
-    - else
-      = @project.complete.name
-  .project_detail__created_at
-    作成日時:
-    = @project.created_at.strftime("%Y/%m/%d %H:%M")
-  .project_detail__owner
-    責任者:
-    = User.find(@project.user_id).name
-  .project_detail__deadline
-    締め切り:
-    = @project.deadline.strftime("%Y/%m/%d %H:%M")
+  %button{ :class => "project_detail_show"}
+    詳細表示
+  %button{ :class => "project_detail_hide"}
+    詳細非表示
+  .project_detail_some_wrapper
+    .project_detail_some_wrapper__status
+      状態:
+      - if @project.complete == nil
+        未完遂
+      - else
+        = @project.complete.name
+    .project_detail_some_wrapper__rate
+      完遂率:
+      = @rate
+      = "%"
+    .project_detail_some_wrapper__created_at
+      作成日時:
+      = @project.created_at.strftime("%Y/%m/%d %H:%M")
+    .project_detail_some_wrapper__owner
+      責任者:
+      = User.find(@project.user_id).name
+    .project_detail_some_wrapper__deadline
+      締め切り:
+      = @project.deadline.strftime("%Y/%m/%d %H:%M")
   .project_detail__explanation_font
     説明
   .project_detail__explanation

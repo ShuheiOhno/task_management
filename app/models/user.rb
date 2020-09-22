@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_many :user_comments, dependent: :destroy  
   has_many :reply_user_comments, dependent: :destroy
   has_one :comment
+  has_many :start_time, dependent: :destroy
+  has_many :stop_time, dependent: :destroy
 end

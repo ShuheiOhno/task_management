@@ -6,6 +6,9 @@
 .owner_project_link_font {
   text-align: center;
   font-size: 20px;
+  background-color: yellow;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .owner_project_content {
@@ -20,6 +23,7 @@
   overflow: scroll;
   word-wrap: break-word;
   border: solid 1px black;
+  background-color: white;
   &__title {
     margin: 5px;
   }

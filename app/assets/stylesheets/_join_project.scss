@@ -25,6 +25,7 @@
   margin: 10px auto;
   word-wrap: break-word;
   border: solid 1px black;
+  background-color: white;
   &__title {
     margin: 5px;
   }
@@ -110,7 +111,7 @@
   word-wrap: break-word;
   border: solid 1px black;
   margin: 10px auto;
-  background-color: rgb(0, 255, 187);
+  background-color: white;
   &__title {
     margin: 5px;
   }
@@ -128,6 +129,7 @@
 .task_wrapper_link {
   text-decoration: none;
   color: black;
+  background-color: white;
 }
 
 .no_task_message {

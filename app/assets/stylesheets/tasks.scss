@@ -3,28 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-// tasks/_all_task
-.all_task {
-  height: 100%;
-  width: 40%;
-  margin: 0 auto;
-}
-
-.all_task_font {
-  width: 100%;
-  text-align: center;
-}
-
-// search
-.task_search {
-  text-align: center;
-  margin: 10px;
-}
-
-.search_input {
-  padding: 5px;
-  width: 50%;
-}
 
 // task/show
 .task_detail {
@@ -50,6 +28,7 @@
   margin: 20px auto;
   border: solid 1px black;
   word-wrap: break-word;
+  background-color: white;
   &__title {
     margin: 5px;
   }
@@ -61,6 +40,8 @@
   }
   &__project_name {
     margin: 5px;
+    width: 65%;
+    
   }
 }
 
