@@ -16,13 +16,12 @@
             = icon("fas", "project-diagram")
             = project_comment.project.title
             へのコメント
-          .project_message_wrapper__from_user
-            From:
-            = project_comment.user.name
-            さん
-          .project_message_wrapper__created_at
-            送信日時:
-            = project_comment.created_at.strftime("%Y/%m/%d %H:%M")
+          .project_message_wrapper_from_time_wrapper
+            .project_message_wrapper_from_time_wrapper__from_user
+              From:
+              = project_comment.user.name
+            .project_message_wrapper_from_time_wrapper__created_at
+              = project_comment.created_at.strftime("%Y/%m/%d %H:%M")
           .project_message_wrapper__comment
             コメント
             %br

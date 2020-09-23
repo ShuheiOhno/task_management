@@ -27,18 +27,19 @@
           .main_user_comment_wrapper
             .main_user_comment_wrapper__title
               = icon("far", "envelope")
-              タイトル:
-              = receive_comment.title
-            .main_user_comment_wrapper__message
-              内容
+              タイトル
               %br
-              = safe_join(receive_comment.comment.split("\n"),tag(:br))
+              = receive_comment.title
             .time_from_wrapper
               .time_from_wrapper__from_user
                 From:
                 = User.find(receive_comment.user_id).name
               .time_from_wrapper__created_at
                 = receive_comment.created_at.strftime("%Y/%m/%d %H:%M")
+            .main_user_comment_wrapper__message
+              内容
+              %br
+              = safe_join(receive_comment.comment.split("\n"),tag(:br))
             .reply_list_link
               = link_to new_user_comment_reply_user_comment_path(receive_comment.id), class:"link" do
                 = icon("fas", "reply")
@@ -84,18 +85,19 @@
           .send_list_wrapper
             .send_list_wrapper__title
               = icon("far", "envelope")
-              タイトル:
-              = send_comment.title
-            .send_list_wrapper__content
-              内容
+              タイトル
               %br
-              = safe_join(send_comment.comment.split("\n"),tag(:br))
+              = send_comment.title
             .time_to_wrapper
               .time_to_wrapper__to_user
                 To:
                 = User.find(send_comment.to_user_id).name
               .time_to_wrapper__created_at
                 = send_comment.created_at.strftime("%Y/%m/%d %H:%M")
+            .send_list_wrapper__content
+              内容
+              %br
+              = safe_join(send_comment.comment.split("\n"),tag(:br))
             .reply_list_link
               = link_to new_user_comment_reply_user_comment_path(send_comment.id), class:"link" do
                 = icon("fas", "reply")

@@ -62,9 +62,6 @@ class ProjectsController < ApplicationController
     end
     task_numerator_count = task_numerator_count_array.count
     @rate = ( task_numerator_count.to_f / task_denominator_count.to_f) * 100
-
-
-
   end
 
   def edit

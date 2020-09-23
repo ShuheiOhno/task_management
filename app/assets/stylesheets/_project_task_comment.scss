@@ -21,15 +21,19 @@
   &__title {
     margin: 0 5px;
   }
-  &__from_user {
-    margin: 0 5px;
-  }
-  &__created_at {
-    margin: 0 5px;
-  }
   &__comment {
     margin: 5px;
   }
+}
+
+.project_message_wrapper_from_time_wrapper {
+  display: flex;
+    &__from_user {
+      margin: 0 5px;
+    }
+    &__created_at {
+      margin: 0 5px 0 20px;
+    }
 }
 
 

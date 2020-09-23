@@ -55,8 +55,7 @@
 }
 
 .project_detail_some_wrapper {
-  display: none;
-  
+  // display: none;
   &__status {
     margin: 5px;
   }
@@ -78,10 +77,10 @@
   background-color: wheat;
   color: black;
   margin: 5px 0;
+  display: none;
 }
 
 .project_detail_hide {
-  display: none;
   background-color: red;
   color: white;
   margin: 5px 0;
@@ -191,7 +190,7 @@
   font-size: 20px;
   cursor: pointer;
   background-color: yellow;
-  width: 70%;
+  width: 65%;
 }
 
 
