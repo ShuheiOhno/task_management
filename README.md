@@ -190,7 +190,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |content|text|
-|image|string|
+<!-- |image|string| -->
 |user_id|references|null: false, foreign_key: true|
 
 ### association
