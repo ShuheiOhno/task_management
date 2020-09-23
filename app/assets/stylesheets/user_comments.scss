@@ -70,17 +70,17 @@
   margin: 10px auto;
   background-color: white;
   &__title {
-    margin: 5px;
+    margin: 5px 10px;
   }
   &__message {
-    margin: 0 5px;
+    margin: 10px;
     word-wrap: break-word;
   }
 }
 
 .time_from_wrapper {
   display: flex;
-  margin: 5px;
+  margin: 5px 10px;
   &__created_at {
     margin-left: 20px;
   }
@@ -165,18 +165,18 @@
   margin: 10px auto;
   background-color: white;
   &__title {
-    margin: 5px;
+    margin: 5px 10px;
     word-wrap: break-word;
   }
   &__content {
-    margin: 0 5px;
+    margin: 10px;
     word-wrap: break-word;
   }
 }
 
 .time_to_wrapper {
   display: flex;
-  margin: 0 5px;
+  margin: 5px 10px;
   &__created_at {
     margin: 0 0 5px 20px;
   }

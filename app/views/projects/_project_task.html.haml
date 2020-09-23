@@ -14,7 +14,7 @@
         .add_task_user 
           担当
           %br
-          = f.select :to_user_id, @users
+          = f.select :to_user_id, @join_users_array, {include_blank: "---"}
         .add_task_estimated_time
           予測時間
           .estimated_time_wrapper
