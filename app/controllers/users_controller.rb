@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @user_tasks = Task.where(user_id: current_user.id)
+    @user_tasks = Task.where(to_user_id: current_user.id)
     @comments = Comment.all
 
     @complete_tasks = []
